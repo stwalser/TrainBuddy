@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F82D9ED12B1B447E00A101C9 /* RailnetAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9ED02B1B447E00A101C9 /* RailnetAppApp.swift */; };
+		F82D9ED32B1B447E00A101C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9ED22B1B447E00A101C9 /* ContentView.swift */; };
+		F82D9ED52B1B448100A101C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F82D9ED42B1B448100A101C9 /* Assets.xcassets */; };
+		F82D9ED82B1B448100A101C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F82D9ED72B1B448100A101C9 /* Preview Assets.xcassets */; };
+		F82D9EE22B1B448200A101C9 /* RailnetAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9EE12B1B448200A101C9 /* RailnetAppTests.swift */; };
+		F82D9EEC2B1B448200A101C9 /* RailnetAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9EEB2B1B448200A101C9 /* RailnetAppUITests.swift */; };
+		F82D9EEE2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9EED2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F82D9EDE2B1B448200A101C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F82D9EC52B1B447E00A101C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F82D9ECC2B1B447E00A101C9;
+			remoteInfo = RailnetApp;
+		};
+		F82D9EE82B1B448200A101C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F82D9EC52B1B447E00A101C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F82D9ECC2B1B447E00A101C9;
+			remoteInfo = RailnetApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F82D9ECD2B1B447E00A101C9 /* RailnetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RailnetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82D9ED02B1B447E00A101C9 /* RailnetAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailnetAppApp.swift; sourceTree = "<group>"; };
+		F82D9ED22B1B447E00A101C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F82D9ED42B1B448100A101C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F82D9ED72B1B448100A101C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F82D9EDD2B1B448200A101C9 /* RailnetAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RailnetAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82D9EE12B1B448200A101C9 /* RailnetAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailnetAppTests.swift; sourceTree = "<group>"; };
+		F82D9EE72B1B448200A101C9 /* RailnetAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RailnetAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82D9EEB2B1B448200A101C9 /* RailnetAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailnetAppUITests.swift; sourceTree = "<group>"; };
+		F82D9EED2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailnetAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F82D9ECA2B1B447E00A101C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82D9EDA2B1B448200A101C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82D9EE42B1B448200A101C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F82D9EC42B1B447E00A101C9 = {
+			isa = PBXGroup;
+			children = (
+				F82D9ECF2B1B447E00A101C9 /* RailnetApp */,
+				F82D9EE02B1B448200A101C9 /* RailnetAppTests */,
+				F82D9EEA2B1B448200A101C9 /* RailnetAppUITests */,
+				F82D9ECE2B1B447E00A101C9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F82D9ECE2B1B447E00A101C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F82D9ECD2B1B447E00A101C9 /* RailnetApp.app */,
+				F82D9EDD2B1B448200A101C9 /* RailnetAppTests.xctest */,
+				F82D9EE72B1B448200A101C9 /* RailnetAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F82D9ECF2B1B447E00A101C9 /* RailnetApp */ = {
+			isa = PBXGroup;
+			children = (
+				F82D9ED02B1B447E00A101C9 /* RailnetAppApp.swift */,
+				F82D9ED22B1B447E00A101C9 /* ContentView.swift */,
+				F82D9ED42B1B448100A101C9 /* Assets.xcassets */,
+				F82D9ED62B1B448100A101C9 /* Preview Content */,
+			);
+			path = RailnetApp;
+			sourceTree = "<group>";
+		};
+		F82D9ED62B1B448100A101C9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F82D9ED72B1B448100A101C9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F82D9EE02B1B448200A101C9 /* RailnetAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				F82D9EE12B1B448200A101C9 /* RailnetAppTests.swift */,
+			);
+			path = RailnetAppTests;
+			sourceTree = "<group>";
+		};
+		F82D9EEA2B1B448200A101C9 /* RailnetAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F82D9EEB2B1B448200A101C9 /* RailnetAppUITests.swift */,
+				F82D9EED2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift */,
+			);
+			path = RailnetAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F82D9ECC2B1B447E00A101C9 /* RailnetApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F82D9EF12B1B448200A101C9 /* Build configuration list for PBXNativeTarget "RailnetApp" */;
+			buildPhases = (
+				F82D9EC92B1B447E00A101C9 /* Sources */,
+				F82D9ECA2B1B447E00A101C9 /* Frameworks */,
+				F82D9ECB2B1B447E00A101C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RailnetApp;
+			productName = RailnetApp;
+			productReference = F82D9ECD2B1B447E00A101C9 /* RailnetApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F82D9EDC2B1B448200A101C9 /* RailnetAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F82D9EF42B1B448200A101C9 /* Build configuration list for PBXNativeTarget "RailnetAppTests" */;
+			buildPhases = (
+				F82D9ED92B1B448200A101C9 /* Sources */,
+				F82D9EDA2B1B448200A101C9 /* Frameworks */,
+				F82D9EDB2B1B448200A101C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F82D9EDF2B1B448200A101C9 /* PBXTargetDependency */,
+			);
+			name = RailnetAppTests;
+			productName = RailnetAppTests;
+			productReference = F82D9EDD2B1B448200A101C9 /* RailnetAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F82D9EE62B1B448200A101C9 /* RailnetAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F82D9EF72B1B448200A101C9 /* Build configuration list for PBXNativeTarget "RailnetAppUITests" */;
+			buildPhases = (
+				F82D9EE32B1B448200A101C9 /* Sources */,
+				F82D9EE42B1B448200A101C9 /* Frameworks */,
+				F82D9EE52B1B448200A101C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F82D9EE92B1B448200A101C9 /* PBXTargetDependency */,
+			);
+			name = RailnetAppUITests;
+			productName = RailnetAppUITests;
+			productReference = F82D9EE72B1B448200A101C9 /* RailnetAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F82D9EC52B1B447E00A101C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					F82D9ECC2B1B447E00A101C9 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					F82D9EDC2B1B448200A101C9 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = F82D9ECC2B1B447E00A101C9;
+					};
+					F82D9EE62B1B448200A101C9 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = F82D9ECC2B1B447E00A101C9;
+					};
+				};
+			};
+			buildConfigurationList = F82D9EC82B1B447E00A101C9 /* Build configuration list for PBXProject "RailnetApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F82D9EC42B1B447E00A101C9;
+			productRefGroup = F82D9ECE2B1B447E00A101C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F82D9ECC2B1B447E00A101C9 /* RailnetApp */,
+				F82D9EDC2B1B448200A101C9 /* RailnetAppTests */,
+				F82D9EE62B1B448200A101C9 /* RailnetAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F82D9ECB2B1B447E00A101C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F82D9ED82B1B448100A101C9 /* Preview Assets.xcassets in Resources */,
+				F82D9ED52B1B448100A101C9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82D9EDB2B1B448200A101C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82D9EE52B1B448200A101C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F82D9EC92B1B447E00A101C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F82D9ED32B1B447E00A101C9 /* ContentView.swift in Sources */,
+				F82D9ED12B1B447E00A101C9 /* RailnetAppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82D9ED92B1B448200A101C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F82D9EE22B1B448200A101C9 /* RailnetAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82D9EE32B1B448200A101C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F82D9EEE2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift in Sources */,
+				F82D9EEC2B1B448200A101C9 /* RailnetAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F82D9EDF2B1B448200A101C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F82D9ECC2B1B447E00A101C9 /* RailnetApp */;
+			targetProxy = F82D9EDE2B1B448200A101C9 /* PBXContainerItemProxy */;
+		};
+		F82D9EE92B1B448200A101C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F82D9ECC2B1B447E00A101C9 /* RailnetApp */;
+			targetProxy = F82D9EE82B1B448200A101C9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F82D9EEF2B1B448200A101C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F82D9EF02B1B448200A101C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F82D9EF22B1B448200A101C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RailnetApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.RailnetApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F82D9EF32B1B448200A101C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RailnetApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.RailnetApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F82D9EF52B1B448200A101C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.RailnetAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RailnetApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RailnetApp";
+			};
+			name = Debug;
+		};
+		F82D9EF62B1B448200A101C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.RailnetAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RailnetApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RailnetApp";
+			};
+			name = Release;
+		};
+		F82D9EF82B1B448200A101C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.RailnetAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RailnetApp;
+			};
+			name = Debug;
+		};
+		F82D9EF92B1B448200A101C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.RailnetAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RailnetApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F82D9EC82B1B447E00A101C9 /* Build configuration list for PBXProject "RailnetApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F82D9EEF2B1B448200A101C9 /* Debug */,
+				F82D9EF02B1B448200A101C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F82D9EF12B1B448200A101C9 /* Build configuration list for PBXNativeTarget "RailnetApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F82D9EF22B1B448200A101C9 /* Debug */,
+				F82D9EF32B1B448200A101C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F82D9EF42B1B448200A101C9 /* Build configuration list for PBXNativeTarget "RailnetAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F82D9EF52B1B448200A101C9 /* Debug */,
+				F82D9EF62B1B448200A101C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F82D9EF72B1B448200A101C9 /* Build configuration list for PBXNativeTarget "RailnetAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F82D9EF82B1B448200A101C9 /* Debug */,
+				F82D9EF92B1B448200A101C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F82D9EC52B1B447E00A101C9 /* Project object */;
+}
