@@ -14,6 +14,8 @@
 		F82D9EE22B1B448200A101C9 /* RailnetAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9EE12B1B448200A101C9 /* RailnetAppTests.swift */; };
 		F82D9EEC2B1B448200A101C9 /* RailnetAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9EEB2B1B448200A101C9 /* RailnetAppUITests.swift */; };
 		F82D9EEE2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9EED2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift */; };
+		F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D91D2B2315C700057B5E /* TrainStateManager.swift */; };
+		F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D9202B234E8A00057B5E /* CombinedState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,10 @@
 		F82D9EE72B1B448200A101C9 /* RailnetAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RailnetAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82D9EEB2B1B448200A101C9 /* RailnetAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailnetAppUITests.swift; sourceTree = "<group>"; };
 		F82D9EED2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailnetAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F882D91D2B2315C700057B5E /* TrainStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStateManager.swift; sourceTree = "<group>"; };
+		F882D91F2B23324400057B5E /* RailnetApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RailnetApp.entitlements; sourceTree = "<group>"; };
+		F882D9202B234E8A00057B5E /* CombinedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedState.swift; sourceTree = "<group>"; };
+		F8B04FD02B248A1000BB1E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +100,12 @@
 		F82D9ECF2B1B447E00A101C9 /* RailnetApp */ = {
 			isa = PBXGroup;
 			children = (
+				F8B04FD02B248A1000BB1E08 /* Info.plist */,
+				F882D91F2B23324400057B5E /* RailnetApp.entitlements */,
+				F882D91C2B23140500057B5E /* Views */,
+				F882D91B2B2313FD00057B5E /* ViewModels */,
+				F882D9192B2313F000057B5E /* Models */,
 				F82D9ED02B1B447E00A101C9 /* RailnetAppApp.swift */,
-				F82D9ED22B1B447E00A101C9 /* ContentView.swift */,
 				F82D9ED42B1B448100A101C9 /* Assets.xcassets */,
 				F82D9ED62B1B448100A101C9 /* Preview Content */,
 			);
@@ -125,6 +135,30 @@
 				F82D9EED2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift */,
 			);
 			path = RailnetAppUITests;
+			sourceTree = "<group>";
+		};
+		F882D9192B2313F000057B5E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F882D9202B234E8A00057B5E /* CombinedState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F882D91B2B2313FD00057B5E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F882D91D2B2315C700057B5E /* TrainStateManager.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F882D91C2B23140500057B5E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F82D9ED22B1B447E00A101C9 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +291,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */,
 				F82D9ED32B1B447E00A101C9 /* ContentView.swift in Sources */,
+				F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */,
 				F82D9ED12B1B447E00A101C9 /* RailnetAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,16 +455,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RailnetApp/RailnetApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RailnetApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 35MK3E7S5B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RailnetApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RailnetApp;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -447,16 +488,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RailnetApp/RailnetApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RailnetApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 35MK3E7S5B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RailnetApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RailnetApp;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

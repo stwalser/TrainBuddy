@@ -8,14 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var trainStateManager = TrainStateManager()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                switch(trainStateManager.appState) {
+                case .Starting:
+                    Text("Railnet wird gesucht...")
+                case .PollingWiFi:
+                    Text("Railnet wird gesucht...")
+                case .FetchingInfo:
+                    Text("\(trainStateManager.combinedState!.trainType) \(trainStateManager.combinedState!.lineNumber): \(trainStateManager.combinedState!.startStation) -> \(trainStateManager.combinedState!.destination.de)")
+                        .bold()
+                        .padding()
+                    Text("Speed: \(trainStateManager.combinedState!.latestStatus.speed)")
+                    Spacer()
+                }
+            }
+            .navigationBarTitle("App")
+            .onAppear(perform: trainStateManager.startSSIDPolling)
         }
-        .padding()
     }
 }
 
