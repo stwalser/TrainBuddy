@@ -6,29 +6,37 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
     @StateObject var trainStateManager = TrainStateManager()
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                switch(trainStateManager.appState) {
-                case .Starting:
-                    Text("Railnet wird gesucht...")
-                case .PollingWiFi:
-                    Text("Railnet wird gesucht...")
-                case .FetchingInfo:
-                    Text("\(trainStateManager.combinedState!.trainType) \(trainStateManager.combinedState!.lineNumber): \(trainStateManager.combinedState!.startStation) -> \(trainStateManager.combinedState!.destination.de)")
-                        .bold()
-                        .padding()
-                    Text("Speed: \(trainStateManager.combinedState!.latestStatus.speed)")
-                    Spacer()
-                }
-            }
-            .navigationBarTitle("App")
-            .onAppear(perform: trainStateManager.startSSIDPolling)
+        switch(trainStateManager.connectionState) {
+        case .Starting:
+            
+            Text("Railnet wird gesucht...")
+                .bold()
+                .padding()
+            
+        case .WrongWifi:
+            Text("Verbindungsfehler")
+                .bold()
+                .padding()
+            
+            Text("Entweder befindest du dich nicht in einem Railjet, bist nicht mit dem WLAN des Zugs verbunden oder es ist sonst etwas schief gegangen. 😬")
+                .padding()
+            
+        case .Fetching:
+            InfoView().environmentObject(trainStateManager)
+            
+        case .CorrectWifi:
+            Text("Railnet wurde gefunden. Daten werden geladen...")
+                .bold()
+                .padding()
         }
+    Spacer()
+        .onAppear(perform: trainStateManager.triggerTimer)
     }
 }
 

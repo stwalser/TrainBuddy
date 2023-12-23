@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F823E3852B36D0350017D160 /* combined.json in Resources */ = {isa = PBXBuildFile; fileRef = F823E3842B36D0350017D160 /* combined.json */; };
+		F823E3882B36D5590017D160 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823E3872B36D5590017D160 /* InfoView.swift */; };
 		F82D9ED12B1B447E00A101C9 /* RailnetAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9ED02B1B447E00A101C9 /* RailnetAppApp.swift */; };
 		F82D9ED32B1B447E00A101C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9ED22B1B447E00A101C9 /* ContentView.swift */; };
 		F82D9ED52B1B448100A101C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F82D9ED42B1B448100A101C9 /* Assets.xcassets */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F823E3842B36D0350017D160 /* combined.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = combined.json; sourceTree = "<group>"; };
+		F823E3872B36D5590017D160 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		F82D9ECD2B1B447E00A101C9 /* RailnetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RailnetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82D9ED02B1B447E00A101C9 /* RailnetAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailnetAppApp.swift; sourceTree = "<group>"; };
 		F82D9ED22B1B447E00A101C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F823E3862B36D2450017D160 /* MockingData */ = {
+			isa = PBXGroup;
+			children = (
+				F823E3842B36D0350017D160 /* combined.json */,
+			);
+			path = MockingData;
+			sourceTree = "<group>";
+		};
 		F82D9EC42B1B447E00A101C9 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +112,7 @@
 		F82D9ECF2B1B447E00A101C9 /* RailnetApp */ = {
 			isa = PBXGroup;
 			children = (
+				F823E3862B36D2450017D160 /* MockingData */,
 				F8B04FD02B248A1000BB1E08 /* Info.plist */,
 				F882D91F2B23324400057B5E /* RailnetApp.entitlements */,
 				F882D91C2B23140500057B5E /* Views */,
@@ -157,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				F82D9ED22B1B447E00A101C9 /* ContentView.swift */,
+				F823E3872B36D5590017D160 /* InfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -266,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F82D9ED82B1B448100A101C9 /* Preview Assets.xcassets in Resources */,
+				F823E3852B36D0350017D160 /* combined.json in Resources */,
 				F82D9ED52B1B448100A101C9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +309,7 @@
 				F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */,
 				F82D9ED32B1B447E00A101C9 /* ContentView.swift in Sources */,
 				F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */,
+				F823E3882B36D5590017D160 /* InfoView.swift in Sources */,
 				F82D9ED12B1B447E00A101C9 /* RailnetAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +472,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RailnetApp/RailnetApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RailnetApp/Preview Content\"";
@@ -477,6 +494,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.RailnetApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -489,6 +507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RailnetApp/RailnetApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RailnetApp/Preview Content\"";
@@ -510,6 +529,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.RailnetApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

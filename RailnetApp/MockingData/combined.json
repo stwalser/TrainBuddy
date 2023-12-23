@@ -1,0 +1,521 @@
+{
+    "lineNumber": "161",
+    "tripNumber": "161",
+    "trainType": "RJX",
+    "won": "2",
+    "startStation": "Z\\u00fcrich HB",
+    "destination": {
+        "all": "Flughafen Wien",
+        "de": "Flughafen Wien"
+    },
+    "stations": [
+        {
+            "id": "8503000",
+            "name": {
+                "de": "Z\\u00fcrich HB"
+            },
+            "track": {
+                "de": "5"
+            },
+            "departure": {
+                "scheduled": "06:40",
+                "forecast": null
+            },
+            "arrival": {
+                "scheduled": "",
+                "forecast": null
+            },
+            "exitSide": null,
+            "distanceFromPrevious": null,
+            "connections": null
+        },
+        {
+            "id": "8509404",
+            "name": {
+                "de": "Buchs SG"
+            },
+            "track": {
+                "de": "3"
+            },
+            "departure": {
+                "scheduled": "07:57",
+                "forecast": "07:59"
+            },
+            "arrival": {
+                "scheduled": "07:48",
+                "forecast": "07:51"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 111000,
+            "connections": null
+        },
+        {
+            "id": "8100197",
+            "name": {
+                "de": "Feldkirch"
+            },
+            "track": {
+                "de": "2"
+            },
+            "departure": {
+                "scheduled": "08:17",
+                "forecast": "08:20"
+            },
+            "arrival": {
+                "scheduled": "08:12",
+                "forecast": "08:15"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 18457,
+            "connections": null
+        },
+        {
+            "id": "8100067",
+            "name": {
+                "de": "Bludenz"
+            },
+            "track": {
+                "de": "3"
+            },
+            "departure": {
+                "scheduled": "08:30",
+                "forecast": "08:35"
+            },
+            "arrival": {
+                "scheduled": "08:28",
+                "forecast": "08:32"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 20501,
+            "connections": null
+        },
+        {
+            "id": "8100064",
+            "name": {
+                "de": "St. Anton am Arlberg"
+            },
+            "track": {
+                "de": "3"
+            },
+            "departure": {
+                "scheduled": "09:03",
+                "forecast": "09:10"
+            },
+            "arrival": {
+                "scheduled": "09:01",
+                "forecast": "09:07"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 36777,
+            "connections": null
+        },
+        {
+            "id": "8100063",
+            "name": {
+                "de": "Landeck-Zams"
+            },
+            "track": {
+                "de": "3"
+            },
+            "departure": {
+                "scheduled": "09:27",
+                "forecast": "09:34"
+            },
+            "arrival": {
+                "scheduled": "09:25",
+                "forecast": "09:30"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 27387,
+            "connections": null
+        },
+        {
+            "id": "8100061",
+            "name": {
+                "de": "\\u00d6tztal"
+            },
+            "track": {
+                "de": "2"
+            },
+            "departure": {
+                "scheduled": "09:48",
+                "forecast": "09:52"
+            },
+            "arrival": {
+                "scheduled": "09:46",
+                "forecast": "09:51"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 26138,
+            "connections": null
+        },
+        {
+            "id": "8100108",
+            "name": {
+                "de": "Innsbruck Hbf"
+            },
+            "track": {
+                "de": "7"
+            },
+            "departure": {
+                "scheduled": "10:17",
+                "forecast": "10:22"
+            },
+            "arrival": {
+                "scheduled": "10:11",
+                "forecast": "10:15"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 45780,
+            "connections": null
+        },
+        {
+            "id": "8100099",
+            "name": {
+                "de": "W\\u00f6rgl Hbf"
+            },
+            "track": {
+                "de": "3"
+            },
+            "departure": {
+                "scheduled": "10:43",
+                "forecast": "10:47"
+            },
+            "arrival": {
+                "scheduled": "10:41",
+                "forecast": "10:43"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 58930,
+            "connections": null
+        },
+        {
+            "id": "8100001",
+            "name": {
+                "de": "Kufstein"
+            },
+            "track": {
+                "de": "2"
+            },
+            "departure": {
+                "scheduled": "10:53",
+                "forecast": "10:55"
+            },
+            "arrival": {
+                "scheduled": "10:51",
+                "forecast": "10:53"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 13480,
+            "connections": null
+        },
+        {
+            "id": "8100002",
+            "name": {
+                "de": "Salzburg Hbf"
+            },
+            "track": {
+                "de": "4"
+            },
+            "departure": {
+                "scheduled": "12:07",
+                "forecast": "12:08"
+            },
+            "arrival": {
+                "scheduled": "12:03",
+                "forecast": "12:04"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 122000,
+            "connections": [
+                {
+                    "type": "RJ",
+                    "lineNumber": "645",
+                    "track": {
+                        "de": "5A-B"
+                    },
+                    "destination": {
+                        "de": "Flughafen Wien"
+                    },
+                    "departure": {
+                        "scheduled": "12:11",
+                        "forecast": "12:11"
+                    },
+                    "reachable": "yes",
+                    "comment": null
+                },
+                {
+                    "type": "S",
+                    "lineNumber": "3",
+                    "track": {
+                        "de": "7D-F"
+                    },
+                    "destination": {
+                        "de": "Freilassing (Oberbayern)"
+                    },
+                    "departure": {
+                        "scheduled": "12:12",
+                        "forecast": "12:12"
+                    },
+                    "reachable": "yes",
+                    "comment": null
+                },
+                {
+                    "type": "RJ",
+                    "lineNumber": "596",
+                    "track": {
+                        "de": "1"
+                    },
+                    "destination": {
+                        "de": "Klagenfurt Hbf"
+                    },
+                    "departure": {
+                        "scheduled": "12:12",
+                        "forecast": "12:12"
+                    },
+                    "reachable": "yes",
+                    "comment": null
+                },
+                {
+                    "type": "BRB",
+                    "lineNumber": "RE5",
+                    "track": {
+                        "de": "5C-F"
+                    },
+                    "destination": {
+                        "de": "M\\u00fcnchen Hbf Gl.5-10"
+                    },
+                    "departure": {
+                        "scheduled": "12:15",
+                        "forecast": "12:15"
+                    },
+                    "reachable": "yes",
+                    "comment": null
+                }
+            ]
+        },
+        {
+            "id": "8100013",
+            "name": {
+                "de": "Linz Hbf"
+            },
+            "track": {
+                "de": "7A-F"
+            },
+            "departure": {
+                "scheduled": "13:17",
+                "forecast": "13:17"
+            },
+            "arrival": {
+                "scheduled": "13:15",
+                "forecast": "13:15"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 124183,
+            "connections": null
+        },
+        {
+            "id": "8100008",
+            "name": {
+                "de": "St. P\\u00f6lten Hbf"
+            },
+            "track": {
+                "de": "3"
+            },
+            "departure": {
+                "scheduled": "14:03",
+                "forecast": "14:03"
+            },
+            "arrival": {
+                "scheduled": "14:01",
+                "forecast": "14:01"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 123073,
+            "connections": null
+        },
+        {
+            "id": "8100514",
+            "name": {
+                "de": "Wien Meidling"
+            },
+            "track": {
+                "de": "6"
+            },
+            "departure": {
+                "scheduled": "14:27",
+                "forecast": "14:27"
+            },
+            "arrival": {
+                "scheduled": "14:25",
+                "forecast": "14:25"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 61006,
+            "connections": null
+        },
+        {
+            "id": "8103000",
+            "name": {
+                "de": "Wien Hbf"
+            },
+            "track": {
+                "de": "9A-B"
+            },
+            "departure": {
+                "scheduled": "14:40",
+                "forecast": "14:40"
+            },
+            "arrival": {
+                "scheduled": "14:32",
+                "forecast": "14:32"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 3437,
+            "connections": null
+        },
+        {
+            "id": "8100353",
+            "name": {
+                "de": "Flughafen Wien"
+            },
+            "track": null,
+            "departure": {
+                "scheduled": "",
+                "forecast": null
+            },
+            "arrival": {
+                "scheduled": "14:57",
+                "forecast": "14:57"
+            },
+            "exitSide": null,
+            "distanceFromPrevious": 17454,
+            "connections": null
+        }
+    ],
+    "latestStatus": {
+        "dateTime": "2023-09-14T11:29:20+0200",
+        "situation": {
+            "type": "drive-to",
+            "station": "8100002"
+        },
+        "gpsPosition": {
+            "latitude": "47.854325",
+            "longitude": "12.347317",
+            "orientation": null
+        },
+        "speed": 0,
+        "distance": {
+            "meters": 56970,
+            "fromStation": "8100001"
+        },
+        "totalDelay": 60,
+        "comment": null
+    },
+    "currentStation": {
+        "id": "8100001",
+        "name": {
+            "de": "Kufstein"
+        },
+        "track": {
+            "de": "2"
+        },
+        "departure": {
+            "scheduled": "10:53",
+            "forecast": "10:55"
+        },
+        "arrival": {
+            "scheduled": "10:51",
+            "forecast": "10:53"
+        },
+        "exitSide": null,
+        "distanceFromPrevious": 13480,
+        "connections": null
+    },
+    "nextStation": {
+        "id": "8100002",
+        "name": {
+            "de": "Salzburg Hbf"
+        },
+        "track": {
+            "de": "4"
+        },
+        "departure": {
+            "scheduled": "12:07",
+            "forecast": "12:08"
+        },
+        "arrival": {
+            "scheduled": "12:03",
+            "forecast": "12:04"
+        },
+        "exitSide": null,
+        "distanceFromPrevious": 122000,
+        "connections": [
+            {
+                "type": "RJ",
+                "lineNumber": "645",
+                "track": {
+                    "de": "5A-B"
+                },
+                "destination": {
+                    "de": "Flughafen Wien"
+                },
+                "departure": {
+                    "scheduled": "12:11",
+                    "forecast": "12:11"
+                },
+                "reachable": "yes",
+                "comment": null
+            },
+            {
+                "type": "S",
+                "lineNumber": "3",
+                "track": {
+                    "de": "7D-F"
+                },
+                "destination": {
+                    "de": "Freilassing (Oberbayern)"
+                },
+                "departure": {
+                    "scheduled": "12:12",
+                    "forecast": "12:12"
+                },
+                "reachable": "yes",
+                "comment": null
+            },
+            {
+                "type": "RJ",
+                "lineNumber": "596",
+                "track": {
+                    "de": "1"
+                },
+                "destination": {
+                    "de": "Klagenfurt Hbf"
+                },
+                "departure": {
+                    "scheduled": "12:12",
+                    "forecast": "12:12"
+                },
+                "reachable": "yes",
+                "comment": null
+            },
+            {
+                "type": "BRB",
+                "lineNumber": "RE5",
+                "track": {
+                    "de": "5C-F"
+                },
+                "destination": {
+                    "de": "M\\u00fcnchen Hbf Gl.5-10"
+                },
+                "departure": {
+                    "scheduled": "12:15",
+                    "forecast": "12:15"
+                },
+                "reachable": "yes",
+                "comment": null
+            }
+        ]
+    },
+    "nextStationProgress": 47
+}

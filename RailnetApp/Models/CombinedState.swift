@@ -13,26 +13,38 @@ enum CombinedStateError: Error {
 
 struct TrainInfo: Decodable {
     let speed: Int
+    let gpsPosition: GPSPosition
     
     private enum CodingKeys: String, CodingKey {
         case speed
+        case gpsPosition
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let rawSpeed = try? container.decode(Int.self, forKey: .speed)
+        let rawGpsPosition = try? container.decode(GPSPosition.self, forKey: .gpsPosition)
         
-        guard let speed = rawSpeed else {
-            throw CombinedStateError.decodeError("Some value decoded to nil.")
+        guard let speed = rawSpeed,
+              let gpsPosition = rawGpsPosition
+        else {
+            throw CombinedStateError.decodeError("Some value decoded to nil in local State struct")
         }
         
         self.speed = speed
+        self.gpsPosition = gpsPosition
     }
 }
 
 struct Station: Decodable {
     let all: String
     let de: String
+}
+
+struct GPSPosition: Decodable {
+    let latitude: String
+    let longitude: String
+    let orientation: String?
 }
 
 struct CombinedState: Decodable {
@@ -68,7 +80,7 @@ struct CombinedState: Decodable {
               let destination = rawDestination,
               let latestStatus = rawLatestStatus
         else {
-            throw CombinedStateError.decodeError("Some value decoded to nil.")
+            throw CombinedStateError.decodeError("Some value decoded to nil in global struct.")
         }
         
         self.lineNumber = lineNumber

@@ -8,10 +8,11 @@
 import Foundation
 import NetworkExtension
 
-enum AppState {
+enum ConnectionState {
     case Starting
-    case PollingWiFi
-    case FetchingInfo
+    case WrongWifi
+    case CorrectWifi
+    case Fetching
 }
 
 class TrainStateManager: ObservableObject {
@@ -20,48 +21,69 @@ class TrainStateManager: ObservableObject {
     
     var timer = Timer()
     @Published var combinedState: CombinedState?
-    @Published var appState: AppState = .Starting
+    @Published var connectionState: ConnectionState = .Starting
     
-    func startSSIDPolling() {
-        self.timer =  Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            let ssid = self.fetchWiFiSSID()
-            print(ssid)
-            // if ssid == self.railnetSSID {
-                timer.invalidate()
-                self.startFetchingState()
-            // }
+    func getTitle() -> String {
+        if let combinedState {
+            return "\(combinedState.trainType) \(combinedState.lineNumber)"
+        }
+        return "TrainBuddy"
+    }
+    
+    func triggerTimer() {
+        self.timer =  Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            switch self.connectionState {
+            case .Starting:
+                self.checkWifi()
+            case .WrongWifi:
+                self.checkWifi()
+            case .CorrectWifi:
+                self.fetchCombinedState()
+            case .Fetching:
+                self.fetchCombinedState()
+            }
         }
     }
     
-    private func startFetchingState() {
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            Task {
-                do {
-                    let combined = try await self.fetchState()
-                    await MainActor.run {
-                        self.combinedState = combined
-                        self.appState = .FetchingInfo
-                    }
-                } catch {
-                    print(error)
-                    self.goToPollingState()
+    private func checkWifi() {
+        let ssid = self.fetchWiFiSSID()
+        print(ssid)
+//        if ssid == self.railnetSSID {
+            self.connectionState = .CorrectWifi
+//        } else {
+//            self.connectionState = .WrongWifi
+//        }
+    }
+    
+    private func fetchCombinedState() {
+        Task {
+            do {
+                let combined = try await self.doRequest()
+                await MainActor.run {
+                    self.combinedState = combined
+                    self.connectionState = .Fetching
+                }
+            } catch {
+                print(error)
+                await MainActor.run {
+                    self.connectionState = .WrongWifi
                 }
             }
         }
     }
     
-    private func goToPollingState() {
-        self.appState = .PollingWiFi
-        self.startSSIDPolling()
-    }
-    
-    private func fetchState() async throws -> CombinedState {
-        let url = URL(string: self.url)!
-        let urlRequest = URLRequest(url: url)
-
-        let (json, _) = try await URLSession.shared.data(for: urlRequest)
+    private func doRequest() async throws -> CombinedState {
+//        let url = URL(string: self.url)!
+//        let urlRequest = URLRequest(url: url)
+//
+//        let (json, _) = try await URLSession.shared.data(for: urlRequest)
         
-        return try JSONDecoder().decode(CombinedState.self, from: json)
+        if let url = Bundle.main.url(forResource: "combined", withExtension: ".json") {
+            let json = try Data(contentsOf: url)
+            
+            return try JSONDecoder().decode(CombinedState.self, from: json)
+        }
+        throw CombinedStateError.decodeError("File")
     }
     
     private func fetchWiFiSSID() -> String {
