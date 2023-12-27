@@ -12,6 +12,13 @@ struct ContentView: View {
     @StateObject var trainStateManager = TrainStateManager()
     
     var body: some View {
+        Text(trainStateManager.getTitle())
+            .font(.largeTitle)
+            .padding(EdgeInsets(top: 20.0, leading: 5.0, bottom: 0.0, trailing: 5.0))
+            .onAppear(perform: trainStateManager.triggerTimer)
+        
+        Spacer()
+        
         switch(trainStateManager.connectionState) {
         case .Starting:
             
@@ -22,7 +29,6 @@ struct ContentView: View {
         case .WrongWifi:
             Text("Verbindungsfehler")
                 .bold()
-                .padding()
             
             Text("Entweder befindest du dich nicht in einem Railjet, bist nicht mit dem WLAN des Zugs verbunden oder es ist sonst etwas schief gegangen. 😬")
                 .padding()
@@ -35,8 +41,6 @@ struct ContentView: View {
                 .bold()
                 .padding()
         }
-    Spacer()
-        .onAppear(perform: trainStateManager.triggerTimer)
     }
 }
 

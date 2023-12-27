@@ -7,6 +7,7 @@
 
 import Foundation
 import NetworkExtension
+import CoreLocation
 
 enum ConnectionState {
     case Starting
@@ -15,9 +16,11 @@ enum ConnectionState {
     case Fetching
 }
 
-class TrainStateManager: ObservableObject {
+class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    let refreshInterval = 1.0
     let url = "https://railnet.oebb.at/assets/modules/fis/combined.json"
     let railnetSSID = "OEBB"
+    let locationManager = CLLocationManager()
     
     var timer = Timer()
     @Published var combinedState: CombinedState?
@@ -31,7 +34,10 @@ class TrainStateManager: ObservableObject {
     }
     
     func triggerTimer() {
-        self.timer =  Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+        locationManager.delegate = self;
+        locationManager.requestWhenInUseAuthorization()
+        
+        self.timer =  Timer.scheduledTimer(withTimeInterval: self.refreshInterval, repeats: true) { _ in
             switch self.connectionState {
             case .Starting:
                 self.checkWifi()
@@ -45,14 +51,21 @@ class TrainStateManager: ObservableObject {
         }
     }
     
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        print(manager.authorizationStatus.rawValue)
+    }
+    
     private func checkWifi() {
-        let ssid = self.fetchWiFiSSID()
-        print(ssid)
-//        if ssid == self.railnetSSID {
-            self.connectionState = .CorrectWifi
-//        } else {
-//            self.connectionState = .WrongWifi
-//        }
+        Task {
+            let ssid = await self.fetchWiFiSSID()
+            await MainActor.run {
+//                if ssid == self.railnetSSID {
+                    self.connectionState = .CorrectWifi
+//                } else {
+//                    self.connectionState = .WrongWifi
+//                }
+            }
+        }
     }
     
     private func fetchCombinedState() {
@@ -86,14 +99,11 @@ class TrainStateManager: ObservableObject {
         throw CombinedStateError.decodeError("File")
     }
     
-    private func fetchWiFiSSID() -> String {
-        var ssid = ""
-        NEHotspotNetwork.fetchCurrent { hotspotNetwork in
-            if let hotspotNetwork = hotspotNetwork {
-                ssid = hotspotNetwork.ssid
-            }
+    private func fetchWiFiSSID() async -> String {
+        if let ssid = await NEHotspotNetwork.fetchCurrent()?.ssid {
+            return ssid
         }
-        return ssid
+        return ""
     }
 }
 
