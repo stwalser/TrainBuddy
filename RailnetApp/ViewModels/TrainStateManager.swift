@@ -23,8 +23,10 @@ class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     
     var timer = Timer()
+    
     @Published var combinedState: CombinedState?
     @Published var connectionState: ConnectionState = .Starting
+    @Published var relevantStations: [Station]?
     
     func getTitle() -> String {
         if let combinedState {
@@ -59,11 +61,11 @@ class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         Task {
             let ssid = await self.fetchWiFiSSID()
             await MainActor.run {
-//                if ssid == self.railnetSSID {
+                if ssid == self.railnetSSID {
                     self.connectionState = .CorrectWifi
-//                } else {
-//                    self.connectionState = .WrongWifi
-//                }
+                } else {
+                    self.connectionState = .WrongWifi
+                }
             }
         }
     }
@@ -72,8 +74,10 @@ class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         Task {
             do {
                 let combined = try await self.doRequest()
+                let stations = await self.filterStations()
                 await MainActor.run {
                     self.combinedState = combined
+                    self.relevantStations = stations
                     self.connectionState = .Fetching
                 }
             } catch {
@@ -86,17 +90,33 @@ class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     private func doRequest() async throws -> CombinedState {
-//        let url = URL(string: self.url)!
-//        let urlRequest = URLRequest(url: url)
-//
-//        let (json, _) = try await URLSession.shared.data(for: urlRequest)
-        
-        if let url = Bundle.main.url(forResource: "combined", withExtension: ".json") {
-            let json = try Data(contentsOf: url)
-            
-            return try JSONDecoder().decode(CombinedState.self, from: json)
+        let url = URL(string: self.url)!
+        let urlRequest = URLRequest(url: url)
+
+        let (json, _) = try await URLSession.shared.data(for: urlRequest)
+
+//        if let url = Bundle.main.url(forResource: "combined", withExtension: ".json") {
+//            let json = try Data(contentsOf: url)
+//        print(String(data: json, encoding: .utf8))
+        return try JSONDecoder().decode(CombinedState.self, from: json)
+//        }
+//        throw CombinedStateError.decodeError("File")
+    }
+    
+    private func filterStations() async -> [Station] {
+        var stations = [Station]()
+        var nextStationFound = false
+        if let state = self.combinedState {
+            for station in state.stations {
+                if !nextStationFound && station.name.de == state.nextStation.name.de {
+                    nextStationFound = true
+                }
+                if nextStationFound {
+                    stations.append(station)
+                }
+            }
         }
-        throw CombinedStateError.decodeError("File")
+        return stations
     }
     
     private func fetchWiFiSSID() async -> String {

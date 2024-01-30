@@ -19,125 +19,112 @@ struct InfoView: View {
         HStack {
             Text(trainStateManager.combinedState!.startStation.utf8DecodedString())
             Text("→")
-            Text(trainStateManager.combinedState!.destination.de!.utf8DecodedString())
+            Text(trainStateManager.combinedState!.destination.de!)
         }
         
         Text("\(trainStateManager.combinedState!.latestStatus.speed) km/h")
             .padding()
         
         ScrollView {
-            HStack {
-                GeometryReader { geo in
-                    VStack {
-                        HStack {
-                            Label("Nächster Halt", systemImage: "arrow.right")
-                                .font(.footnote)
-                                .foregroundStyle(.gray)
-                            Spacer()
-                        }
-                        HStack {
-                            Text(trainStateManager.combinedState!.nextStation.name.de!.utf8DecodedString())
-                                .font(.title2)
-                            Spacer()
-                        }
-                        HStack {
-                            Text("Ankunft")
-                                .font(.caption)
-                                .foregroundStyle(.gray)
-                            Spacer()
-                            if trainStateManager.combinedState!.nextStation.arrival.scheduled == trainStateManager.combinedState!.nextStation.arrival.forecast {
-                                Text(trainStateManager.combinedState!.nextStation.arrival.scheduled)
-                                    .font(.caption)
-                                    .foregroundStyle(.green)
-                            } else {
-                                Text(trainStateManager.combinedState!.nextStation.arrival.scheduled)
-                                    .font(.caption2)
-                                    .strikethrough()
-                                Text(trainStateManager.combinedState!.nextStation.arrival.forecast)
-                                    .font(.caption)
-                                    .foregroundStyle(.orange)
-                            }
-                        }
-                        HStack {
-                            Text("Abfahrt")
-                                .font(.caption)
-                                .foregroundStyle(.gray)
-                            Spacer()
-                            if trainStateManager.combinedState!.nextStation.departure.scheduled == trainStateManager.combinedState!.nextStation.departure.forecast {
-                                Text(trainStateManager.combinedState!.nextStation.departure.scheduled)
-                                    .font(.caption)
-                                    .foregroundStyle(.green)
-                            } else {
-                                Text(trainStateManager.combinedState!.nextStation.departure.scheduled)
-                                    .font(.caption2)
-                                    .strikethrough()
-                                Text(trainStateManager.combinedState!.nextStation.departure.forecast)
-                                    .font(.caption)
-                                    .foregroundStyle(.orange)
-                            }
-                        }
-                        HStack {
-                            Text("Bahnsteig")
-                                .font(.caption)
-                                .foregroundStyle(.gray)
-                            Spacer()
-                            Text(trainStateManager.combinedState!.nextStation.track.de!.utf8DecodedString())
-                                .font(.caption)
-                        }
-                        
-                        Spacer()
-                        
-                        HStack {
-                            Text("Wir kommen in etwa \(trainStateManager.combinedState!.nextStationProgress) Minuten an.")
-                                .multilineTextAlignment(.leading)
-                                .font(.caption)
-                            Spacer()
-                        }
-                    }
-                    .padding()
-                    .frame(width: geo.size.width, height: geo.size.width)
-                    .background(RoundedRectangle(cornerRadius: 5.0).fill(tileColor).aspectRatio(1, contentMode: .fill))
-                    .foregroundStyle(.black)
-                    .onAppear {
-                        smallSquareSideLength = geo.size.width
-                    }
+            VStack {
+                HStack {
+                    Label("Nächste Halte", systemImage: "calendar")
+                        .font(.footnote)
+                        .foregroundStyle(.gray)
+                    Spacer()
                 }
-            
-                GeometryReader { geo in
+                .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 0))
+                
+                Divider()
+                
+                ScrollView(.horizontal) {
                     HStack {
-                        Spacer()
-                        Text("I am here")
-                        Spacer()
-                    }
-                    .frame(width: geo.size.width, height: geo.size.width)
-                    .background(RoundedRectangle(cornerRadius: 5.0).fill(tileColor).aspectRatio(1, contentMode: .fill))
-                    .foregroundStyle(.black)
-                    .onAppear {
-                        smallSquareSideLength = geo.size.width
+                        ForEach(trainStateManager.relevantStations!) {station in
+                            VStack {
+                                Text(station.name.de!)
+                                    .fontWeight(.bold)
+                                    .font(.subheadline)
+                                
+                                TimeEventView(timeEvent: station.arrival, eventType: "Ankunft")
+                                TimeEventView(timeEvent: station.departure, eventType: "Abfahrt")
+                                TrackView(string: "Bahnsteig", track: station.track)
+                                Spacer()
+                            }
+                            Divider()
+                        }
                     }
                 }
+                Spacer()
             }
-            .frame(height: smallSquareSideLength)
+            .background(RoundedRectangle(cornerRadius: 5.0).fill(tileColor))
             .padding()
             
+            
             HStack {
-                GeometryReader { geo in
+                VStack {
+                    HStack {
+                        Label("Nächster Halt", systemImage: "arrow.right")
+                            .font(.footnote)
+                            .foregroundStyle(.gray)
+                        Spacer()
+                    }
+                    Divider()
+                    HStack {
+                        Text(trainStateManager.combinedState!.nextStation.name.de!)
+                            .font(.title2)
+                        Spacer()
+                    }
+                    
+                    TimeEventView(timeEvent: trainStateManager.combinedState!.nextStation.arrival, eventType: "Ankunft")
+                    
+                    TimeEventView(timeEvent: trainStateManager.combinedState!.nextStation.departure, eventType: "Abfahrt")
+                    
+                    TrackView(string: "Bahnsteig", track: trainStateManager.combinedState!.nextStation.track)
+                }
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 5.0).fill(tileColor))
+                .foregroundStyle(.black)
+                
+                HStack {
+                    Spacer()
+                    Text("I am here")
+                    Spacer()
+                }
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 5.0).fill(tileColor))
+                .foregroundStyle(.black)
+                
+            }
+            .padding()
+            
+            VStack {
+                HStack {
+                    Label("Karte", systemImage: "map")
+                        .font(.footnote)
+                        .foregroundStyle(.gray)
+                    Spacer()
+                }
+                .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 0))
+                
+                Divider()
+                
+                if trainStateManager.combinedState!.latestStatus.gpsPosition != nil {
                     Map(bounds: MapCameraBounds(minimumDistance: 500, maximumDistance: nil)) {
-                        Annotation("Zug", coordinate: CLLocationCoordinate2D(latitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition.latitude)!, longitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition.longitude)!))
+                        Annotation("Zug", coordinate: CLLocationCoordinate2D(latitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.latitude)!, longitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.longitude)!))
                         {
                             Text("🚄")
                                 .padding()
                         }
                     }
-                    .frame(width: geo.size.width, height: geo.size.width)
-                    .background(RoundedRectangle(cornerRadius: 5.0).fill(Color.green).aspectRatio(1, contentMode: .fill))
-                    .foregroundStyle(.black)
-                    .onAppear {
-                        bigSquareSideLength = geo.size.width
-                    }
+                    
+                } else {
+                    Text("Der Zug stellt momentan keine GPS Info zur Verfügung :(")
                 }
+                
             }
-            .frame(height: bigSquareSideLength)
+            .frame(minHeight: 400)
+            .background(RoundedRectangle(cornerRadius: 5.0).fill(tileColor))
+            .foregroundStyle(.black)
             .padding()
         }
     }

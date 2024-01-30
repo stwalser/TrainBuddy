@@ -17,7 +17,7 @@ enum CombinedStateError: Error {
 
 struct TrainInfo: Decodable {
     let speed: Int
-    let gpsPosition: GPSPosition
+    let gpsPosition: GPSPosition?
     
     private enum CodingKeys: String, CodingKey {
         case speed
@@ -28,15 +28,13 @@ struct TrainInfo: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let rawSpeed = try? container.decode(Int.self, forKey: .speed)
         let rawGpsPosition = try? container.decode(GPSPosition.self, forKey: .gpsPosition)
-        
-        guard let speed = rawSpeed,
-              let gpsPosition = rawGpsPosition
-        else {
+
+        guard let speed = rawSpeed else {
             throw CombinedStateError.decodeError("Some value decoded to nil in local State struct")
         }
         
         self.speed = speed
-        self.gpsPosition = gpsPosition
+        self.gpsPosition = rawGpsPosition
     }
 }
 
@@ -50,15 +48,15 @@ struct Connection: Decodable {
     let comment: String?
 }
 
-struct Station: Decodable {
+struct Station: Decodable, Identifiable {
     let id: String
     let name: MultiLang
-    let track: MultiLang
+    let track: MultiLang?
     let departure: Time
     let arrival: Time
     let exitSide: String?
-    let distanceFromPrevious: Int
-    let connections: [Connection]
+    let distanceFromPrevious: Int?
+    let connections: [Connection]?
 }
 
 struct MultiLang: Decodable {
@@ -68,7 +66,7 @@ struct MultiLang: Decodable {
 
 struct Time: Decodable {
     let scheduled: String
-    let forecast: String
+    let forecast: String?
 }
 
 struct GPSPosition: Decodable {
@@ -86,6 +84,7 @@ struct CombinedState: Decodable {
     let latestStatus: TrainInfo
     let nextStation: Station
     let nextStationProgress: Int
+    let stations: [Station]
     
     private enum CodingKeys: String, CodingKey {
         case lineNumber
@@ -96,6 +95,7 @@ struct CombinedState: Decodable {
         case latestStatus
         case nextStation
         case nextStationProgress
+        case stations
     }
     
     init(from decoder: Decoder) throws {
@@ -108,6 +108,7 @@ struct CombinedState: Decodable {
         let rawLatestStatus = try? container.decode(TrainInfo.self, forKey: .latestStatus)
         let rawNextStation = try? container.decode(Station.self, forKey: .nextStation)
         let rawNextStaitonProgress = try? container.decode(Int.self, forKey: .nextStationProgress)
+        let rawStations = try? container.decode([Station].self, forKey: .stations)
         
         guard let lineNumber = rawLineNumber,
               let tripNumber = rawTripNumber,
@@ -116,7 +117,8 @@ struct CombinedState: Decodable {
               let destination = rawDestination,
               let latestStatus = rawLatestStatus,
               let nextStation = rawNextStation,
-              let nextStationProgress = rawNextStaitonProgress
+              let nextStationProgress = rawNextStaitonProgress,
+              let stations = rawStations
         else {
             throw CombinedStateError.decodeError("Some value decoded to nil in global struct.")
         }
@@ -129,6 +131,7 @@ struct CombinedState: Decodable {
         self.latestStatus = latestStatus
         self.nextStation = nextStation
         self.nextStationProgress = nextStationProgress
+        self.stations = stations
     }
 }
 

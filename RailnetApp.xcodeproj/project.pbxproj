@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F80FC7222B6908E200766229 /* TimeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FC7212B6908E200766229 /* TimeEventView.swift */; };
+		F80FC7242B69091A00766229 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FC7232B69091A00766229 /* TrackView.swift */; };
 		F823E3852B36D0350017D160 /* combined.json in Resources */ = {isa = PBXBuildFile; fileRef = F823E3842B36D0350017D160 /* combined.json */; };
 		F823E3882B36D5590017D160 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823E3872B36D5590017D160 /* InfoView.swift */; };
 		F82D9ED12B1B447E00A101C9 /* RailnetAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9ED02B1B447E00A101C9 /* RailnetAppApp.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F80FC7212B6908E200766229 /* TimeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEventView.swift; sourceTree = "<group>"; };
+		F80FC7232B69091A00766229 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		F823E3842B36D0350017D160 /* combined.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = combined.json; sourceTree = "<group>"; };
 		F823E3872B36D5590017D160 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		F82D9ECD2B1B447E00A101C9 /* RailnetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RailnetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +175,8 @@
 			children = (
 				F82D9ED22B1B447E00A101C9 /* ContentView.swift */,
 				F823E3872B36D5590017D160 /* InfoView.swift */,
+				F80FC7212B6908E200766229 /* TimeEventView.swift */,
+				F80FC7232B69091A00766229 /* TrackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,6 +314,8 @@
 			files = (
 				F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */,
 				F82D9ED32B1B447E00A101C9 /* ContentView.swift in Sources */,
+				F80FC7242B69091A00766229 /* TrackView.swift in Sources */,
+				F80FC7222B6908E200766229 /* TimeEventView.swift in Sources */,
 				F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */,
 				F823E3882B36D5590017D160 /* InfoView.swift in Sources */,
 				F82D9ED12B1B447E00A101C9 /* RailnetAppApp.swift in Sources */,
