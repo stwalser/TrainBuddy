@@ -18,6 +18,9 @@
 		F82D9EE22B1B448200A101C9 /* RailnetAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9EE12B1B448200A101C9 /* RailnetAppTests.swift */; };
 		F82D9EEC2B1B448200A101C9 /* RailnetAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9EEB2B1B448200A101C9 /* RailnetAppUITests.swift */; };
 		F82D9EEE2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9EED2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift */; };
+		F86551682B6A5D6000CD5818 /* NextStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86551672B6A5D6000CD5818 /* NextStationView.swift */; };
+		F865516B2B6A5DFB00CD5818 /* NextStationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865516A2B6A5DFB00CD5818 /* NextStationsView.swift */; };
+		F865516D2B6A5E4600CD5818 /* TrainMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865516C2B6A5E4600CD5818 /* TrainMapView.swift */; };
 		F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D91D2B2315C700057B5E /* TrainStateManager.swift */; };
 		F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D9202B234E8A00057B5E /* CombinedState.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +57,9 @@
 		F82D9EE72B1B448200A101C9 /* RailnetAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RailnetAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82D9EEB2B1B448200A101C9 /* RailnetAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailnetAppUITests.swift; sourceTree = "<group>"; };
 		F82D9EED2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailnetAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F86551672B6A5D6000CD5818 /* NextStationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStationView.swift; sourceTree = "<group>"; };
+		F865516A2B6A5DFB00CD5818 /* NextStationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStationsView.swift; sourceTree = "<group>"; };
+		F865516C2B6A5E4600CD5818 /* TrainMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainMapView.swift; sourceTree = "<group>"; };
 		F882D91D2B2315C700057B5E /* TrainStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStateManager.swift; sourceTree = "<group>"; };
 		F882D91F2B23324400057B5E /* RailnetApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RailnetApp.entitlements; sourceTree = "<group>"; };
 		F882D9202B234E8A00057B5E /* CombinedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedState.swift; sourceTree = "<group>"; };
@@ -154,6 +160,19 @@
 			path = RailnetAppUITests;
 			sourceTree = "<group>";
 		};
+		F86551692B6A5D6500CD5818 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				F823E3872B36D5590017D160 /* InfoView.swift */,
+				F80FC7232B69091A00766229 /* TrackView.swift */,
+				F86551672B6A5D6000CD5818 /* NextStationView.swift */,
+				F80FC7212B6908E200766229 /* TimeEventView.swift */,
+				F865516A2B6A5DFB00CD5818 /* NextStationsView.swift */,
+				F865516C2B6A5E4600CD5818 /* TrainMapView.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
 		F882D9192B2313F000057B5E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,10 +192,8 @@
 		F882D91C2B23140500057B5E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F86551692B6A5D6500CD5818 /* Info */,
 				F82D9ED22B1B447E00A101C9 /* ContentView.swift */,
-				F823E3872B36D5590017D160 /* InfoView.swift */,
-				F80FC7212B6908E200766229 /* TimeEventView.swift */,
-				F80FC7232B69091A00766229 /* TrackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,7 +333,10 @@
 				F82D9ED32B1B447E00A101C9 /* ContentView.swift in Sources */,
 				F80FC7242B69091A00766229 /* TrackView.swift in Sources */,
 				F80FC7222B6908E200766229 /* TimeEventView.swift in Sources */,
+				F86551682B6A5D6000CD5818 /* NextStationView.swift in Sources */,
 				F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */,
+				F865516D2B6A5E4600CD5818 /* TrainMapView.swift in Sources */,
+				F865516B2B6A5DFB00CD5818 /* NextStationsView.swift in Sources */,
 				F823E3882B36D5590017D160 /* InfoView.swift in Sources */,
 				F82D9ED12B1B447E00A101C9 /* RailnetAppApp.swift in Sources */,
 			);

@@ -1,0 +1,49 @@
+//
+//  TrainMapView.swift
+//  RailnetApp
+//
+//  Created by Stefan Walser on 31.01.24.
+//
+
+import SwiftUI
+import MapKit
+
+struct TrainMapView: View {
+    @EnvironmentObject var trainStateManager: TrainStateManager
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Label("Karte", systemImage: "map")
+                    .font(.footnote)
+                    .foregroundStyle(.gray)
+                Spacer()
+            }
+            .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 0))
+            
+            Divider()
+            
+            if trainStateManager.combinedState!.latestStatus.gpsPosition != nil {
+                Map(bounds: MapCameraBounds(minimumDistance: 500, maximumDistance: nil)) {
+                    Annotation("Zug", coordinate: CLLocationCoordinate2D(latitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.latitude)!, longitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.longitude)!))
+                    {
+                        Text("🚄")
+                            .padding()
+                    }
+                }
+                
+            } else {
+                Text("Der Zug stellt momentan keine GPS Info zur Verfügung :(")
+            }
+            
+        }
+        .frame(minHeight: 400)
+        .background(RoundedRectangle(cornerRadius: 5.0).fill(tileColor))
+        .foregroundStyle(.black)
+        .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))
+    }
+}
+
+#Preview {
+    TrainMapView()
+}

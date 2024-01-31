@@ -11,7 +11,6 @@ import SwiftUI
     if timeEvent.scheduled == timeEvent.forecast {
         Text(timeEvent.scheduled)
             .font(.caption)
-            .foregroundStyle(.green)
     } else {
         Text(timeEvent.scheduled)
             .font(.caption2)

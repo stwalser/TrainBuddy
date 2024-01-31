@@ -38,7 +38,11 @@ struct TrainInfo: Decodable {
     }
 }
 
-struct Connection: Decodable {
+struct Connection: Decodable, Identifiable {
+    var id: String {
+        lineNumber
+    }
+    
     let type: String
     let lineNumber: String
     let track: MultiLang
