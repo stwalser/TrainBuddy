@@ -13,7 +13,7 @@ struct NextStationView: View {
     var body: some View {
         VStack {
             HStack {
-                Label("Nächster Halt", systemImage: "arrow.right")
+                Label("Nächster Halt", systemImage: "arrow.forward.to.line")
                     .font(.footnote)
                     .foregroundStyle(.gray)
                 Spacer()
@@ -28,16 +28,22 @@ struct NextStationView: View {
                         .font(.title2)
                     Grid(alignment: .leading) {
                         GridRow {
-                            timeEventLabel(for: .text("Ankunft"))
-                            timeEventTime(for: trainStateManager.combinedState!.nextStation.arrival)
+                            attributeLabel(for: .text("Ankunft"))
+                            timeText(for: trainStateManager.combinedState!.nextStation.arrival)
                         }
                         GridRow {
-                            timeEventLabel(for: .text("Abfahrt"))
-                            timeEventTime(for: trainStateManager.combinedState!.nextStation.departure)
+                            attributeLabel(for: .text("Abfahrt"))
+                            timeText(for: trainStateManager.combinedState!.nextStation.departure)
                         }
                         GridRow {
-                            trackLabel(for: "Bahnsteig")
+                            attributeLabel(for: .text("Bahnsteig"))
                             trackNumber(for: trainStateManager.combinedState!.nextStation.track)
+                        }
+                        if let exitSide = trainStateManager.combinedState!.nextStation.exitSide {
+                            GridRow {
+                                attributeLabel(for: .text("Ausstieg"))
+                                stringText(exitSide)
+                            }
                         }
                     }
                     Spacer()
@@ -66,12 +72,18 @@ struct NextStationView: View {
                                                 .font(.subheadline)
                                         }
                                         GridRow {
-                                            timeEventLabel(for: .text("Abfahrt"))
-                                            timeEventTime(for: connection.departure)
+                                            attributeLabel(for: .text("Abfahrt"))
+                                            timeText(for: connection.departure)
                                         }
                                         GridRow {
-                                            trackLabel(for: "Bahnsteig")
+                                            attributeLabel(for: .text("Bahnsteig"))
                                             trackNumber(for: connection.track)
+                                        }
+                                        if let comment = connection.comment {
+                                            GridRow {
+                                                attributeLabel(for: .text("Kommentar"))
+                                                stringText(comment)
+                                            }
                                         }
                                     }
                                 }

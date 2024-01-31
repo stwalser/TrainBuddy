@@ -29,14 +29,14 @@ struct NextStationsView: View {
                             Text(station.name.de!)
                                 .font(.subheadline)
                             
-                            Grid(alignment: .leading) {
+                            Grid(alignment: .center) {
                                 GridRow {
-                                    timeEventLabel(for: .arrival)
-                                    timeEventTime(for: station.arrival)
+                                    attributeLabel(for: .arrival)
+                                    timeText(for: station.arrival)
                                 }
                                 GridRow {
-                                    timeEventLabel(for: .departure)
-                                    timeEventTime(for: station.departure)
+                                    attributeLabel(for: .departure)
+                                    timeText(for: station.departure)
                                 }
                             }
                         }

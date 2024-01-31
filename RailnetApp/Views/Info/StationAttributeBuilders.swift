@@ -7,23 +7,24 @@
 
 import SwiftUI
 
-@ViewBuilder func timeEventTime(for timeEvent: Time) -> some View {
+@ViewBuilder func timeText(for timeEvent: Time) -> some View {
     if timeEvent.scheduled == timeEvent.forecast {
         Text(timeEvent.scheduled)
             .font(.caption)
     } else {
-        Text(timeEvent.scheduled)
-            .font(.caption2)
-            .strikethrough()
-        Text(timeEvent.forecast ?? "N/A")
-            .font(.caption)
-            .foregroundStyle(.orange)
-       
+        if timeEvent.scheduled != "" {
+            Text(timeEvent.scheduled)
+                .font(.caption2)
+                .strikethrough()
+            Text(timeEvent.forecast ?? "N/A")
+                .font(.caption)
+                .foregroundStyle(.orange)
+        }
     }
 }
 
-@ViewBuilder func timeEventLabel(for eventType: EventType) -> some View {
-    switch eventType {
+@ViewBuilder func attributeLabel(for attribute: AttributeType) -> some View {
+    switch attribute {
     case .arrival:
         Image(systemName: "square.and.arrow.down")
             .rotationEffect(Angle(degrees: 270))
@@ -41,7 +42,22 @@ import SwiftUI
     }
 }
 
-enum EventType {
+@ViewBuilder func trackNumber(for track: MultiLang?) -> some View {
+    if let track = track {
+        Text(track.de ?? "N/A")
+            .font(.caption)
+    } else {
+        Text("N/A")
+            .font(.caption)
+    }
+}
+
+@ViewBuilder func stringText(_ string: String) -> some View {
+    Text(string)
+        .font(.caption)
+}
+
+enum AttributeType {
     case arrival
     case departure
     case text(String)

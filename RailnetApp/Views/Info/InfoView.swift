@@ -21,8 +21,20 @@ struct InfoView: View {
             Text(trainStateManager.combinedState!.destination.de!)
         }
         
+        let delay: Int = {
+            trainStateManager.combinedState!.latestStatus.totalDealy / 60
+        }()
+        
+        if delay > 0  {
+            Text("+\(delay)")
+                .foregroundStyle(.orange)
+        } else {
+            Text("+0")
+                .foregroundStyle(.green)
+        }
+        
         Text("\(trainStateManager.combinedState!.latestStatus.speed) km/h")
-            .padding()
+            .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
         
         ScrollView {
             NextStationView().environmentObject(trainStateManager)
