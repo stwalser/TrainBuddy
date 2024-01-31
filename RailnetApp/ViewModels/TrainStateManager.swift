@@ -61,11 +61,11 @@ class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         Task {
             let ssid = await self.fetchWiFiSSID()
             await MainActor.run {
-                if ssid == self.railnetSSID {
+//                if ssid == self.railnetSSID {
                     self.connectionState = .CorrectWifi
-                } else {
-                    self.connectionState = .WrongWifi
-                }
+//                } else {
+//                    self.connectionState = .WrongWifi
+//                }
             }
         }
     }
@@ -93,14 +93,14 @@ class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         let url = URL(string: self.url)!
         let urlRequest = URLRequest(url: url)
 
-        let (json, _) = try await URLSession.shared.data(for: urlRequest)
+//        let (json, _) = try await URLSession.shared.data(for: urlRequest)
 
-//        if let url = Bundle.main.url(forResource: "combined", withExtension: ".json") {
-//            let json = try Data(contentsOf: url)
+        if let url = Bundle.main.url(forResource: "combined", withExtension: ".json") {
+            let json = try Data(contentsOf: url)
 //        print(String(data: json, encoding: .utf8))
-        return try JSONDecoder().decode(CombinedState.self, from: json)
-//        }
-//        throw CombinedStateError.decodeError("File")
+            return try JSONDecoder().decode(CombinedState.self, from: json)
+        }
+        throw CombinedStateError.decodeError("File")
     }
     
     private func filterStations() async -> [Station] {
