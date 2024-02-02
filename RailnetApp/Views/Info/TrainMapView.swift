@@ -31,6 +31,12 @@ struct TrainMapView: View {
                             .padding()
                     }
                 }
+                .clipShape(RoundedRectangle(cornerRadius: 5.0))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 5)
+                            .stroke(.gray, lineWidth: 1)
+                }
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
                 
             } else {
                 Text("Der Zug stellt momentan keine GPS Info zur Verfügung :(")

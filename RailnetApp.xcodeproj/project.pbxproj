@@ -20,8 +20,11 @@
 		F86551682B6A5D6000CD5818 /* NextStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86551672B6A5D6000CD5818 /* NextStationView.swift */; };
 		F865516B2B6A5DFB00CD5818 /* NextStationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865516A2B6A5DFB00CD5818 /* NextStationsView.swift */; };
 		F865516D2B6A5E4600CD5818 /* TrainMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865516C2B6A5E4600CD5818 /* TrainMapView.swift */; };
+		F86551702B6B7A1000CD5818 /* TrainBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F865516E2B6B7A1000CD5818 /* TrainBuddy.xcdatamodeld */; };
+		F86551722B6B7AB800CD5818 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86551712B6B7AB800CD5818 /* DataController.swift */; };
 		F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D91D2B2315C700057B5E /* TrainStateManager.swift */; };
 		F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D9202B234E8A00057B5E /* CombinedState.swift */; };
+		F8BBC5352B6D453200D72A1E /* UserDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BBC5342B6D453200D72A1E /* UserDestinationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +61,13 @@
 		F86551672B6A5D6000CD5818 /* NextStationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStationView.swift; sourceTree = "<group>"; };
 		F865516A2B6A5DFB00CD5818 /* NextStationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStationsView.swift; sourceTree = "<group>"; };
 		F865516C2B6A5E4600CD5818 /* TrainMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainMapView.swift; sourceTree = "<group>"; };
+		F865516F2B6B7A1000CD5818 /* TrainBuddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrainBuddy.xcdatamodel; sourceTree = "<group>"; };
+		F86551712B6B7AB800CD5818 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		F882D91D2B2315C700057B5E /* TrainStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStateManager.swift; sourceTree = "<group>"; };
 		F882D91F2B23324400057B5E /* RailnetApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RailnetApp.entitlements; sourceTree = "<group>"; };
 		F882D9202B234E8A00057B5E /* CombinedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedState.swift; sourceTree = "<group>"; };
 		F8B04FD02B248A1000BB1E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F8BBC5342B6D453200D72A1E /* UserDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDestinationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,7 @@
 				F82D9ED02B1B447E00A101C9 /* RailnetAppApp.swift */,
 				F82D9ED42B1B448100A101C9 /* Assets.xcassets */,
 				F82D9ED62B1B448100A101C9 /* Preview Content */,
+				F865516E2B6B7A1000CD5818 /* TrainBuddy.xcdatamodeld */,
 			);
 			path = RailnetApp;
 			sourceTree = "<group>";
@@ -166,6 +173,7 @@
 				F80FC7212B6908E200766229 /* StationAttributeBuilders.swift */,
 				F865516A2B6A5DFB00CD5818 /* NextStationsView.swift */,
 				F865516C2B6A5E4600CD5818 /* TrainMapView.swift */,
+				F8BBC5342B6D453200D72A1E /* UserDestinationView.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -181,6 +189,7 @@
 		F882D91B2B2313FD00057B5E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F86551712B6B7AB800CD5818 /* DataController.swift */,
 				F882D91D2B2315C700057B5E /* TrainStateManager.swift */,
 			);
 			path = ViewModels;
@@ -329,9 +338,12 @@
 				F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */,
 				F82D9ED32B1B447E00A101C9 /* ContentView.swift in Sources */,
 				F80FC7222B6908E200766229 /* StationAttributeBuilders.swift in Sources */,
+				F86551702B6B7A1000CD5818 /* TrainBuddy.xcdatamodeld in Sources */,
 				F86551682B6A5D6000CD5818 /* NextStationView.swift in Sources */,
+				F86551722B6B7AB800CD5818 /* DataController.swift in Sources */,
 				F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */,
 				F865516D2B6A5E4600CD5818 /* TrainMapView.swift in Sources */,
+				F8BBC5352B6D453200D72A1E /* UserDestinationView.swift in Sources */,
 				F865516B2B6A5DFB00CD5818 /* NextStationsView.swift in Sources */,
 				F823E3882B36D5590017D160 /* InfoView.swift in Sources */,
 				F82D9ED12B1B447E00A101C9 /* RailnetAppApp.swift in Sources */,
@@ -678,6 +690,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F865516E2B6B7A1000CD5818 /* TrainBuddy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F865516F2B6B7A1000CD5818 /* TrainBuddy.xcdatamodel */,
+			);
+			currentVersion = F865516F2B6B7A1000CD5818 /* TrainBuddy.xcdatamodel */;
+			path = TrainBuddy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F82D9EC52B1B447E00A101C9 /* Project object */;
 }

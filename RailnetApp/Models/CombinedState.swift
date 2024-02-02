@@ -28,6 +28,7 @@ struct TrainInfo: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        
         let rawSpeed = try? container.decode(Int.self, forKey: .speed)
         let rawGpsPosition = try? container.decode(GPSPosition.self, forKey: .gpsPosition)
         let rawTotalDelay = try? container.decode(Int.self, forKey: .totalDelay)
@@ -58,7 +59,15 @@ struct Connection: Decodable, Identifiable {
     let comment: String?
 }
 
-struct Station: Decodable, Identifiable {
+struct Station: Decodable, Identifiable, Hashable {
+    static func == (lhs: Station, rhs: Station) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
     let id: String
     let name: MultiLang
     let track: MultiLang?
@@ -85,7 +94,11 @@ struct GPSPosition: Decodable {
     let orientation: String?
 }
 
-struct CombinedState: Decodable {
+struct CombinedState: Decodable, Identifiable {
+    var id: String {
+        trainType + lineNumber
+    }
+    
     let lineNumber: String
     let tripNumber: String
     let trainType: String

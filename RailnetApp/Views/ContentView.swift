@@ -10,7 +10,7 @@ import MapKit
 
 struct ContentView: View {
     @StateObject var trainStateManager = TrainStateManager()
-    
+        
     var body: some View {
         Text(trainStateManager.getTitle())
             .font(.largeTitle)
@@ -34,7 +34,8 @@ struct ContentView: View {
                 .padding()
             
         case .Fetching:
-            InfoView().environmentObject(trainStateManager)
+            InfoView()
+                .environmentObject(trainStateManager)
             
         case .CorrectWifi:
             Text("Railnet wurde gefunden. Daten werden geladen...")

@@ -11,6 +11,7 @@ let tileColor = Color(red: 245/256, green: 245/256, blue: 245/256)
 
 struct InfoView: View {
     @EnvironmentObject var trainStateManager: TrainStateManager
+    
     @State var smallSquareSideLength: CGFloat = .zero
     @State var bigSquareSideLength: CGFloat = .zero
     
@@ -37,6 +38,8 @@ struct InfoView: View {
             .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
         
         ScrollView {
+            UserDestinationView().environmentObject(trainStateManager)
+            
             NextStationView().environmentObject(trainStateManager)
             
             NextStationsView().environmentObject(trainStateManager)
@@ -44,8 +47,4 @@ struct InfoView: View {
             TrainMapView().environmentObject(trainStateManager)
         }
     }
-}
-
-#Preview {
-    InfoView()
 }

@@ -26,7 +26,9 @@ class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var combinedState: CombinedState?
     @Published var connectionState: ConnectionState = .Starting
+    @Published var upcomingStations: [Station]?
     @Published var relevantStations: [Station]?
+    @Published var userDestination: Station?
     
     func getTitle() -> String {
         if let combinedState {
@@ -74,10 +76,22 @@ class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         Task {
             do {
                 let combined = try await self.doRequest()
-                let stations = await self.filterStations()
                 await MainActor.run {
                     self.combinedState = combined
-                    self.relevantStations = stations
+                }
+                
+                let upcomingStations = self.getUpcomingStations()
+                await MainActor.run {
+                    if self.relevantStations == nil { // do only first time to not override user choice
+                        self.userDestination = upcomingStations.last!
+                    }
+                    self.upcomingStations = upcomingStations
+                    
+                }
+                
+                let relevantStations = self.getRelevantStations()
+                await MainActor.run {
+                    self.relevantStations = relevantStations
                     self.connectionState = .Fetching
                 }
             } catch {
@@ -103,19 +117,37 @@ class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         throw CombinedStateError.decodeError("File")
     }
     
-    private func filterStations() async -> [Station] {
+    private func getUpcomingStations() -> [Station] {
         var stations = [Station]()
         var nextStationFound = false
+
         if let state = self.combinedState {
             for station in state.stations {
-                if !nextStationFound && station.name.de == state.nextStation.name.de {
+                if !nextStationFound && station == state.nextStation {
                     nextStationFound = true
                 }
+                
                 if nextStationFound {
                     stations.append(station)
                 }
             }
         }
+        return stations
+    }
+    
+    private func getRelevantStations() -> [Station] {
+        var stations = [Station]()
+        
+        if let userDestination = userDestination {
+            for station in self.upcomingStations! {
+                stations.append(station)
+                
+                if station == userDestination {
+                    break
+                }
+            }
+        }
+        
         return stations
     }
     

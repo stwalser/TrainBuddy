@@ -1,0 +1,23 @@
+//
+//  DataController.swift
+//  RailnetApp
+//
+//  Created by Stefan Walser on 01.02.24.
+//
+
+import CoreData
+import Foundation
+
+class DataController: ObservableObject {
+    let container = NSPersistentContainer(name: "TrainBuddy")
+    
+    init() {
+        container.loadPersistentStores { description, error in
+            if let error = error {
+                print("Core Data failed to load: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    
+}
