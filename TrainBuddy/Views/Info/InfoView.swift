@@ -7,14 +7,9 @@
 
 import SwiftUI
 
-let tileColor = Color(red: 245/256, green: 245/256, blue: 245/256)
-
 struct InfoView: View {
     @EnvironmentObject var trainStateManager: TrainStateManager
-    
-    @State var smallSquareSideLength: CGFloat = .zero
-    @State var bigSquareSideLength: CGFloat = .zero
-    
+        
     var body: some View {
         HStack {
             Text(trainStateManager.combinedState!.startStation.utf8DecodedString())
@@ -46,5 +41,6 @@ struct InfoView: View {
             
             TrainMapView().environmentObject(trainStateManager)
         }
+        
     }
 }

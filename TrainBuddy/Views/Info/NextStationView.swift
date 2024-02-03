@@ -100,7 +100,7 @@ struct NextStationView: View {
             }
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
         }
-        .background(RoundedRectangle(cornerRadius: 5.0).fill(tileColor))
+        .background(RoundedRectangle(cornerRadius: 5.0).fill(.white))
         .foregroundStyle(.black)
         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
     }

@@ -47,7 +47,7 @@ struct NextStationsView: View {
             }
             Spacer()
         }
-        .background(RoundedRectangle(cornerRadius: 5.0).fill(tileColor))
+        .background(RoundedRectangle(cornerRadius: 5.0).fill(.white))
         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
     }
 }
