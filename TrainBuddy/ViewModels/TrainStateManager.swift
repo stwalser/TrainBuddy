@@ -31,13 +31,6 @@ class TrainStateManager: NSObject, CLLocationManagerDelegate {
     var relevantStations: [Station]?
     var userDestination: Station?
     
-    func getTitle() -> String {
-        if let combinedState {
-            return "\(combinedState.trainType) \(combinedState.lineNumber)"
-        }
-        return "TrainBuddy"
-    }
-    
     func triggerTimer() {
         locationManager.delegate = self;
         locationManager.requestWhenInUseAuthorization()

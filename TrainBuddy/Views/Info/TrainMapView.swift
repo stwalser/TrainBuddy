@@ -42,6 +42,8 @@ struct TrainMapView: View {
                 Text("Der Zug stellt momentan keine GPS Daten zur Verfügung. 😢")
             }
             
+            Spacer()
+            
         }
         .frame(minHeight: 400)
         .background(RoundedRectangle(cornerRadius: 5.0).fill(.white))

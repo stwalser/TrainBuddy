@@ -54,37 +54,33 @@ struct NextStationView: View {
                 
                 VStack {
                     if let connections = trainStateManager.combinedState!.nextStation.connections {
-                        VStack {
+                        Grid {
                             ForEach(connections) { connection in
-                                HStack {
-                                    if connection.reachable != "yes" {
-                                        Image(systemName: "clock.badge.exclamationmark")
-                                            .foregroundStyle(Color(.red))
-                                        
-                                        Spacer()
+                                GridRow {
+                                    HStack {
+                                        if connection.reachable != "yes" {
+                                            Image(systemName: "clock.badge.exclamationmark")
+                                                .foregroundStyle(Color(.red))
+                                        }
+                                        Text("\(connection.type) \(connection.lineNumber)")
+                                            .font(.subheadline)
                                     }
-                                    
-                                    Grid {
-                                        GridRow {
-                                            Text("\(connection.type) \(connection.lineNumber)")
-                                                .font(.subheadline)
-                                            Text(connection.destination.de!)
-                                                .font(.subheadline)
-                                        }
-                                        GridRow {
-                                            attributeLabel(for: .text("Abfahrt"))
-                                            timeText(for: connection.departure)
-                                        }
-                                        GridRow {
-                                            attributeLabel(for: .text("Bahnsteig"))
-                                            trackNumber(for: connection.track)
-                                        }
-                                        if let comment = connection.comment {
-                                            GridRow {
-                                                attributeLabel(for: .text("Kommentar"))
-                                                stringText(comment)
-                                            }
-                                        }
+                                    Text(connection.destination.de!)
+                                        .font(.subheadline)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                }
+                                GridRow {
+                                    attributeLabel(for: .text("Abfahrt"))
+                                    timeText(for: connection.departure)
+                                }
+                                GridRow {
+                                    attributeLabel(for: .text("Bahnsteig"))
+                                    trackNumber(for: connection.track)
+                                }
+                                if let comment = connection.comment {
+                                    GridRow {
+                                        attributeLabel(for: .text("Kommentar"))
+                                        stringText(comment)
                                     }
                                 }
                                 
