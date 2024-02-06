@@ -16,7 +16,8 @@ enum ConnectionState {
     case Fetching
 }
 
-class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+@Observable
+class TrainStateManager: NSObject, CLLocationManagerDelegate {
     let refreshInterval = 1.0
     let url = "https://railnet.oebb.at/assets/modules/fis/combined.json"
     let railnetSSID = "OEBB"
@@ -24,11 +25,11 @@ class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     var timer = Timer()
     
-    @Published var combinedState: CombinedState?
-    @Published var connectionState: ConnectionState = .Starting
-    @Published var upcomingStations: [Station]?
-    @Published var relevantStations: [Station]?
-    @Published var userDestination: Station?
+    var combinedState: CombinedState?
+    var connectionState: ConnectionState = .Starting
+    var upcomingStations: [Station]?
+    var relevantStations: [Station]?
+    var userDestination: Station?
     
     func getTitle() -> String {
         if let combinedState {
@@ -40,7 +41,7 @@ class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func triggerTimer() {
         locationManager.delegate = self;
         locationManager.requestWhenInUseAuthorization()
-        
+
         self.timer =  Timer.scheduledTimer(withTimeInterval: self.refreshInterval, repeats: true) { _ in
             switch self.connectionState {
             case .Starting:
@@ -111,7 +112,6 @@ class TrainStateManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
         if let url = Bundle.main.url(forResource: "combined", withExtension: ".json") {
             let json = try Data(contentsOf: url)
-//        print(String(data: json, encoding: .utf8))
             return try JSONDecoder().decode(CombinedState.self, from: json)
         }
         throw CombinedStateError.decodeError("File")

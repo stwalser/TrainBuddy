@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F80C68402B728A900072F45E /* CheckWiFiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C683F2B728A900072F45E /* CheckWiFiView.swift */; };
+		F80C68422B728D1E0072F45E /* NoWifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C68412B728D1E0072F45E /* NoWifiView.swift */; };
+		F80C68442B7291570072F45E /* WiFiFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C68432B7291570072F45E /* WiFiFoundView.swift */; };
+		F80C68462B72986C0072F45E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C68452B72986C0072F45E /* ContentView.swift */; };
 		F80FC7222B6908E200766229 /* StationAttributeBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FC7212B6908E200766229 /* StationAttributeBuilders.swift */; };
 		F823E3852B36D0350017D160 /* combined.json in Resources */ = {isa = PBXBuildFile; fileRef = F823E3842B36D0350017D160 /* combined.json */; };
 		F823E3882B36D5590017D160 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823E3872B36D5590017D160 /* InfoView.swift */; };
 		F82D9ED12B1B447E00A101C9 /* TrainBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9ED02B1B447E00A101C9 /* TrainBuddyApp.swift */; };
-		F82D9ED32B1B447E00A101C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9ED22B1B447E00A101C9 /* ContentView.swift */; };
 		F82D9ED52B1B448100A101C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F82D9ED42B1B448100A101C9 /* Assets.xcassets */; };
 		F82D9ED82B1B448100A101C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F82D9ED72B1B448100A101C9 /* Preview Assets.xcassets */; };
-		F82D9EE22B1B448200A101C9 /* RailnetAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9EE12B1B448200A101C9 /* RailnetAppTests.swift */; };
+		F82D9EE22B1B448200A101C9 /* TrainBuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9EE12B1B448200A101C9 /* TrainBuddyTests.swift */; };
 		F82D9EEC2B1B448200A101C9 /* RailnetAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9EEB2B1B448200A101C9 /* RailnetAppUITests.swift */; };
 		F82D9EEE2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D9EED2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift */; };
 		F86551682B6A5D6000CD5818 /* NextStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86551672B6A5D6000CD5818 /* NextStationView.swift */; };
@@ -22,6 +25,13 @@
 		F865516D2B6A5E4600CD5818 /* TrainMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F865516C2B6A5E4600CD5818 /* TrainMapView.swift */; };
 		F86551702B6B7A1000CD5818 /* TrainBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F865516E2B6B7A1000CD5818 /* TrainBuddy.xcdatamodeld */; };
 		F86551722B6B7AB800CD5818 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86551712B6B7AB800CD5818 /* DataController.swift */; };
+		F86E21072B6E38470026C28B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86E21062B6E38460026C28B /* WidgetKit.framework */; };
+		F86E21092B6E38470026C28B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86E21082B6E38470026C28B /* SwiftUI.framework */; };
+		F86E210C2B6E38470026C28B /* TrainBuddyWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E210B2B6E38470026C28B /* TrainBuddyWidgetBundle.swift */; };
+		F86E210E2B6E38470026C28B /* TrainBuddyWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E210D2B6E38470026C28B /* TrainBuddyWidgetLiveActivity.swift */; };
+		F86E21102B6E38470026C28B /* TrainBuddyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E210F2B6E38470026C28B /* TrainBuddyWidget.swift */; };
+		F86E21122B6E38490026C28B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F86E21112B6E38490026C28B /* Assets.xcassets */; };
+		F86E21162B6E38490026C28B /* TrainBuddyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F86E21042B6E38460026C28B /* TrainBuddyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D91D2B2315C700057B5E /* TrainStateManager.swift */; };
 		F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D9202B234E8A00057B5E /* CombinedState.swift */; };
 		F8BBC5352B6D453200D72A1E /* UserDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BBC5342B6D453200D72A1E /* UserDestinationView.swift */; };
@@ -42,19 +52,43 @@
 			remoteGlobalIDString = F82D9ECC2B1B447E00A101C9;
 			remoteInfo = RailnetApp;
 		};
+		F86E21142B6E38490026C28B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F82D9EC52B1B447E00A101C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F86E21032B6E38460026C28B;
+			remoteInfo = TrainBuddyWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F86E21172B6E38490026C28B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F86E21162B6E38490026C28B /* TrainBuddyWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		F80C683F2B728A900072F45E /* CheckWiFiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckWiFiView.swift; path = ../../../../../../../CheckWiFiView.swift; sourceTree = "<group>"; };
+		F80C68412B728D1E0072F45E /* NoWifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoWifiView.swift; path = ../../../../../../../NoWifiView.swift; sourceTree = "<group>"; };
+		F80C68432B7291570072F45E /* WiFiFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WiFiFoundView.swift; path = ../../../../../../../WiFiFoundView.swift; sourceTree = "<group>"; };
+		F80C68452B72986C0072F45E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../../../../../ContentView.swift; sourceTree = "<group>"; };
 		F80FC7212B6908E200766229 /* StationAttributeBuilders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAttributeBuilders.swift; sourceTree = "<group>"; };
 		F823E3842B36D0350017D160 /* combined.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = combined.json; sourceTree = "<group>"; };
 		F823E3872B36D5590017D160 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		F82D9ECD2B1B447E00A101C9 /* TrainBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82D9ED02B1B447E00A101C9 /* TrainBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainBuddyApp.swift; sourceTree = "<group>"; };
-		F82D9ED22B1B447E00A101C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F82D9ED42B1B448100A101C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F82D9ED72B1B448100A101C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F82D9EDD2B1B448200A101C9 /* TrainBuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainBuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F82D9EE12B1B448200A101C9 /* RailnetAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailnetAppTests.swift; sourceTree = "<group>"; };
+		F82D9EE12B1B448200A101C9 /* TrainBuddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainBuddyTests.swift; sourceTree = "<group>"; };
 		F82D9EE72B1B448200A101C9 /* TrainBuddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainBuddyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82D9EEB2B1B448200A101C9 /* RailnetAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailnetAppUITests.swift; sourceTree = "<group>"; };
 		F82D9EED2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailnetAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -63,6 +97,14 @@
 		F865516C2B6A5E4600CD5818 /* TrainMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainMapView.swift; sourceTree = "<group>"; };
 		F865516F2B6B7A1000CD5818 /* TrainBuddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrainBuddy.xcdatamodel; sourceTree = "<group>"; };
 		F86551712B6B7AB800CD5818 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		F86E21042B6E38460026C28B /* TrainBuddyWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TrainBuddyWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F86E21062B6E38460026C28B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		F86E21082B6E38470026C28B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		F86E210B2B6E38470026C28B /* TrainBuddyWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainBuddyWidgetBundle.swift; sourceTree = "<group>"; };
+		F86E210D2B6E38470026C28B /* TrainBuddyWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainBuddyWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		F86E210F2B6E38470026C28B /* TrainBuddyWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainBuddyWidget.swift; sourceTree = "<group>"; };
+		F86E21112B6E38490026C28B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F86E21132B6E38490026C28B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F882D91D2B2315C700057B5E /* TrainStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStateManager.swift; sourceTree = "<group>"; };
 		F882D91F2B23324400057B5E /* TrainBuddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrainBuddy.entitlements; sourceTree = "<group>"; };
 		F882D9202B234E8A00057B5E /* CombinedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedState.swift; sourceTree = "<group>"; };
@@ -92,9 +134,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F86E21012B6E38460026C28B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F86E21092B6E38470026C28B /* SwiftUI.framework in Frameworks */,
+				F86E21072B6E38470026C28B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F80C683E2B728A4D0072F45E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				F80C683F2B728A900072F45E /* CheckWiFiView.swift */,
+				F80C68412B728D1E0072F45E /* NoWifiView.swift */,
+				F80C68432B7291570072F45E /* WiFiFoundView.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		F823E3862B36D2450017D160 /* MockingData */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +170,8 @@
 				F82D9ECF2B1B447E00A101C9 /* TrainBuddy */,
 				F82D9EE02B1B448200A101C9 /* TrainBuddyTests */,
 				F82D9EEA2B1B448200A101C9 /* TrainBuddyUITests */,
+				F86E210A2B6E38470026C28B /* TrainBuddyWidget */,
+				F86E21052B6E38460026C28B /* Frameworks */,
 				F82D9ECE2B1B447E00A101C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +182,7 @@
 				F82D9ECD2B1B447E00A101C9 /* TrainBuddy.app */,
 				F82D9EDD2B1B448200A101C9 /* TrainBuddyTests.xctest */,
 				F82D9EE72B1B448200A101C9 /* TrainBuddyUITests.xctest */,
+				F86E21042B6E38460026C28B /* TrainBuddyWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,7 +215,7 @@
 		F82D9EE02B1B448200A101C9 /* TrainBuddyTests */ = {
 			isa = PBXGroup;
 			children = (
-				F82D9EE12B1B448200A101C9 /* RailnetAppTests.swift */,
+				F82D9EE12B1B448200A101C9 /* TrainBuddyTests.swift */,
 			);
 			path = TrainBuddyTests;
 			sourceTree = "<group>";
@@ -178,6 +242,27 @@
 			path = Info;
 			sourceTree = "<group>";
 		};
+		F86E21052B6E38460026C28B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F86E21062B6E38460026C28B /* WidgetKit.framework */,
+				F86E21082B6E38470026C28B /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F86E210A2B6E38470026C28B /* TrainBuddyWidget */ = {
+			isa = PBXGroup;
+			children = (
+				F86E210B2B6E38470026C28B /* TrainBuddyWidgetBundle.swift */,
+				F86E210D2B6E38470026C28B /* TrainBuddyWidgetLiveActivity.swift */,
+				F86E210F2B6E38470026C28B /* TrainBuddyWidget.swift */,
+				F86E21112B6E38490026C28B /* Assets.xcassets */,
+				F86E21132B6E38490026C28B /* Info.plist */,
+			);
+			path = TrainBuddyWidget;
+			sourceTree = "<group>";
+		};
 		F882D9192B2313F000057B5E /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,8 +283,9 @@
 		F882D91C2B23140500057B5E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F80C683E2B728A4D0072F45E /* Other */,
 				F86551692B6A5D6500CD5818 /* Info */,
-				F82D9ED22B1B447E00A101C9 /* ContentView.swift */,
+				F80C68452B72986C0072F45E /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,10 +300,12 @@
 				F82D9EC92B1B447E00A101C9 /* Sources */,
 				F82D9ECA2B1B447E00A101C9 /* Frameworks */,
 				F82D9ECB2B1B447E00A101C9 /* Resources */,
+				F86E21172B6E38490026C28B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F86E21152B6E38490026C28B /* PBXTargetDependency */,
 			);
 			name = TrainBuddy;
 			productName = RailnetApp;
@@ -260,6 +348,23 @@
 			productReference = F82D9EE72B1B448200A101C9 /* TrainBuddyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F86E21032B6E38460026C28B /* TrainBuddyWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F86E211A2B6E38490026C28B /* Build configuration list for PBXNativeTarget "TrainBuddyWidgetExtension" */;
+			buildPhases = (
+				F86E21002B6E38460026C28B /* Sources */,
+				F86E21012B6E38460026C28B /* Frameworks */,
+				F86E21022B6E38460026C28B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrainBuddyWidgetExtension;
+			productName = TrainBuddyWidgetExtension;
+			productReference = F86E21042B6E38460026C28B /* TrainBuddyWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -267,7 +372,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					F82D9ECC2B1B447E00A101C9 = {
@@ -280,6 +385,9 @@
 					F82D9EE62B1B448200A101C9 = {
 						CreatedOnToolsVersion = 15.0.1;
 						TestTargetID = F82D9ECC2B1B447E00A101C9;
+					};
+					F86E21032B6E38460026C28B = {
+						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
@@ -299,6 +407,7 @@
 				F82D9ECC2B1B447E00A101C9 /* TrainBuddy */,
 				F82D9EDC2B1B448200A101C9 /* TrainBuddyTests */,
 				F82D9EE62B1B448200A101C9 /* TrainBuddyUITests */,
+				F86E21032B6E38460026C28B /* TrainBuddyWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -328,6 +437,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F86E21022B6E38460026C28B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F86E21122B6E38490026C28B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -336,14 +453,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */,
-				F82D9ED32B1B447E00A101C9 /* ContentView.swift in Sources */,
 				F80FC7222B6908E200766229 /* StationAttributeBuilders.swift in Sources */,
+				F80C68402B728A900072F45E /* CheckWiFiView.swift in Sources */,
 				F86551702B6B7A1000CD5818 /* TrainBuddy.xcdatamodeld in Sources */,
 				F86551682B6A5D6000CD5818 /* NextStationView.swift in Sources */,
 				F86551722B6B7AB800CD5818 /* DataController.swift in Sources */,
 				F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */,
 				F865516D2B6A5E4600CD5818 /* TrainMapView.swift in Sources */,
 				F8BBC5352B6D453200D72A1E /* UserDestinationView.swift in Sources */,
+				F80C68422B728D1E0072F45E /* NoWifiView.swift in Sources */,
+				F80C68442B7291570072F45E /* WiFiFoundView.swift in Sources */,
+				F80C68462B72986C0072F45E /* ContentView.swift in Sources */,
 				F865516B2B6A5DFB00CD5818 /* NextStationsView.swift in Sources */,
 				F823E3882B36D5590017D160 /* InfoView.swift in Sources */,
 				F82D9ED12B1B447E00A101C9 /* TrainBuddyApp.swift in Sources */,
@@ -354,7 +474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F82D9EE22B1B448200A101C9 /* RailnetAppTests.swift in Sources */,
+				F82D9EE22B1B448200A101C9 /* TrainBuddyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +484,16 @@
 			files = (
 				F82D9EEE2B1B448200A101C9 /* RailnetAppUITestsLaunchTests.swift in Sources */,
 				F82D9EEC2B1B448200A101C9 /* RailnetAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F86E21002B6E38460026C28B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F86E210E2B6E38470026C28B /* TrainBuddyWidgetLiveActivity.swift in Sources */,
+				F86E210C2B6E38470026C28B /* TrainBuddyWidgetBundle.swift in Sources */,
+				F86E21102B6E38470026C28B /* TrainBuddyWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +509,11 @@
 			isa = PBXTargetDependency;
 			target = F82D9ECC2B1B447E00A101C9 /* TrainBuddy */;
 			targetProxy = F82D9EE82B1B448200A101C9 /* PBXContainerItemProxy */;
+		};
+		F86E21152B6E38490026C28B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F86E21032B6E38460026C28B /* TrainBuddyWidgetExtension */;
+			targetProxy = F86E21142B6E38490026C28B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -505,6 +640,7 @@
 		F82D9EF22B1B448200A101C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TrainBuddy/TrainBuddy.entitlements;
@@ -543,6 +679,7 @@
 		F82D9EF32B1B448200A101C9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TrainBuddy/TrainBuddy.entitlements;
@@ -650,6 +787,64 @@
 			};
 			name = Release;
 		};
+		F86E21182B6E38490026C28B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 35MK3E7S5B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrainBuddyWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TrainBuddyWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.TrainBuddy.TrainBuddyWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F86E21192B6E38490026C28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 35MK3E7S5B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrainBuddyWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TrainBuddyWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.TrainBuddy.TrainBuddyWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -685,6 +880,15 @@
 			buildConfigurations = (
 				F82D9EF82B1B448200A101C9 /* Debug */,
 				F82D9EF92B1B448200A101C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F86E211A2B6E38490026C28B /* Build configuration list for PBXNativeTarget "TrainBuddyWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F86E21182B6E38490026C28B /* Debug */,
+				F86E21192B6E38490026C28B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

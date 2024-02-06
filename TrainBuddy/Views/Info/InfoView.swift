@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct InfoView: View {
-    @EnvironmentObject var trainStateManager: TrainStateManager
+    @State var trainStateManager: TrainStateManager
         
     var body: some View {
         HStack {
@@ -33,13 +33,13 @@ struct InfoView: View {
             .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
         
         ScrollView {
-            UserDestinationView().environmentObject(trainStateManager)
+            UserDestinationView(trainStateManager: trainStateManager)
             
-            NextStationView().environmentObject(trainStateManager)
+            NextStationView(trainStateManager: trainStateManager)
             
-            NextStationsView().environmentObject(trainStateManager)
+            NextStationsView(trainStateManager: trainStateManager)
             
-            TrainMapView().environmentObject(trainStateManager)
+            TrainMapView(trainStateManager: trainStateManager)
         }
         
     }
