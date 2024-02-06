@@ -110,7 +110,7 @@ class TrainStateManager: NSObject, CLLocationManagerDelegate {
 
 //        let (json, _) = try await URLSession.shared.data(for: urlRequest)
 
-        if let url = Bundle.main.url(forResource: "combined", withExtension: ".json") {
+        if let url = Bundle.main.url(forResource: "combined-2", withExtension: ".json") {
             let json = try Data(contentsOf: url)
             return try JSONDecoder().decode(CombinedState.self, from: json)
         }
