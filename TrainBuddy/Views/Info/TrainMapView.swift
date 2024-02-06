@@ -39,7 +39,7 @@ struct TrainMapView: View {
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
                 
             } else {
-                Text("Der Zug stellt momentan keine GPS Info zur Verfügung :(")
+                Text("Der Zug stellt momentan keine GPS Daten zur Verfügung. 😢")
             }
             
         }

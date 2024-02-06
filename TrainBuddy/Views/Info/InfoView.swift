@@ -44,3 +44,23 @@ struct InfoView: View {
         
     }
 }
+
+#Preview {
+    struct Preview: View {
+        @State var trainStateManager = TrainStateManager()
+        @StateObject var dataController = DataController()
+        
+        init() {
+            trainStateManager.triggerTimer()
+        }
+        
+        var body: some View {
+            if trainStateManager.connectionState == .Fetching {
+                InfoView(trainStateManager: trainStateManager)
+                    .environment(\.managedObjectContext, dataController.container.viewContext)
+            }
+        }
+    }
+    
+    return Preview()
+}
