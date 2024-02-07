@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NextStationsView: View {
-    @EnvironmentObject var trainStateManager: TrainStateManager
+    @State var trainStateManager: TrainStateManager
     
     var body: some View {
         VStack {
@@ -50,8 +50,4 @@ struct NextStationsView: View {
         .background(RoundedRectangle(cornerRadius: 5.0).fill(.white))
         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
     }
-}
-
-#Preview {
-    NextStationsView()
 }

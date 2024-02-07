@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct TrainMapView: View {
-    @EnvironmentObject var trainStateManager: TrainStateManager
+    @State var trainStateManager: TrainStateManager
     
     var body: some View {
         VStack {
@@ -24,7 +24,7 @@ struct TrainMapView: View {
             Divider()
             
             if trainStateManager.combinedState!.latestStatus.gpsPosition != nil {
-                Map(bounds: MapCameraBounds(minimumDistance: 500, maximumDistance: nil)) {
+                Map(bounds: MapCameraBounds(minimumDistance: 2000, maximumDistance: nil)) {
                     Annotation("Zug", coordinate: CLLocationCoordinate2D(latitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.latitude)!, longitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.longitude)!))
                     {
                         Text("🚄")
@@ -39,8 +39,10 @@ struct TrainMapView: View {
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
                 
             } else {
-                Text("Der Zug stellt momentan keine GPS Info zur Verfügung :(")
+                Text("Der Zug stellt momentan keine GPS Daten zur Verfügung. 😢")
             }
+            
+            Spacer()
             
         }
         .frame(minHeight: 400)
@@ -48,8 +50,4 @@ struct TrainMapView: View {
         .foregroundStyle(.black)
         .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))
     }
-}
-
-#Preview {
-    TrainMapView()
 }

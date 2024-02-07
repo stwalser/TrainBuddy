@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserDestinationView: View {
-    @EnvironmentObject var trainStateManager: TrainStateManager
+    @State var trainStateManager: TrainStateManager
     @Environment(\.managedObjectContext) var moc
     
     @FetchRequest(sortDescriptors: []) var usedTrains: FetchedResults<UsedTrain>

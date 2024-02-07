@@ -6,9 +6,9 @@
 //
 
 import XCTest
-@testable import RailnetApp
+@testable import TrainBuddy
 
-final class RailnetAppTests: XCTestCase {
+final class TrainBuddyTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
