@@ -1,6 +1,6 @@
 //
 //  NextStationView.swift
-//  RailnetApp
+//  TrainBuddy
 //
 //  Created by Stefan Walser on 31.01.24.
 //

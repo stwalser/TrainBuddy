@@ -1,6 +1,6 @@
 //
 //  ConnectionManager.swift
-//  RailnetApp
+//  TrainBuddy
 //
 //  Created by Stefan Walser on 08.12.23.
 //
@@ -57,11 +57,15 @@ class TrainStateManager: NSObject, CLLocationManagerDelegate {
         Task {
             let ssid = await self.fetchWiFiSSID()
             await MainActor.run {
-//                if ssid == self.railnetSSID {
+#if targetEnvironment(simulator)
+                self.connectionState = .CorrectWifi
+#else
+                if ssid == self.railnetSSID {
                     self.connectionState = .CorrectWifi
-//                } else {
-//                    self.connectionState = .WrongWifi
-//                }
+                } else {
+                    self.connectionState = .WrongWifi
+                }
+#endif
             }
         }
     }
@@ -98,16 +102,20 @@ class TrainStateManager: NSObject, CLLocationManagerDelegate {
     }
     
     private func doRequest() async throws -> CombinedState {
-        let url = URL(string: self.url)!
-        let urlRequest = URLRequest(url: url)
-
-//        let (json, _) = try await URLSession.shared.data(for: urlRequest)
-
+#if targetEnvironment(simulator)
         if let url = Bundle.main.url(forResource: "combined-2", withExtension: ".json") {
             let json = try Data(contentsOf: url)
             return try JSONDecoder().decode(CombinedState.self, from: json)
         }
         throw CombinedStateError.decodeError("File")
+#else
+        let url = URL(string: self.url)!
+        let urlRequest = URLRequest(url: url)
+
+        let (json, _) = try await URLSession.shared.data(for: urlRequest)
+        
+        return try JSONDecoder().decode(CombinedState.self, from: json)
+#endif
     }
     
     private func getUpcomingStations() -> [Station] {

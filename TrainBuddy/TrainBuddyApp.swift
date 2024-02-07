@@ -1,6 +1,6 @@
 //
-//  RailnetAppApp.swift
-//  RailnetApp
+//  TrainBuddyApp.swift
+//  TrainBuddy
 //
 //  Created by Stefan Walser on 02.12.23.
 //
