@@ -13,10 +13,10 @@ struct InfoView: View {
     var body: some View {
         VStack {
             HStack {
-                Text(trainStateManager.combinedState!.startStation.utf8DecodedString())
+                Text(trainStateManager.combinedState!.startStation)
                 Text("→")
                 Text(trainStateManager.combinedState!.destination.de!)
-            }
+            }.padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             
             let delay: Int = {
                 trainStateManager.combinedState!.latestStatus.totalDealy / 60
@@ -51,7 +51,7 @@ struct InfoView: View {
 
 #Preview {
     struct Preview: View {
-        @State var trainStateManager = TrainStateManager(ssid: "OEBB")
+        @State var trainStateManager = TrainStateManager()
         @StateObject var dataController = DataController()
         
         init() {

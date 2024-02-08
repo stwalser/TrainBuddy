@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import NetworkExtension
-import CoreLocation
 
 enum ConnectionState {
     case Starting
@@ -16,18 +14,10 @@ enum ConnectionState {
     case Fetching
 }
 
-@Observable class TrainStateManager: NSObject, CLLocationManagerDelegate {
+@Observable class TrainStateManager {
     let refreshInterval = 1.0
     let url = "https://railnet.oebb.at/assets/modules/fis/combined.json"
-    let railnetSSID: String
-    let locationManager = CLLocationManager()
-    let wifiConfiguration: NEHotspotConfiguration
-    
-    init(ssid: String) {
-        self.railnetSSID = ssid
-        self.wifiConfiguration = NEHotspotConfiguration(ssid: ssid)
-    }
-    
+    let trainWifiManager = TrainWiFiManager(ssid: "OEBB")
     var timer = Timer()
     
     var combinedState: CombinedState?
@@ -37,16 +27,17 @@ enum ConnectionState {
     var userDestination: Station?
     
     func triggerTimer() {
-        locationManager.delegate = self;
-        locationManager.requestWhenInUseAuthorization()
-
         self.timer =  Timer.scheduledTimer(withTimeInterval: self.refreshInterval, repeats: true) { _ in
             switch self.connectionState {
             case .Starting:
-                self.checkWifi()
+                Task {
+                    await self.checkWifi()
+                }
             case .WrongWifi:
-                self.connectToWiFi()
-                self.checkWifi()
+                Task {
+                    await self.trainWifiManager.connectToWiFi()
+                    await self.checkWifi()
+                }
             case .CorrectWifi:
                 self.fetchCombinedState()
             case .Fetching:
@@ -55,21 +46,16 @@ enum ConnectionState {
         }
     }
         
-    private func checkWifi() {
-        Task {
-            let ssid = await self.fetchWiFiSSID()
-            await MainActor.run {
+    private func checkWifi() async {
 #if targetEnvironment(simulator)
-                self.connectionState = .CorrectWifi
+        self.connectionState = .CorrectWifi
 #else
-                if ssid == self.railnetSSID {
-                    self.connectionState = .CorrectWifi
-                } else {
-                    self.connectionState = .WrongWifi
-                }
-#endif
-            }
+        if await self.trainWifiManager.deviceConnectedToTrainWiFi() {
+            self.connectionState = .CorrectWifi
+        } else {
+            self.connectionState = .WrongWifi
         }
+#endif
     }
     
     private func fetchCombinedState() {
@@ -113,8 +99,10 @@ enum ConnectionState {
 #else
         let url = URL(string: self.url)!
         let urlRequest = URLRequest(url: url)
+        let urlSession = URLSession.shared
+        urlSession.configuration.waitsForConnectivity = true
 
-        let (json, _) = try await URLSession.shared.data(for: urlRequest)
+        let (json, _) = try await urlSession.data(for: urlRequest)
         
         return try JSONDecoder().decode(CombinedState.self, from: json)
 #endif
@@ -153,31 +141,4 @@ enum ConnectionState {
         
         return stations
     }
-    
-//    MARK: WIFI Helpers
-    
-    private func connectToWiFi() {
-        Task {
-            do {
-                if UserDefaults.standard.bool(forKey: "autoWiFiConnectOn") {
-                    print("Auto connect is on")
-                    try await NEHotspotConfigurationManager.shared.apply(self.wifiConfiguration)
-                }
-            } catch  {
-                print("An error occurred while trying to connect to the WiFi \(error)")
-            }
-        }
-    }
-    
-    private func fetchWiFiSSID() async -> String {
-        if let ssid = await NEHotspotNetwork.fetchCurrent()?.ssid {
-            return ssid
-        }
-        return ""
-    }
-    
-//    MARK: Location Service Helpers
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) { }
 }
-

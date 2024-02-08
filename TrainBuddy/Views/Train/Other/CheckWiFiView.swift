@@ -29,5 +29,5 @@ struct CheckWiFiView: View {
 }
 
 #Preview {
-    CheckWiFiView(trainStateManager: TrainStateManager(ssid: "OEBB"))
+    CheckWiFiView(trainStateManager: TrainStateManager())
 }

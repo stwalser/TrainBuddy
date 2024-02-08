@@ -21,7 +21,7 @@ struct SettingsContentView: View {
                     } header: {
                         Text("Automatisch Verbinden")
                     } footer: {
-                        Text("Wenn diese Option aktiv ist, verbindet sich das Gerät automatisch mit dem WLAN des Zuges, wenn die App geöffnet wird. Das Gerät verbindet sich nicht mit dem WLAN ohne die App zu öffnen.")
+                        Text("Wenn diese Option aktiv ist, versucht sich das Gerät automatisch mit dem WLAN des Zuges zu verbinden, wenn die App geöffnet wird. Das Gerät verbindet sich nicht mit dem WLAN ohne die App zu öffnen.")
                     }
 
                 }

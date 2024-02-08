@@ -37,6 +37,7 @@
 		F8E7621F2B72CEB000EDADBB /* combined-2.json in Resources */ = {isa = PBXBuildFile; fileRef = F8E7621E2B72CEB000EDADBB /* combined-2.json */; };
 		F8E762242B74BB5600EDADBB /* SettingsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E762232B74BB5600EDADBB /* SettingsContentView.swift */; };
 		F8E762262B74BFD400EDADBB /* TrainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E762252B74BFD400EDADBB /* TrainContentView.swift */; };
+		F8E762282B75332A00EDADBB /* TrainWiFiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E762272B75332A00EDADBB /* TrainWiFiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		F8E7621E2B72CEB000EDADBB /* combined-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "combined-2.json"; sourceTree = "<group>"; };
 		F8E762232B74BB5600EDADBB /* SettingsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentView.swift; sourceTree = "<group>"; };
 		F8E762252B74BFD400EDADBB /* TrainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainContentView.swift; sourceTree = "<group>"; };
+		F8E762272B75332A00EDADBB /* TrainWiFiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainWiFiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 			children = (
 				F86551712B6B7AB800CD5818 /* DataController.swift */,
 				F882D91D2B2315C700057B5E /* TrainStateManager.swift */,
+				F8E762272B75332A00EDADBB /* TrainWiFiManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				F865516D2B6A5E4600CD5818 /* TrainMapView.swift in Sources */,
 				F8BBC5352B6D453200D72A1E /* UserDestinationView.swift in Sources */,
 				F8E762242B74BB5600EDADBB /* SettingsContentView.swift in Sources */,
+				F8E762282B75332A00EDADBB /* TrainWiFiManager.swift in Sources */,
 				F80C68422B728D1E0072F45E /* NoWifiView.swift in Sources */,
 				F80C68442B7291570072F45E /* WiFiFoundView.swift in Sources */,
 				F865516B2B6A5DFB00CD5818 /* NextStationsView.swift in Sources */,
@@ -690,7 +694,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.TrainBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -729,7 +733,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.TrainBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -111,11 +111,3 @@ struct CombinedState: Decodable, Identifiable {
     let nextStation: Station
     let nextStationProgress: Int
 }
-
-extension String {
-    func utf8DecodedString() -> String {
-        let data = self.data(using: .utf8)
-        let message = String(data: data!, encoding: .nonLossyASCII) ?? ""
-        return message
-    }
-}

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TrainContentView: View {
-    @State var trainStateManager = TrainStateManager(ssid: "OEBB")
+    @State var trainStateManager = TrainStateManager()
     @AppStorage("showWiFiAutoConnectAlert") var showWiFiAutoConnectAlert = true
     @AppStorage("autoWiFiConnectOn") var autoWiFiConnectOn = false
     
@@ -39,7 +39,7 @@ struct TrainContentView: View {
                 Text("Nein")
             }
         } message: {
-            Text("Soll TrainBuddy dein Gerät automatisch mit dem WLAN des Zuges verbinden, wenn die App geöffnet wird? Diese Funktion kann jederzeit wieder deaktiviert werden.")
+            Text("Soll TrainBuddy, wenn dein Gerät nicht mit dem Zug-WLAN verbunden ist, beim Start der App versuchen das Gerät mit dem Zug-WLAN zu verbinden? Diese Einstellung kann jederzeit geändert werden.")
         }
     }
 }
