@@ -113,7 +113,7 @@
 		F8BBC5342B6D453200D72A1E /* UserDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDestinationView.swift; sourceTree = "<group>"; };
 		F8E7621E2B72CEB000EDADBB /* combined-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "combined-2.json"; sourceTree = "<group>"; };
 		F8E762232B74BB5600EDADBB /* SettingsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentView.swift; sourceTree = "<group>"; };
-		F8E762252B74BFD400EDADBB /* TrainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrainContentView.swift; path = ../../../../../../../TrainContentView.swift; sourceTree = "<group>"; };
+		F8E762252B74BFD400EDADBB /* TrainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
