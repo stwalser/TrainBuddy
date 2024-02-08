@@ -10,7 +10,6 @@
 		F80C68402B728A900072F45E /* CheckWiFiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C683F2B728A900072F45E /* CheckWiFiView.swift */; };
 		F80C68422B728D1E0072F45E /* NoWifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C68412B728D1E0072F45E /* NoWifiView.swift */; };
 		F80C68442B7291570072F45E /* WiFiFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C68432B7291570072F45E /* WiFiFoundView.swift */; };
-		F80C68462B72986C0072F45E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C68452B72986C0072F45E /* ContentView.swift */; };
 		F80FC7222B6908E200766229 /* StationAttributeBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FC7212B6908E200766229 /* StationAttributeBuilders.swift */; };
 		F823E3852B36D0350017D160 /* combined.json in Resources */ = {isa = PBXBuildFile; fileRef = F823E3842B36D0350017D160 /* combined.json */; };
 		F823E3882B36D5590017D160 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823E3872B36D5590017D160 /* InfoView.swift */; };
@@ -36,6 +35,8 @@
 		F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D9202B234E8A00057B5E /* CombinedState.swift */; };
 		F8BBC5352B6D453200D72A1E /* UserDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BBC5342B6D453200D72A1E /* UserDestinationView.swift */; };
 		F8E7621F2B72CEB000EDADBB /* combined-2.json in Resources */ = {isa = PBXBuildFile; fileRef = F8E7621E2B72CEB000EDADBB /* combined-2.json */; };
+		F8E762242B74BB5600EDADBB /* SettingsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E762232B74BB5600EDADBB /* SettingsContentView.swift */; };
+		F8E762262B74BFD400EDADBB /* TrainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E762252B74BFD400EDADBB /* TrainContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,10 +78,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F80C683F2B728A900072F45E /* CheckWiFiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckWiFiView.swift; path = ../../../../../../../CheckWiFiView.swift; sourceTree = "<group>"; };
-		F80C68412B728D1E0072F45E /* NoWifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoWifiView.swift; path = ../../../../../../../NoWifiView.swift; sourceTree = "<group>"; };
-		F80C68432B7291570072F45E /* WiFiFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WiFiFoundView.swift; path = ../../../../../../../WiFiFoundView.swift; sourceTree = "<group>"; };
-		F80C68452B72986C0072F45E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../../../../../ContentView.swift; sourceTree = "<group>"; };
+		F80C683F2B728A900072F45E /* CheckWiFiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckWiFiView.swift; sourceTree = "<group>"; };
+		F80C68412B728D1E0072F45E /* NoWifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoWifiView.swift; sourceTree = "<group>"; };
+		F80C68432B7291570072F45E /* WiFiFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiFoundView.swift; sourceTree = "<group>"; };
 		F80FC7212B6908E200766229 /* StationAttributeBuilders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAttributeBuilders.swift; sourceTree = "<group>"; };
 		F823E3842B36D0350017D160 /* combined.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = combined.json; sourceTree = "<group>"; };
 		F823E3872B36D5590017D160 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -112,6 +112,8 @@
 		F8B04FD02B248A1000BB1E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F8BBC5342B6D453200D72A1E /* UserDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDestinationView.swift; sourceTree = "<group>"; };
 		F8E7621E2B72CEB000EDADBB /* combined-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "combined-2.json"; sourceTree = "<group>"; };
+		F8E762232B74BB5600EDADBB /* SettingsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentView.swift; sourceTree = "<group>"; };
+		F8E762252B74BFD400EDADBB /* TrainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrainContentView.swift; path = ../../../../../../../TrainContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,11 +288,28 @@
 		F882D91C2B23140500057B5E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F80C683E2B728A4D0072F45E /* Other */,
-				F86551692B6A5D6500CD5818 /* Info */,
-				F80C68452B72986C0072F45E /* ContentView.swift */,
+				F8E762212B74BAF300EDADBB /* Settings */,
+				F8E762202B74BAD200EDADBB /* Train */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F8E762202B74BAD200EDADBB /* Train */ = {
+			isa = PBXGroup;
+			children = (
+				F80C683E2B728A4D0072F45E /* Other */,
+				F86551692B6A5D6500CD5818 /* Info */,
+				F8E762252B74BFD400EDADBB /* TrainContentView.swift */,
+			);
+			path = Train;
+			sourceTree = "<group>";
+		};
+		F8E762212B74BAF300EDADBB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F8E762232B74BB5600EDADBB /* SettingsContentView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,13 +480,14 @@
 				F80C68402B728A900072F45E /* CheckWiFiView.swift in Sources */,
 				F86551702B6B7A1000CD5818 /* TrainBuddy.xcdatamodeld in Sources */,
 				F86551682B6A5D6000CD5818 /* NextStationView.swift in Sources */,
+				F8E762262B74BFD400EDADBB /* TrainContentView.swift in Sources */,
 				F86551722B6B7AB800CD5818 /* DataController.swift in Sources */,
 				F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */,
 				F865516D2B6A5E4600CD5818 /* TrainMapView.swift in Sources */,
 				F8BBC5352B6D453200D72A1E /* UserDestinationView.swift in Sources */,
+				F8E762242B74BB5600EDADBB /* SettingsContentView.swift in Sources */,
 				F80C68422B728D1E0072F45E /* NoWifiView.swift in Sources */,
 				F80C68442B7291570072F45E /* WiFiFoundView.swift in Sources */,
-				F80C68462B72986C0072F45E /* ContentView.swift in Sources */,
 				F865516B2B6A5DFB00CD5818 /* NextStationsView.swift in Sources */,
 				F823E3882B36D5590017D160 /* InfoView.swift in Sources */,
 				F82D9ED12B1B447E00A101C9 /* TrainBuddyApp.swift in Sources */,

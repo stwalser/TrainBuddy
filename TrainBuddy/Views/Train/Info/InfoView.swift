@@ -12,8 +12,6 @@ struct InfoView: View {
         
     var body: some View {
         VStack {
-            titleBuilder(trainStateManager.combinedState!.trainType + " " + trainStateManager.combinedState!.lineNumber)
-            
             HStack {
                 Text(trainStateManager.combinedState!.startStation.utf8DecodedString())
                 Text("→")
@@ -45,6 +43,7 @@ struct InfoView: View {
                 TrainMapView(trainStateManager: trainStateManager)
             }
         }
+        .navigationTitle(trainStateManager.combinedState!.trainType + " " + trainStateManager.combinedState!.lineNumber)
         .containerRelativeFrame([.horizontal, .vertical])
         .background(backgroundColor)
     }
@@ -52,7 +51,7 @@ struct InfoView: View {
 
 #Preview {
     struct Preview: View {
-        @State var trainStateManager = TrainStateManager()
+        @State var trainStateManager = TrainStateManager(ssid: "OEBB")
         @StateObject var dataController = DataController()
         
         init() {

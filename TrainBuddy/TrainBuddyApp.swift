@@ -15,8 +15,14 @@ struct RailnetAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, dataController.container.viewContext)
+            TabView {
+                TrainContentView()
+                    .environment(\.managedObjectContext, dataController.container.viewContext)
+                    .tabItem { Label("Zug", systemImage: "train.side.front.car") }
+                
+                SettingsContentView()
+                    .tabItem { Label("Einstellungen", systemImage: "gear") }
+            }
         }
     }
 }

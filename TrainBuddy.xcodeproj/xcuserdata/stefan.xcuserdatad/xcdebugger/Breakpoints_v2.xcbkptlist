@@ -7,54 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2A2DB140-F5C5-4D39-A82F-47D2134C4287"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TrainBuddy/TrainBuddyApp.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "2A2DB140-F5C5-4D39-A82F-47D2134C4287 - 15edf7b45b887a66"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrainBuddy.RailnetAppApp.body.getter : some"
-                  moduleName = "TrainBuddy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/stefan/Documents/Programmieren/Swift/TrainBuddy/TrainBuddy/TrainBuddyApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "282">
-               </Location>
-               <Location
-                  uuid = "2A2DB140-F5C5-4D39-A82F-47D2134C4287 - 24648ef366bcd9a8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; TrainBuddy.ContentView in TrainBuddy.RailnetAppApp.body.getter : some"
-                  moduleName = "TrainBuddy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/stefan/Documents/Programmieren/Swift/TrainBuddy/TrainBuddy/TrainBuddyApp.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "54">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "11C45205-0E1F-4956-9C8F-346D156300E6"
             shouldBeEnabled = "No"
             ignoreCount = "0"

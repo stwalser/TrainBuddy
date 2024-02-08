@@ -16,12 +16,17 @@ enum ConnectionState {
     case Fetching
 }
 
-@Observable
-class TrainStateManager: NSObject, CLLocationManagerDelegate {
+@Observable class TrainStateManager: NSObject, CLLocationManagerDelegate {
     let refreshInterval = 1.0
     let url = "https://railnet.oebb.at/assets/modules/fis/combined.json"
-    let railnetSSID = "OEBB"
+    let railnetSSID: String
     let locationManager = CLLocationManager()
+    let wifiConfiguration: NEHotspotConfiguration
+    
+    init(ssid: String) {
+        self.railnetSSID = ssid
+        self.wifiConfiguration = NEHotspotConfiguration(ssid: ssid)
+    }
     
     var timer = Timer()
     
@@ -40,6 +45,7 @@ class TrainStateManager: NSObject, CLLocationManagerDelegate {
             case .Starting:
                 self.checkWifi()
             case .WrongWifi:
+                self.connectToWiFi()
                 self.checkWifi()
             case .CorrectWifi:
                 self.fetchCombinedState()
@@ -48,11 +54,7 @@ class TrainStateManager: NSObject, CLLocationManagerDelegate {
             }
         }
     }
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        print(manager.authorizationStatus.rawValue)
-    }
-    
+        
     private func checkWifi() {
         Task {
             let ssid = await self.fetchWiFiSSID()
@@ -103,7 +105,7 @@ class TrainStateManager: NSObject, CLLocationManagerDelegate {
     
     private func doRequest() async throws -> CombinedState {
 #if targetEnvironment(simulator)
-        if let url = Bundle.main.url(forResource: "combined-2", withExtension: ".json") {
+        if let url = Bundle.main.url(forResource: "combined", withExtension: ".json") {
             let json = try Data(contentsOf: url)
             return try JSONDecoder().decode(CombinedState.self, from: json)
         }
@@ -152,11 +154,30 @@ class TrainStateManager: NSObject, CLLocationManagerDelegate {
         return stations
     }
     
+//    MARK: WIFI Helpers
+    
+    private func connectToWiFi() {
+        Task {
+            do {
+                if UserDefaults.standard.bool(forKey: "autoWiFiConnectOn") {
+                    print("Auto connect is on")
+                    try await NEHotspotConfigurationManager.shared.apply(self.wifiConfiguration)
+                }
+            } catch  {
+                print("An error occurred while trying to connect to the WiFi \(error)")
+            }
+        }
+    }
+    
     private func fetchWiFiSSID() async -> String {
         if let ssid = await NEHotspotNetwork.fetchCurrent()?.ssid {
             return ssid
         }
         return ""
     }
+    
+//    MARK: Location Service Helpers
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) { }
 }
 

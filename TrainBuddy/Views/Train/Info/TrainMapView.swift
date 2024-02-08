@@ -27,7 +27,7 @@ struct TrainMapView: View {
                 Map(bounds: MapCameraBounds(minimumDistance: 2000, maximumDistance: nil)) {
                     Annotation("Zug", coordinate: CLLocationCoordinate2D(latitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.latitude)!, longitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.longitude)!))
                     {
-                        Text("🚄")
+                        Image(systemName: "train.side.front.car")
                             .padding()
                     }
                 }
