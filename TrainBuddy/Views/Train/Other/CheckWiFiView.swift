@@ -22,8 +22,6 @@ struct CheckWiFiView: View {
             Spacer()
         }
         .navigationTitle("TrainBuddy")
-        .containerRelativeFrame([.horizontal, .vertical])
-        .background(backgroundColor)
         .onAppear(perform: trainStateManager.triggerTimer)
     }
 }

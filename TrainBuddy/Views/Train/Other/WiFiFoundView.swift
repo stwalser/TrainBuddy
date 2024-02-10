@@ -22,8 +22,6 @@ struct WiFiFoundView: View {
             Spacer()
         }
         .navigationTitle("TrainBuddy")
-        .containerRelativeFrame([.horizontal, .vertical])
-        .background(backgroundColor)
     }
 }
 

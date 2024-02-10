@@ -46,6 +46,7 @@ struct NextStationView: View {
                             }
                         }
                     }
+                    
                     Spacer()
                 }
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
@@ -67,7 +68,6 @@ struct NextStationView: View {
                                     }
                                     Text(connection.destination.de!)
                                         .font(.subheadline)
-                                        .fixedSize(horizontal: false, vertical: true)
                                 }
                                 GridRow {
                                     attributeLabel(for: .text("Abfahrt"))
@@ -91,13 +91,10 @@ struct NextStationView: View {
                     } else {
                         Text("Noch nicht verfügbar")
                     }
-                    
                 }
             }
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
         }
-        .background(RoundedRectangle(cornerRadius: 5.0).fill(.white))
         .foregroundStyle(.black)
-        .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
     }
 }

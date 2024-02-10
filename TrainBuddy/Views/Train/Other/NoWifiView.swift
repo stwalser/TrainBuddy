@@ -22,8 +22,6 @@ struct NoWifiView: View {
             Spacer()
         }
         .navigationTitle("TrainBuddy")
-        .containerRelativeFrame([.horizontal, .vertical])
-        .background(backgroundColor)
     }
 }
 

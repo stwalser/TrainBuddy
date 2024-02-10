@@ -19,6 +19,7 @@ struct RailnetAppApp: App {
                 TrainContentView()
                     .environment(\.managedObjectContext, dataController.container.viewContext)
                     .tabItem { Label("Zug", systemImage: "train.side.front.car") }
+                    .fontDesign(.rounded)
                 
                 SettingsContentView()
                     .tabItem { Label("Einstellungen", systemImage: "gear") }

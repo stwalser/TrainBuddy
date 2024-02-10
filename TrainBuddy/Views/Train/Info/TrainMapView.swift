@@ -46,8 +46,6 @@ struct TrainMapView: View {
             
         }
         .frame(minHeight: 400)
-        .background(RoundedRectangle(cornerRadius: 5.0).fill(.white))
         .foregroundStyle(.black)
-        .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))
     }
 }
