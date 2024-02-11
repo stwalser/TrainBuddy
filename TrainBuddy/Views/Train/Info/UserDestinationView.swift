@@ -15,27 +15,28 @@ struct UserDestinationView: View {
     
     var body: some View {
         VStack {
+            SectionTitle("Mein Ziel")
+                        
             HStack {
-                Label("Mein Ziel", systemImage: "person")
-                    .font(.footnote)
-                    .foregroundStyle(.gray)
-                Spacer()
-            }
-            .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 0))
-            
-            Divider()
-            
-            Picker("", selection: $trainStateManager.userDestination) {
-                ForEach(trainStateManager.upcomingStations!, id: \.self) { station in
-                    Text(station.name.de!).tag(station as Station?)
+                HStack {
+                    Picker("", selection: $trainStateManager.userDestination) {
+                        ForEach(trainStateManager.upcomingStations!, id: \.self) { station in
+                            Text(station.name.de!).tag(station as Station?)
+                        }
+                    }
+                    .onAppear(perform: {
+                        parseUserDestinations()
+                    })
+                    .onChange(of: trainStateManager.userDestination) {
+                        storeUserDestination()
+                    }
+                    
+                    Spacer()
                 }
+                .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
+                .background(RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 0.5))
             }
-            .onAppear(perform: {
-                parseUserDestinations()
-            })
-            .onChange(of: trainStateManager.userDestination) {
-                storeUserDestination()
-            }
+            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
         }
     }
     

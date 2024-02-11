@@ -12,89 +12,85 @@ struct NextStationView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Label("Nächster Halt", systemImage: "arrow.forward.to.line")
-                    .font(.footnote)
-                    .foregroundStyle(.gray)
-                Spacer()
-            }
-            .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 0))
-            
-            Divider()
+            SectionTitle("Nächster Halt")
             
             HStack {
-                VStack(alignment: .leading) {
-                    Text(trainStateManager.combinedState!.nextStation.name.de!)
-                        .font(.title2)
-                    Grid(alignment: .leading) {
-                        GridRow {
-                            attributeLabel(for: .text("Ankunft"))
-                            timeText(for: trainStateManager.combinedState!.nextStation.arrival)
-                        }
-                        GridRow {
-                            attributeLabel(for: .text("Abfahrt"))
-                            timeText(for: trainStateManager.combinedState!.nextStation.departure)
-                        }
-                        GridRow {
-                            attributeLabel(for: .text("Bahnsteig"))
-                            trackNumber(for: trainStateManager.combinedState!.nextStation.track)
-                        }
-                        if let exitSide = trainStateManager.combinedState!.nextStation.exitSide {
-                            GridRow {
-                                attributeLabel(for: .text("Ausstieg"))
-                                stringText(exitSide)
-                            }
-                        }
-                    }
-                    
-                    Spacer()
-                }
-                .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
-                                    
-                Divider()
+                SingleInfo(main: trainStateManager.combinedState!.nextStation.name.de!, caption: "")
                 
-                VStack {
-                    if let connections = trainStateManager.combinedState!.nextStation.connections {
-                        Grid {
-                            ForEach(connections) { connection in
-                                GridRow {
-                                    HStack {
-                                        if connection.reachable != "yes" {
-                                            Image(systemName: "clock.badge.exclamationmark")
-                                                .foregroundStyle(Color(.red))
-                                        }
-                                        Text("\(connection.type) \(connection.lineNumber)")
-                                            .font(.subheadline)
+                if let track = trainStateManager.combinedState!.nextStation.track {
+                    Divider()
+                        .frame(height: 40)
+                    
+                    SingleInfo(main: track.de!, caption: "Bahnsteig")
+                }
+            }
+            .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))
+            
+            HStack {
+                HStack {
+                    HStack {
+                        timeTextBold(for: trainStateManager.combinedState!.nextStation.arrival)
+                        Text("An")
+                        
+                        Spacer()
+                    }
+                }
+                
+                Divider()
+                    .frame(height: 40)
+                
+                HStack {
+                    HStack {
+                        timeTextBold(for: trainStateManager.combinedState!.nextStation.departure)
+                        Text("Ab")
+                        
+                        Spacer()
+                    }
+                }
+            }
+            .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))
+            
+            SubsectionTitle("Anschlüsse")
+                        
+            VStack {
+                if let connections = trainStateManager.combinedState!.nextStation.connections {
+                    Grid {
+                        ForEach(connections) { connection in
+                            GridRow {
+                                HStack {
+                                    if connection.reachable != "yes" {
+                                        Image(systemName: "clock.badge.exclamationmark")
+                                            .foregroundStyle(Color(.red))
                                     }
-                                    Text(connection.destination.de!)
+                                    Text("\(connection.type) \(connection.lineNumber)")
                                         .font(.subheadline)
                                 }
-                                GridRow {
-                                    attributeLabel(for: .text("Abfahrt"))
-                                    timeText(for: connection.departure)
-                                }
-                                GridRow {
-                                    attributeLabel(for: .text("Bahnsteig"))
-                                    trackNumber(for: connection.track)
-                                }
-                                if let comment = connection.comment {
-                                    GridRow {
-                                        attributeLabel(for: .text("Kommentar"))
-                                        stringText(comment)
-                                    }
-                                }
-                                
-                                Divider()
+                                Text(connection.destination.de!)
+                                    .font(.subheadline)
                             }
+                            GridRow {
+                                attributeLabel(for: .text("Abfahrt"))
+                                timeText(for: connection.departure)
+                            }
+                            GridRow {
+                                attributeLabel(for: .text("Bahnsteig"))
+                                trackNumber(for: connection.track)
+                            }
+                            if let comment = connection.comment {
+                                GridRow {
+                                    attributeLabel(for: .text("Kommentar"))
+                                    stringText(comment)
+                                }
+                            }
+                            
+                            Divider()
                         }
-                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                    } else {
-                        Text("Noch nicht verfügbar")
                     }
+                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
+                } else {
+                    Text("Noch nicht verfügbar")
                 }
             }
-            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
         }
-        .foregroundStyle(.black)
     }
 }

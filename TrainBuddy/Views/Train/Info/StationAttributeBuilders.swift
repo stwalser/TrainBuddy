@@ -23,16 +23,30 @@ import SwiftUI
     }
 }
 
+@ViewBuilder func timeTextBold(for timeEvent: Time) -> some View {
+    if timeEvent.scheduled == timeEvent.forecast {
+        Text(timeEvent.scheduled)
+            .font(.system(.title2, weight: .bold))
+    } else {
+        if timeEvent.scheduled != "" {
+            Text(timeEvent.scheduled)
+                .font(.system(.title2, weight: .bold))
+                .strikethrough()
+            Text(timeEvent.forecast ?? "N/A")
+                .font(.system(.title2, weight: .bold))
+                .foregroundStyle(.orange)
+        }
+    }
+}
+
 @ViewBuilder func attributeLabel(for attribute: AttributeType) -> some View {
     switch attribute {
     case .arrival:
-        Image(systemName: "square.and.arrow.down")
-            .rotationEffect(Angle(degrees: 270))
+        Text("An")
             .font(.caption)
             .foregroundStyle(.gray)
     case .departure:
-        Image(systemName: "square.and.arrow.up")
-            .rotationEffect(Angle(degrees: 90))
+        Text("Ab")
             .font(.caption)
             .foregroundStyle(.gray)
     case .text(let string):
