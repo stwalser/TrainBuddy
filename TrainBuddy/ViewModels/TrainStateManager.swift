@@ -12,133 +12,84 @@ enum ConnectionState {
     case WrongWifi
     case CorrectWifi
     case Fetching
+    case Error
 }
 
-@Observable class TrainStateManager {
-    let refreshInterval = 1.0
-    let url = "https://railnet.oebb.at/assets/modules/fis/combined.json"
-    let trainWifiManager = TrainWiFiManager(ssid: "OEBB")
-    var timer = Timer()
-    
-    var combinedState: CombinedState?
+@Observable
+class TrainStateManager {
+    @ObservationIgnored let refreshInterval = 1.0
+    @ObservationIgnored let trainWifiManager = TrainWiFiManager()
+    @ObservationIgnored var company: Company?
+    @ObservationIgnored var trainCommunicator: TrainCommunicator?
+    @ObservationIgnored var timer = Timer()
+
     var connectionState: ConnectionState = .Starting
-    var upcomingStations: [Station]?
-    var relevantStations: [Station]?
-    var userDestination: Station?
+    var trainState: TrainState?
     
     func triggerTimer() {
         self.timer =  Timer.scheduledTimer(withTimeInterval: self.refreshInterval, repeats: true) { _ in
             switch self.connectionState {
             case .Starting:
                 Task {
-                    await self.checkWifi()
+                    await self.checkWifiState()
                 }
             case .WrongWifi:
                 Task {
-                    await self.trainWifiManager.connectToWiFi()
-                    await self.checkWifi()
+//                    await self.trainWifiManager.connectToWiFi()
+                    await self.checkWifiState()
+                    self.trainState = nil
                 }
             case .CorrectWifi:
-                self.fetchCombinedState()
+                Task {
+                    do {
+                        let state = try await self.trainCommunicator!.fetchCombinedState()
+                        self.trainState = TrainState(for: self.company!, state: state)
+                        self.connectionState = .Fetching
+                    } catch {
+                        self.connectionState = .Error
+                    }
+                }
             case .Fetching:
-                self.fetchCombinedState()
+                Task {
+                    do {
+                        self.trainState!.update(try await self.trainCommunicator!.fetchCombinedState())
+                    } catch {
+                        self.connectionState = .Error
+                    }
+                }
+            case .Error:
+                Task {
+                    await self.checkWifiState()
+                }
             }
         }
     }
+    
+    func addLiveActivity() {
+        Task {
+            await self.trainState!.startLiveActivity()
+        }
+    }
+    
+    func removeLiveActivity() {
+        Task {
+            await self.trainState!.stopLiveActivity()
+        }
+    }
         
-    private func checkWifi() async {
+    private func checkWifiState() async {
 #if targetEnvironment(simulator)
+        self.company = .OEBB
+        self.trainCommunicator = TrainCommunicator(for: .OEBB)
         self.connectionState = .CorrectWifi
 #else
-        if await self.trainWifiManager.deviceConnectedToTrainWiFi() {
+        if let company = await self.trainWifiManager.getTrainCompany() {
             self.connectionState = .CorrectWifi
+            self.company = company
+            self.trainCommunicator = TrainCommunicator(for: company)
         } else {
             self.connectionState = .WrongWifi
         }
 #endif
-    }
-    
-    private func fetchCombinedState() {
-        Task {
-            do {
-                let combined = try await self.doRequest()
-                await MainActor.run {
-                    self.combinedState = combined
-                }
-                
-                let upcomingStations = self.getUpcomingStations()
-                await MainActor.run {
-                    if self.relevantStations == nil { // do only first time to not override user choice
-                        self.userDestination = upcomingStations.last!
-                    }
-                    self.upcomingStations = upcomingStations
-                    
-                }
-                
-                let relevantStations = self.getRelevantStations()
-                await MainActor.run {
-                    self.relevantStations = relevantStations
-                    self.connectionState = .Fetching
-                }
-            } catch {
-                print(error)
-                await MainActor.run {
-                    self.connectionState = .WrongWifi
-                }
-            }
-        }
-    }
-    
-    private func doRequest() async throws -> CombinedState {
-#if targetEnvironment(simulator)
-        if let url = Bundle.main.url(forResource: "combined-2", withExtension: ".json") {
-            let json = try Data(contentsOf: url)
-            return try JSONDecoder().decode(CombinedState.self, from: json)
-        }
-        throw CombinedStateError.decodeError("File")
-#else
-        let url = URL(string: self.url)!
-        let urlRequest = URLRequest(url: url)
-        let urlSession = URLSession.shared
-        urlSession.configuration.waitsForConnectivity = true
-
-        let (json, _) = try await urlSession.data(for: urlRequest)
-        
-        return try JSONDecoder().decode(CombinedState.self, from: json)
-#endif
-    }
-    
-    private func getUpcomingStations() -> [Station] {
-        var stations = [Station]()
-        var nextStationFound = false
-
-        if let state = self.combinedState {
-            for station in state.stations {
-                if !nextStationFound && station == state.nextStation {
-                    nextStationFound = true
-                }
-                
-                if nextStationFound {
-                    stations.append(station)
-                }
-            }
-        }
-        return stations
-    }
-    
-    private func getRelevantStations() -> [Station] {
-        var stations = [Station]()
-        
-        if let userDestination = userDestination {
-            for station in self.upcomingStations! {
-                stations.append(station)
-                
-                if station == userDestination {
-                    break
-                }
-            }
-        }
-        
-        return stations
     }
 }

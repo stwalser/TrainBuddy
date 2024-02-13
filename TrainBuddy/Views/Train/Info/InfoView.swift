@@ -15,16 +15,16 @@ struct InfoView: View {
            SectionTitle("Allgemein")
             
             HStack {
-                SingleInfo(main: "\(trainStateManager.combinedState!.startStation) → \(trainStateManager.combinedState!.destination.de!)", caption: "")
+                SingleInfo(main: "\(trainStateManager.trainState!.state.startStation) → \(trainStateManager.trainState!.state.destination.de!)", caption: "")
             }
             .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))
             
             let delay: Int = {
-                trainStateManager.combinedState!.latestStatus.totalDealy / 60
+                trainStateManager.trainState!.state.latestStatus.totalDealy / 60
             }()
             
             HStack {
-                SingleInfo(main: String(trainStateManager.combinedState!.latestStatus.speed), caption: "km/h")
+                SingleInfo(main: String(trainStateManager.trainState!.state.latestStatus.speed), caption: "km/h")
                 
                 if delay > 0  {
                     Divider()
@@ -47,7 +47,7 @@ struct InfoView: View {
                 TrainMapView(trainStateManager: trainStateManager)
             }
         }
-        .navigationTitle(trainStateManager.combinedState!.trainType + " " + trainStateManager.combinedState!.lineNumber)
+        .navigationTitle(trainStateManager.trainState!.state.id)
     }
 }
 

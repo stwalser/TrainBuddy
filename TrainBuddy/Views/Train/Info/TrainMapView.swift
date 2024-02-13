@@ -15,9 +15,9 @@ struct TrainMapView: View {
         VStack {
             SectionTitle("Karte")
                         
-            if trainStateManager.combinedState!.latestStatus.gpsPosition != nil {
+            if trainStateManager.trainState!.state.latestStatus.gpsPosition != nil {
                 Map(bounds: MapCameraBounds(minimumDistance: 2000, maximumDistance: nil)) {
-                    Annotation("Zug", coordinate: CLLocationCoordinate2D(latitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.latitude)!, longitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.longitude)!))
+                    Annotation("Zug", coordinate: CLLocationCoordinate2D(latitude: Double(trainStateManager.trainState!.state.latestStatus.gpsPosition!.latitude)!, longitude: Double(trainStateManager.trainState!.state.latestStatus.gpsPosition!.longitude)!))
                     {
                         Image(systemName: "train.side.front.car")
                             .foregroundStyle(titleColor)

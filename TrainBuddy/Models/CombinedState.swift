@@ -96,7 +96,7 @@ struct GPSPosition: Decodable {
 
 struct CombinedState: Decodable, Identifiable {
     var id: String {
-        trainType + lineNumber
+        trainType + " " + lineNumber
     }
     
     let lineNumber: String

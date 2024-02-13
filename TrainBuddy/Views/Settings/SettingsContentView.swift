@@ -8,22 +8,27 @@
 import SwiftUI
 
 struct SettingsContentView: View {
-    @AppStorage("autoWiFiConnectOn") var autoWiFiConnectOn = false
+    @AppStorage("liveActivitiyOn") var liveActivityOn = false
+    @State var trainStateManager: TrainStateManager
     
     var body: some View {
         NavigationView {
             VStack {
                 List {
                     Section {
-                        Toggle(isOn: $autoWiFiConnectOn, label: {
-                            Text("Autom. mit Zug-WLAN verbinden")
+                        Toggle(isOn: $liveActivityOn, label: {
+                            Text("Live Aktivität anzeigen")
                         })
+                        .onChange(of: liveActivityOn) { _, newValue in
+                            if newValue {
+                                trainStateManager.addLiveActivity()
+                            } else {
+                                trainStateManager.removeLiveActivity()
+                            }
+                        }
                     } header: {
-                        Text("Automatisch Verbinden")
-                    } footer: {
-                        Text("Wenn diese Option aktiv ist, versucht sich das Gerät automatisch mit dem WLAN des Zuges zu verbinden, wenn die App geöffnet wird. Das Gerät verbindet sich nicht mit dem WLAN ohne die App zu öffnen.")
+                        Text("Live Aktivität")
                     }
-
                 }
             }
             .navigationTitle("Einstellungen")
@@ -32,5 +37,5 @@ struct SettingsContentView: View {
 }
 
 #Preview {
-    SettingsContentView()
+    SettingsContentView(trainStateManager: TrainStateManager())
 }

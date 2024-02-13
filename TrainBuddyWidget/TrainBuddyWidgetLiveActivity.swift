@@ -9,51 +9,55 @@ import ActivityKit
 import WidgetKit
 import SwiftUI
 
-struct TrainBuddyWidgetAttributes: ActivityAttributes {
-    public struct ContentState: Codable, Hashable {
-        // Dynamic stateful properties about your activity go here!
-        var timeLeft: String
-        var userDestination: String
-    }
-
-    // Fixed non-changing properties about your activity go here!
-    var trainID: String
-}
-
 struct TrainBuddyWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: TrainBuddyWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
-            HStack {
-                VStack(alignment: .leading) {
-                    ZStack {
-                        Text(context.attributes.trainID)
-                            .font(.system(.title3, weight: .bold))
-                            .fontDesign(.rounded)
+            VStack(alignment: .leading) {
+                Text(context.attributes.trainID)
+                    .font(.system(.title3, weight: .heavy))
+                    .foregroundStyle(titleColor)
+                    .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 5))
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Spacer()
+                        
+                        HStack {
+                            Text(context.state.speed)
+                            Text("km/h")
+                        }
+                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 5))
+                        
+                        HStack {
+                            Text(context.state.timeLeft)
+                                .foregroundStyle(Color.accentColor)
+                            Text("bis")
+                            Text(context.state.userDestination)
+                                .foregroundStyle(Color.accentColor)
+                        }
+                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 5))
                     }
-                    .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
                     
                     Spacer()
                     
-                    HStack {
-                        Text(context.state.timeLeft)
-                            .foregroundStyle(Color.accentColor)
-                        Text("bis")
-                        Text(context.state.userDestination)
-                            .foregroundStyle(Color.accentColor)
+                    VStack(alignment: .trailing) {
+                        Text("Nächster Halt")
+                            .font(.system(.subheadline, weight: .bold))
+                            .foregroundStyle(titleColor)
+                            .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
+                        
+                        Text(context.state.nextStation)
+                            .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 10))
+                        
+                        Spacer()
                     }
-                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
-                    
-                    Image(systemName: "train.side.front.car")
-                        .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
                 }
                 
-                Spacer()
-                
-                VStack(alignment: .trailing) {
-                    
-                }
+                Image(systemName: "train.side.front.car")
+                    .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 5))
             }
+            .fontDesign(.rounded)
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
 
@@ -76,7 +80,7 @@ struct TrainBuddyWidgetLiveActivity: Widget {
             } compactTrailing: {
                 Text(context.state.timeLeft)
             } minimal: {
-                Text(context.attributes.trainID)
+                Image(systemName: "train.side.front.car")
             }
             .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
@@ -92,7 +96,7 @@ extension TrainBuddyWidgetAttributes {
 
 extension TrainBuddyWidgetAttributes.ContentState {
     fileprivate static var vienna: TrainBuddyWidgetAttributes.ContentState {
-        TrainBuddyWidgetAttributes.ContentState(timeLeft: "59 min", userDestination: "Wien Hbf")
+        TrainBuddyWidgetAttributes.ContentState(timeLeft: "59 min", userDestination: "Wien Hbf", nextStation: "Salzburg Hbf", speed: "0")
      }
 }
 

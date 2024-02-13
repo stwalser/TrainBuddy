@@ -12,16 +12,17 @@ let titleColor = Color(red: 164/256, green: 52/256, blue: 58/256)
 @main
 struct RailnetAppApp: App {
     @StateObject private var dataController = DataController()
+    @State var trainStateManager = TrainStateManager()
     
     var body: some Scene {
         WindowGroup {
             TabView {
-                TrainContentView()
+                TrainContentView(trainStateManager: trainStateManager)
                     .environment(\.managedObjectContext, dataController.container.viewContext)
                     .tabItem { Label("Zug", systemImage: "train.side.front.car") }
                     .fontDesign(.rounded)
                 
-                SettingsContentView()
+                SettingsContentView(trainStateManager: trainStateManager)
                     .tabItem { Label("Einstellungen", systemImage: "gear") }
             }
         }

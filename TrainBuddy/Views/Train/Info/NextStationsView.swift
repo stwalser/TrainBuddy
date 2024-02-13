@@ -16,7 +16,7 @@ struct NextStationsView: View {
                         
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(trainStateManager.relevantStations!) {station in
+                    ForEach(trainStateManager.trainState!.relevantStations) {station in
                         VStack {
                             Text(station.name.de!)
                                 .font(.subheadline)

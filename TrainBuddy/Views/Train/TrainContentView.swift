@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct TrainContentView: View {
-    @State var trainStateManager = TrainStateManager()
-    @AppStorage("showWiFiAutoConnectAlert") var showWiFiAutoConnectAlert = true
-    @AppStorage("autoWiFiConnectOn") var autoWiFiConnectOn = false
+    @State var trainStateManager: TrainStateManager
     
     var body: some View {
         NavigationView {
@@ -26,20 +24,9 @@ struct TrainContentView: View {
                 
             case .Fetching:
                 InfoView(trainStateManager: trainStateManager)
+            case .Error:
+                InfoView(trainStateManager: trainStateManager)
             }
-        }
-        .alert("Automatisch mit Zug-WLAN verbinden", isPresented: $showWiFiAutoConnectAlert) {
-            Button("Ja") {
-                autoWiFiConnectOn = true
-            }
-            
-            Button(role: .cancel) {
-                autoWiFiConnectOn = false
-            } label: {
-                Text("Nein")
-            }
-        } message: {
-            Text("Soll TrainBuddy, wenn dein Gerät nicht mit dem Zug-WLAN verbunden ist, beim Start der App versuchen das Gerät mit dem Zug-WLAN zu verbinden? Diese Einstellung kann jederzeit geändert werden.")
         }
     }
 }
@@ -47,7 +34,7 @@ struct TrainContentView: View {
 #Preview {
     @StateObject var dataController = DataController()
     
-    return TrainContentView()
+    return TrainContentView(trainStateManager: TrainStateManager())
         .environment(\.managedObjectContext, dataController.container.viewContext)
         .fontDesign(.rounded)
 }
