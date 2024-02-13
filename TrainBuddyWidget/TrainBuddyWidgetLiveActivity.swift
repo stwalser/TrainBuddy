@@ -12,19 +12,47 @@ import SwiftUI
 struct TrainBuddyWidgetAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // Dynamic stateful properties about your activity go here!
-        var emoji: String
+        var timeLeft: String
+        var userDestination: String
     }
 
     // Fixed non-changing properties about your activity go here!
-    var name: String
+    var trainID: String
 }
 
 struct TrainBuddyWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: TrainBuddyWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
-            VStack {
-                Text("Hello \(context.state.emoji)")
+            HStack {
+                VStack(alignment: .leading) {
+                    ZStack {
+                        Text(context.attributes.trainID)
+                            .font(.system(.title3, weight: .bold))
+                            .fontDesign(.rounded)
+                    }
+                    .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Text(context.state.timeLeft)
+                            .foregroundStyle(Color.accentColor)
+                        Text("bis")
+                        Text(context.state.userDestination)
+                            .foregroundStyle(Color.accentColor)
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
+                    
+                    Image(systemName: "train.side.front.car")
+                        .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
+                }
+                
+                Spacer()
+                
+                VStack(alignment: .trailing) {
+                    
+                }
             }
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
@@ -34,21 +62,21 @@ struct TrainBuddyWidgetLiveActivity: Widget {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-                    Text("Leading")
+                    Text(context.attributes.trainID)
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text("Trailing")
+                    Text("Noch \(context.state.timeLeft)")
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Bottom \(context.state.emoji)")
+                    Text("Ziel: \(context.state.userDestination)")
                     // more content
                 }
             } compactLeading: {
-                Text("L")
+                Image(systemName: "train.side.front.car")
             } compactTrailing: {
-                Text("T \(context.state.emoji)")
+                Text(context.state.timeLeft)
             } minimal: {
-                Text(context.state.emoji)
+                Text(context.attributes.trainID)
             }
             .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
@@ -58,23 +86,18 @@ struct TrainBuddyWidgetLiveActivity: Widget {
 
 extension TrainBuddyWidgetAttributes {
     fileprivate static var preview: TrainBuddyWidgetAttributes {
-        TrainBuddyWidgetAttributes(name: "World")
+        TrainBuddyWidgetAttributes(trainID: "RJX 162")
     }
 }
 
 extension TrainBuddyWidgetAttributes.ContentState {
-    fileprivate static var smiley: TrainBuddyWidgetAttributes.ContentState {
-        TrainBuddyWidgetAttributes.ContentState(emoji: "😀")
-     }
-     
-     fileprivate static var starEyes: TrainBuddyWidgetAttributes.ContentState {
-         TrainBuddyWidgetAttributes.ContentState(emoji: "🤩")
+    fileprivate static var vienna: TrainBuddyWidgetAttributes.ContentState {
+        TrainBuddyWidgetAttributes.ContentState(timeLeft: "59 min", userDestination: "Wien Hbf")
      }
 }
 
 #Preview("Notification", as: .content, using: TrainBuddyWidgetAttributes.preview) {
    TrainBuddyWidgetLiveActivity()
 } contentStates: {
-    TrainBuddyWidgetAttributes.ContentState.smiley
-    TrainBuddyWidgetAttributes.ContentState.starEyes
+    TrainBuddyWidgetAttributes.ContentState.vienna
 }
