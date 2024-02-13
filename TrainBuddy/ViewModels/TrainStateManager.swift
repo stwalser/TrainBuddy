@@ -91,7 +91,7 @@ enum ConnectionState {
     
     private func doRequest() async throws -> CombinedState {
 #if targetEnvironment(simulator)
-        if let url = Bundle.main.url(forResource: "combined", withExtension: ".json") {
+        if let url = Bundle.main.url(forResource: "combined-2", withExtension: ".json") {
             let json = try Data(contentsOf: url)
             return try JSONDecoder().decode(CombinedState.self, from: json)
         }

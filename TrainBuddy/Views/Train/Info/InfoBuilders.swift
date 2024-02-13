@@ -10,7 +10,7 @@ import SwiftUI
 @ViewBuilder func SectionTitle(_ title: String) -> some View {
     HStack {
         Text(title)
-            .foregroundStyle(Color(red: 164/256, green: 52/256, blue: 58/256))
+            .foregroundStyle(titleColor)
             .font(.system(.title3, weight: .bold))
         
         Spacer()
@@ -21,7 +21,7 @@ import SwiftUI
 @ViewBuilder func SubsectionTitle(_ title: String) -> some View {
     HStack {
         Text(title)
-            .foregroundStyle(Color(red: 164/256, green: 52/256, blue: 58/256))
+            .foregroundStyle(titleColor)
             .font(.system(.subheadline, weight: .bold))
         
         Spacer()

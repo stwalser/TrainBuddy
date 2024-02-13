@@ -20,6 +20,7 @@ struct TrainMapView: View {
                     Annotation("Zug", coordinate: CLLocationCoordinate2D(latitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.latitude)!, longitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.longitude)!))
                     {
                         Image(systemName: "train.side.front.car")
+                            .foregroundStyle(titleColor)
                             .padding()
                     }
                 }

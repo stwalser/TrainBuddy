@@ -62,9 +62,11 @@ struct InfoView: View {
         
         var body: some View {
             if trainStateManager.connectionState == .Fetching {
-                InfoView(trainStateManager: trainStateManager)
-                    .environment(\.managedObjectContext, dataController.container.viewContext)
-                    .fontDesign(.rounded)
+                NavigationView {
+                    InfoView(trainStateManager: trainStateManager)
+                        .environment(\.managedObjectContext, dataController.container.viewContext)
+                        .fontDesign(.rounded)
+                }
             }
         }
     }
