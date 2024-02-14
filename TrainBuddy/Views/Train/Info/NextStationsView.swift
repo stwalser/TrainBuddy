@@ -12,16 +12,8 @@ struct NextStationsView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Label("Nächste Halte", systemImage: "calendar")
-                    .font(.footnote)
-                    .foregroundStyle(.gray)
-                Spacer()
-            }
-            .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 0))
-            
-            Divider()
-            
+            SectionTitle("Nächste Halte")
+                        
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(trainStateManager.relevantStations!) {station in
@@ -45,6 +37,7 @@ struct NextStationsView: View {
                 }
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
             }
+            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
             
             Spacer()
         }

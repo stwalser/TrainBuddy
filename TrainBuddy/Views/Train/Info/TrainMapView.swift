@@ -13,21 +13,14 @@ struct TrainMapView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Label("Karte", systemImage: "map")
-                    .font(.footnote)
-                    .foregroundStyle(.gray)
-                Spacer()
-            }
-            .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 0))
-            
-            Divider()
-            
+            SectionTitle("Karte")
+                        
             if trainStateManager.combinedState!.latestStatus.gpsPosition != nil {
                 Map(bounds: MapCameraBounds(minimumDistance: 2000, maximumDistance: nil)) {
                     Annotation("Zug", coordinate: CLLocationCoordinate2D(latitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.latitude)!, longitude: Double(trainStateManager.combinedState!.latestStatus.gpsPosition!.longitude)!))
                     {
                         Image(systemName: "train.side.front.car")
+                            .foregroundStyle(titleColor)
                             .padding()
                     }
                 }
@@ -36,7 +29,7 @@ struct TrainMapView: View {
                     RoundedRectangle(cornerRadius: 5)
                             .stroke(.gray, lineWidth: 1)
                 }
-                .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
+                .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                 
             } else {
                 Text("Der Zug stellt momentan keine GPS Daten zur Verfügung. 😢")
@@ -46,6 +39,5 @@ struct TrainMapView: View {
             
         }
         .frame(minHeight: 400)
-        .foregroundStyle(.black)
     }
 }

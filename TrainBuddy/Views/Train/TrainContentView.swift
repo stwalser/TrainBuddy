@@ -49,4 +49,5 @@ struct TrainContentView: View {
     
     return TrainContentView()
         .environment(\.managedObjectContext, dataController.container.viewContext)
+        .fontDesign(.rounded)
 }

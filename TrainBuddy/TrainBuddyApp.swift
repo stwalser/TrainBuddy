@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-let backgroundColor: Color = Color(UIColor(white: 0.95, alpha: 100))
+let titleColor = Color(red: 164/256, green: 52/256, blue: 58/256)
 
 @main
 struct RailnetAppApp: App {

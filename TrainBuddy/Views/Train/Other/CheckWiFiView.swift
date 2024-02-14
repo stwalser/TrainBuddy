@@ -15,6 +15,7 @@ struct CheckWiFiView: View {
             Spacer()
             
             Image(systemName: "magnifyingglass")
+            
             Text("Railnet wird gesucht...")
                 .bold()
                 .padding()

@@ -34,6 +34,7 @@
 		F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D91D2B2315C700057B5E /* TrainStateManager.swift */; };
 		F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D9202B234E8A00057B5E /* CombinedState.swift */; };
 		F8BBC5352B6D453200D72A1E /* UserDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BBC5342B6D453200D72A1E /* UserDestinationView.swift */; };
+		F8C6EE7C2B78C95F005BDAE7 /* InfoBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6EE7B2B78C95F005BDAE7 /* InfoBuilders.swift */; };
 		F8E7621F2B72CEB000EDADBB /* combined-2.json in Resources */ = {isa = PBXBuildFile; fileRef = F8E7621E2B72CEB000EDADBB /* combined-2.json */; };
 		F8E762242B74BB5600EDADBB /* SettingsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E762232B74BB5600EDADBB /* SettingsContentView.swift */; };
 		F8E762262B74BFD400EDADBB /* TrainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E762252B74BFD400EDADBB /* TrainContentView.swift */; };
@@ -112,6 +113,7 @@
 		F882D9202B234E8A00057B5E /* CombinedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedState.swift; sourceTree = "<group>"; };
 		F8B04FD02B248A1000BB1E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F8BBC5342B6D453200D72A1E /* UserDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDestinationView.swift; sourceTree = "<group>"; };
+		F8C6EE7B2B78C95F005BDAE7 /* InfoBuilders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBuilders.swift; sourceTree = "<group>"; };
 		F8E7621E2B72CEB000EDADBB /* combined-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "combined-2.json"; sourceTree = "<group>"; };
 		F8E762232B74BB5600EDADBB /* SettingsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentView.swift; sourceTree = "<group>"; };
 		F8E762252B74BFD400EDADBB /* TrainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainContentView.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				F865516A2B6A5DFB00CD5818 /* NextStationsView.swift */,
 				F865516C2B6A5E4600CD5818 /* TrainMapView.swift */,
 				F8BBC5342B6D453200D72A1E /* UserDestinationView.swift */,
+				F8C6EE7B2B78C95F005BDAE7 /* InfoBuilders.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				F86551722B6B7AB800CD5818 /* DataController.swift in Sources */,
 				F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */,
 				F865516D2B6A5E4600CD5818 /* TrainMapView.swift in Sources */,
+				F8C6EE7C2B78C95F005BDAE7 /* InfoBuilders.swift in Sources */,
 				F8BBC5352B6D453200D72A1E /* UserDestinationView.swift in Sources */,
 				F8E762242B74BB5600EDADBB /* SettingsContentView.swift in Sources */,
 				F8E762282B75332A00EDADBB /* TrainWiFiManager.swift in Sources */,
@@ -674,7 +678,7 @@
 				CODE_SIGN_ENTITLEMENTS = TrainBuddy/TrainBuddy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"TrainBuddy/Preview Content\"";
 				DEVELOPMENT_TEAM = 35MK3E7S5B;
 				ENABLE_PREVIEWS = YES;
@@ -713,7 +717,7 @@
 				CODE_SIGN_ENTITLEMENTS = TrainBuddy/TrainBuddy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"TrainBuddy/Preview Content\"";
 				DEVELOPMENT_TEAM = 35MK3E7S5B;
 				ENABLE_PREVIEWS = YES;
