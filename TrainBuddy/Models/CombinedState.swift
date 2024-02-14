@@ -47,7 +47,7 @@ struct TrainInfo: Decodable {
 
 struct Connection: Decodable, Identifiable {
     var id: String {
-        lineNumber
+        type + " " + lineNumber + " " + destination.de!
     }
     
     let type: String

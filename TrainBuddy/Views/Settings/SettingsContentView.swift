@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsContentView: View {
     @AppStorage("liveActivitiyOn") var liveActivityOn = false
-    @State var trainStateManager: TrainStateManager
+    @State var appContentManager: AppContentManager
     
     var body: some View {
         NavigationView {
@@ -21,9 +21,9 @@ struct SettingsContentView: View {
                         })
                         .onChange(of: liveActivityOn) { _, newValue in
                             if newValue {
-                                trainStateManager.addLiveActivity()
+                                appContentManager.addLiveActivity()
                             } else {
-                                trainStateManager.removeLiveActivity()
+                                appContentManager.removeLiveActivity()
                             }
                         }
                     } header: {
@@ -37,5 +37,5 @@ struct SettingsContentView: View {
 }
 
 #Preview {
-    SettingsContentView(trainStateManager: TrainStateManager())
+    SettingsContentView(appContentManager: AppContentManager())
 }

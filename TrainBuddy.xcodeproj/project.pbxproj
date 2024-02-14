@@ -31,7 +31,7 @@
 		F86E21102B6E38470026C28B /* TrainBuddyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E210F2B6E38470026C28B /* TrainBuddyWidget.swift */; };
 		F86E21122B6E38490026C28B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F86E21112B6E38490026C28B /* Assets.xcassets */; };
 		F86E21162B6E38490026C28B /* TrainBuddyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F86E21042B6E38460026C28B /* TrainBuddyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D91D2B2315C700057B5E /* TrainStateManager.swift */; };
+		F882D91E2B2315C700057B5E /* AppContentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D91D2B2315C700057B5E /* AppContentManager.swift */; };
 		F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D9202B234E8A00057B5E /* CombinedState.swift */; };
 		F8BBC5352B6D453200D72A1E /* UserDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BBC5342B6D453200D72A1E /* UserDestinationView.swift */; };
 		F8C6EE7C2B78C95F005BDAE7 /* InfoBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6EE7B2B78C95F005BDAE7 /* InfoBuilders.swift */; };
@@ -114,7 +114,7 @@
 		F86E210F2B6E38470026C28B /* TrainBuddyWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainBuddyWidget.swift; sourceTree = "<group>"; };
 		F86E21112B6E38490026C28B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F86E21132B6E38490026C28B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F882D91D2B2315C700057B5E /* TrainStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStateManager.swift; sourceTree = "<group>"; };
+		F882D91D2B2315C700057B5E /* AppContentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContentManager.swift; sourceTree = "<group>"; };
 		F882D91F2B23324400057B5E /* TrainBuddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrainBuddy.entitlements; sourceTree = "<group>"; };
 		F882D9202B234E8A00057B5E /* CombinedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedState.swift; sourceTree = "<group>"; };
 		F8B04FD02B248A1000BB1E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				F86551712B6B7AB800CD5818 /* DataController.swift */,
-				F882D91D2B2315C700057B5E /* TrainStateManager.swift */,
+				F882D91D2B2315C700057B5E /* AppContentManager.swift */,
 				F8E762272B75332A00EDADBB /* TrainWiFiManager.swift */,
 				F8C6EE822B7BA618005BDAE7 /* TrainCommunicator.swift */,
 				F8C6EE7D2B7B8B62005BDAE7 /* LiveActivityManager.swift */,
@@ -507,7 +507,7 @@
 				F8E762262B74BFD400EDADBB /* TrainContentView.swift in Sources */,
 				F8C6EE802B7B9E1B005BDAE7 /* TrainBudddyWidgetAttributes.swift in Sources */,
 				F86551722B6B7AB800CD5818 /* DataController.swift in Sources */,
-				F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */,
+				F882D91E2B2315C700057B5E /* AppContentManager.swift in Sources */,
 				F865516D2B6A5E4600CD5818 /* TrainMapView.swift in Sources */,
 				F8C6EE7C2B78C95F005BDAE7 /* InfoBuilders.swift in Sources */,
 				F8BBC5352B6D453200D72A1E /* UserDestinationView.swift in Sources */,

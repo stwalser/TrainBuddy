@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct InfoView: View {
-    @State var trainStateManager: TrainStateManager
+    @State var trainState: TrainState
         
     var body: some View {
         VStack {
            SectionTitle("Allgemein")
             
             HStack {
-                SingleInfo(main: "\(trainStateManager.trainState!.state.startStation) → \(trainStateManager.trainState!.state.destination.de!)", caption: "")
+                SingleInfo(main: "\(trainState.state.startStation) → \(trainState.state.destination.de!)", caption: "")
             }
             .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))
             
             let delay: Int = {
-                trainStateManager.trainState!.state.latestStatus.totalDealy / 60
+                trainState.state.latestStatus.totalDealy / 60
             }()
             
             HStack {
-                SingleInfo(main: String(trainStateManager.trainState!.state.latestStatus.speed), caption: "km/h")
+                SingleInfo(main: String(trainState.state.latestStatus.speed), caption: "km/h")
                 
                 if delay > 0  {
                     Divider()
@@ -38,32 +38,32 @@ struct InfoView: View {
             Divider()
             
             ScrollView {
-                UserDestinationView(trainStateManager: trainStateManager)
+                UserDestinationView(trainState: trainState)
                 
-                NextStationView(trainStateManager: trainStateManager)
+                NextStationView(trainState: trainState)
                     
-                NextStationsView(trainStateManager: trainStateManager)
+                NextStationsView(trainState: trainState)
                 
-                TrainMapView(trainStateManager: trainStateManager)
+                TrainMapView(trainState: trainState)
             }
         }
-        .navigationTitle(trainStateManager.trainState!.state.id)
+        .navigationTitle(trainState.state.id)
     }
 }
 
 #Preview {
     struct Preview: View {
-        @State var trainStateManager = TrainStateManager()
+        @State var appContentManager = AppContentManager()
         @StateObject var dataController = DataController()
         
         init() {
-            trainStateManager.triggerTimer()
+            appContentManager.triggerTimer()
         }
         
         var body: some View {
-            if trainStateManager.connectionState == .Fetching {
+            if appContentManager.connectionState == .Fetching {
                 NavigationView {
-                    InfoView(trainStateManager: trainStateManager)
+                    InfoView(trainState: appContentManager.trainState!)
                         .environment(\.managedObjectContext, dataController.container.viewContext)
                         .fontDesign(.rounded)
                 }

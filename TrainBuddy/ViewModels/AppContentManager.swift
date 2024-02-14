@@ -16,7 +16,7 @@ enum ConnectionState {
 }
 
 @Observable
-class TrainStateManager {
+class AppContentManager {
     @ObservationIgnored let refreshInterval = 1.0
     @ObservationIgnored let trainWifiManager = TrainWiFiManager()
     @ObservationIgnored var company: Company?
@@ -35,7 +35,6 @@ class TrainStateManager {
                 }
             case .WrongWifi:
                 Task {
-//                    await self.trainWifiManager.connectToWiFi()
                     await self.checkWifiState()
                     self.trainState = nil
                 }
@@ -45,6 +44,7 @@ class TrainStateManager {
                         let state = try await self.trainCommunicator!.fetchCombinedState()
                         self.trainState = TrainState(for: self.company!, state: state)
                         self.connectionState = .Fetching
+                        self.addLiveActivity()
                     } catch {
                         self.connectionState = .Error
                     }
@@ -52,7 +52,7 @@ class TrainStateManager {
             case .Fetching:
                 Task {
                     do {
-                        self.trainState!.update(try await self.trainCommunicator!.fetchCombinedState())
+                        await self.trainState!.update(try await self.trainCommunicator!.fetchCombinedState())
                     } catch {
                         self.connectionState = .Error
                     }

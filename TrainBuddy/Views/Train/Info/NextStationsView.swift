@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NextStationsView: View {
-    @State var trainStateManager: TrainStateManager
+    @State var trainState: TrainState
     
     var body: some View {
         VStack {
@@ -16,7 +16,7 @@ struct NextStationsView: View {
                         
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(trainStateManager.trainState!.relevantStations) {station in
+                    ForEach(trainState.relevantStations) {station in
                         VStack {
                             Text(station.name.de!)
                                 .font(.subheadline)

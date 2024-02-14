@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct TrainContentView: View {
-    @State var trainStateManager: TrainStateManager
+    @State var appContentManager: AppContentManager
     
     var body: some View {
         NavigationView {
-            switch(trainStateManager.connectionState) {
+            switch(appContentManager.connectionState) {
             case .Starting:
-                CheckWiFiView(trainStateManager: trainStateManager)
+                CheckWiFiView(appContentManager: appContentManager)
                 
             case .WrongWifi:
                 NoWifiView()
@@ -23,9 +23,9 @@ struct TrainContentView: View {
                 WiFiFoundView()
                 
             case .Fetching:
-                InfoView(trainStateManager: trainStateManager)
+                InfoView(trainState: appContentManager.trainState!)
             case .Error:
-                InfoView(trainStateManager: trainStateManager)
+                InfoView(trainState: appContentManager.trainState!)
             }
         }
     }
@@ -34,7 +34,7 @@ struct TrainContentView: View {
 #Preview {
     @StateObject var dataController = DataController()
     
-    return TrainContentView(trainStateManager: TrainStateManager())
+    return TrainContentView(appContentManager: AppContentManager())
         .environment(\.managedObjectContext, dataController.container.viewContext)
         .fontDesign(.rounded)
 }

@@ -13,52 +13,60 @@ struct TrainBuddyWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: TrainBuddyWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
-            VStack(alignment: .leading) {
-                Text(context.attributes.trainID)
-                    .font(.system(.title3, weight: .heavy))
-                    .foregroundStyle(titleColor)
-                    .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 5))
-                
-                HStack {
-                    VStack(alignment: .leading) {
+            ZStack {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(context.attributes.trainID)
+                            .font(.system(.title3, weight: .heavy))
+                            .foregroundStyle(titleColor)
+                           
                         Spacer()
                         
                         HStack {
                             Text(context.state.speed)
                             Text("km/h")
                         }
-                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 5))
-                        
-                        HStack {
-                            Text(context.state.timeLeft)
-                                .foregroundStyle(Color.accentColor)
-                            Text("bis")
-                            Text(context.state.userDestination)
-                                .foregroundStyle(Color.accentColor)
-                        }
-                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 5))
                     }
+                    .padding(EdgeInsets(top: 10, leading: 15, bottom: 0, trailing: 15))
                     
-                    Spacer()
-                    
-                    VStack(alignment: .trailing) {
-                        Text("Nächster Halt")
-                            .font(.system(.subheadline, weight: .bold))
-                            .foregroundStyle(titleColor)
-                            .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
-                        
-                        Text(context.state.nextStation)
-                            .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 10))
+                    HStack {
+                        VStack(alignment: .leading) {
+                           Spacer()
+                            
+                            HStack {
+                                Text(context.state.timeLeft)
+                                    .foregroundStyle(Color.accentColor)
+                                Text("bis")
+                                Text(context.state.userDestination)
+                                    .foregroundStyle(Color.accentColor)
+                            }
+                        }
                         
                         Spacer()
+                        
+                        VStack(alignment: .trailing) {
+                            Spacer()
+                            
+                            Text("Nächster Halt")
+                                .font(.system(.subheadline, weight: .bold))
+                                .foregroundStyle(titleColor)
+                                
+                            Text(context.state.nextStation)
+                        }
                     }
+                    .padding(EdgeInsets(top: 0, leading: 15, bottom: 10, trailing: 15))
+                    
+//                    Image(systemName: "train.side.front.car")
+//                        .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
                 }
+                .opacity(context.isStale ? 0.5 : 1.0)
                 
-                Image(systemName: "train.side.front.car")
-                    .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 5))
+                if context.isStale {
+                    Text("Verbindung verloren...")
+                }
             }
             .fontDesign(.rounded)
-            .activityBackgroundTint(Color.cyan)
+            .activityBackgroundTint(Color(UIColor.tertiarySystemBackground))
             .activitySystemActionForegroundColor(Color.black)
 
         } dynamicIsland: { context in
@@ -77,6 +85,7 @@ struct TrainBuddyWidgetLiveActivity: Widget {
                 }
             } compactLeading: {
                 Image(systemName: "train.side.front.car")
+                    .foregroundStyle(titleColor)
             } compactTrailing: {
                 Text(context.state.timeLeft)
             } minimal: {

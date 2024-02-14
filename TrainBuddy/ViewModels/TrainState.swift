@@ -15,7 +15,7 @@ import Foundation
     var state: CombinedState {
         didSet {
             Task {
-                await self.liveActivityManager.updateLiveActivity(timeLeft: self.timeUntilDestination.description, userDestination: userDestination.name.de!, nextStation: state.nextStation.name.de!, speed: String(state.latestStatus.speed))
+                await self.liveActivityManager.updateLiveActivity(timeLeft: self.timeUntilDestination, userDestination: userDestination.name.de!, nextStation: state.nextStation.name.de!, speed: String(state.latestStatus.speed))
             }
         }
     }
@@ -53,7 +53,7 @@ import Foundation
     }
     var userDestination: Station
     
-    var timeUntilDestination: DateInterval {
+    var timeUntilDestination: String {
         let arrivalTime = self.dateFormatter.date(from: self.userDestination.arrival.forecast ?? self.userDestination.arrival.scheduled)!
         let now = Date()
         let gregorian = Calendar(identifier: .gregorian)
@@ -64,10 +64,12 @@ import Foundation
         dateComponents.minute = calendar.component(.minute, from: arrivalTime)
         
 #if targetEnvironment(simulator)
-        let mockComponents = DateComponents(hour: 7, minute: 45)
-        return DateInterval(start: gregorian.date(from: mockComponents)!, end: gregorian.date(from: dateComponents)!)
+        var mockComponents = gregorian.dateComponents(components, from: now)
+        mockComponents.hour = 7
+        mockComponents.minute = 45
+        return String(Int(DateInterval(start: gregorian.date(from: mockComponents)!, end: gregorian.date(from: dateComponents)!).duration / 60)) + " min"
 #else
-        return DateInterval(start: now, end: gregorian.date(from: dateComponents)!)
+        return String(Int(DateInterval(start: now, end: gregorian.date(from: dateComponents)!).duration / 60)) + " min"
 #endif
     }
     
@@ -78,19 +80,20 @@ import Foundation
         self.userDestination = state.stations.last!
     }
     
+    @MainActor
     func update(_ state: CombinedState) {
         self.state = state
     }
     
     @MainActor
     func startLiveActivity() {
-        self.liveActivityManager.startLiveActivity(trainID: state.id, timeLeft: self.timeUntilDestination.description, userDestination: self.userDestination.name.de!, nextStation: state.nextStation.name.de!, speed: String(state.latestStatus.speed))
+        self.liveActivityManager.startLiveActivity(trainID: state.id, timeLeft: self.timeUntilDestination, userDestination: self.userDestination.name.de!, nextStation: state.nextStation.name.de!, speed: String(state.latestStatus.speed))
     }
     
     @MainActor
     func stopLiveActivity() {
         Task {
-            await self.liveActivityManager.stopActivity(timeLeft: "", userDestination: userDestination.name.de!, nextStation: state.nextStation.name.de!, speed: String(state.latestStatus.speed))
+            await self.liveActivityManager.stopActivity(timeLeft: "0", userDestination: userDestination.name.de!, nextStation: state.nextStation.name.de!, speed: String(state.latestStatus.speed))
         }
     }
     
