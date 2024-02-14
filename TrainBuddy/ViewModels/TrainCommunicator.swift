@@ -22,8 +22,7 @@ class TrainCommunicator {
         }
         throw CombinedStateError.decodeError("File")
 #else
-        let url = URL(string: self.url)!
-        let urlRequest = URLRequest(url: url)
+        let urlRequest = URLRequest(url: self.url)
         let urlSession = URLSession.shared
         urlSession.configuration.waitsForConnectivity = true
 
