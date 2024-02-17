@@ -67,13 +67,17 @@ class AppContentManager {
     
     func addLiveActivity() {
         Task {
-            await self.trainState!.startLiveActivity()
+            if let trainState = self.trainState {
+                await trainState.startLiveActivity()
+            }
         }
     }
     
     func removeLiveActivity() {
         Task {
-            await self.trainState!.stopLiveActivity()
+            if let trainState = self.trainState {
+                await trainState.stopLiveActivity()
+            }
         }
     }
         
