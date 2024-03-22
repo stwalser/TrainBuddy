@@ -25,7 +25,11 @@ struct TrainContentView: View {
             case .Fetching:
                 InfoView(trainState: appContentManager.trainState!)
             case .Error:
-                InfoView(trainState: appContentManager.trainState!)
+                if let state = appContentManager.trainState {
+                    InfoView(trainState: state)
+                } else {
+                    Text("Shit")
+                }
             }
         }
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NextStationsView: View {
-    @State var trainState: TrainState
+    var trainState: TrainState
     
     var body: some View {
         VStack {

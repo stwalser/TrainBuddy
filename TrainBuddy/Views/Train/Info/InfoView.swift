@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct InfoView: View {
-    @State var trainState: TrainState
+    var trainState: TrainState
         
     var body: some View {
         VStack {
@@ -47,6 +47,7 @@ struct InfoView: View {
                 TrainMapView(trainState: trainState)
             }
         }
+        .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
         .navigationTitle(trainState.state.id)
     }
 }

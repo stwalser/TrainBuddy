@@ -17,7 +17,7 @@ enum ConnectionState {
 
 @Observable
 class AppContentManager {
-    @ObservationIgnored let refreshInterval = 1.0
+    @ObservationIgnored let refreshInterval = 2.0
     @ObservationIgnored let trainWifiManager = TrainWiFiManager()
     @ObservationIgnored var company: Company?
     @ObservationIgnored var trainCommunicator: TrainCommunicator?
@@ -46,6 +46,7 @@ class AppContentManager {
                         self.connectionState = .Fetching
                         self.addLiveActivity()
                     } catch {
+                        print(error)
                         self.connectionState = .Error
                     }
                 }
@@ -54,6 +55,8 @@ class AppContentManager {
                     do {
                         await self.trainState!.update(try await self.trainCommunicator!.fetchCombinedState())
                     } catch {
+                        print(error)
+                        
                         self.connectionState = .Error
                     }
                 }

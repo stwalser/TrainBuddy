@@ -9,14 +9,14 @@ import SwiftUI
 import MapKit
 
 struct TrainMapView: View {
-    @State var trainState: TrainState
+    var trainState: TrainState
     
     var body: some View {
         VStack {
             SectionTitle("Karte")
                         
             if let gpsPosition = trainState.state.latestStatus.gpsPosition {
-                Map(bounds: MapCameraBounds(minimumDistance: 2000, maximumDistance: nil)) {
+                Map(bounds: MapCameraBounds(minimumDistance: 10000, maximumDistance: nil)) {
                     Annotation("Zug", coordinate: CLLocationCoordinate2D(latitude: Double(gpsPosition.latitude)!, longitude: Double(gpsPosition.longitude)!))
                     {
                         Image(systemName: "train.side.front.car")

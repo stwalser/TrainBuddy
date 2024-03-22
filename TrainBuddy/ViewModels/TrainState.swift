@@ -96,10 +96,4 @@ import Foundation
             await self.liveActivityManager.stopActivity(timeLeft: "0", userDestination: userDestination.name.de!, nextStation: state.nextStation.name.de!, speed: String(state.latestStatus.speed))
         }
     }
-    
-    deinit {
-        Task {
-            await stopLiveActivity()
-        }
-    }
 }

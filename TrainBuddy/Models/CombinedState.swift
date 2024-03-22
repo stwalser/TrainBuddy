@@ -52,7 +52,7 @@ struct Connection: Decodable, Identifiable {
     
     let type: String
     let lineNumber: String
-    let track: MultiLang
+    let track: MultiLang?
     let destination: MultiLang
     let departure: Time
     let reachable: String
