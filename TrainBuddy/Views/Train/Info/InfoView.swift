@@ -9,42 +9,46 @@ import SwiftUI
 
 struct InfoView: View {
     var trainState: TrainState
+    var activeConnection: Bool
         
     var body: some View {
-        VStack {
-           SectionTitle("Allgemein")
-            
-            HStack {
-                SingleInfo(main: "\(trainState.state.startStation) → \(trainState.state.destination.de!)", caption: "")
-            }
-            .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))
-            
-            let delay: Int = {
-                trainState.state.latestStatus.totalDealy / 60
-            }()
-            
-            HStack {
-                SingleInfo(main: String(trainState.state.latestStatus.speed), caption: "km/h")
+        ZStack {
+            VStack {
                 
-                if delay > 0  {
-                    Divider()
-                        .frame(height: 40)
+                CenteredSectionTitle("\(trainState.state.startStation) → \(trainState.state.destination.de!)")
+                
+                let delay: Int = {
+                    trainState.state.latestStatus.totalDealy / 60
+                }()
+                
+                HStack {
+                    SingleInfo(main: String(trainState.state.latestStatus.speed), caption: "km/h")
                     
-                    SingleInfo(main: "+\(delay)", caption: "min")
+                    if delay > 0  {
+                        Divider()
+                            .frame(height: 40)
+                        
+                        SingleInfo(main: "+\(delay)", caption: "min")
+                    }
+                }
+                .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))
+                
+                Divider()
+                
+                ScrollView {
+                    UserDestinationView(trainState: trainState)
+                    
+                    NextStationView(trainState: trainState)
+                    
+                    NextStationsView(trainState: trainState)
+                    
+                    TrainMapView(trainState: trainState)
                 }
             }
-            .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))
+            .opacity(!activeConnection ? 0.2 : 1.0)
             
-            Divider()
-            
-            ScrollView {
-                UserDestinationView(trainState: trainState)
-                
-                NextStationView(trainState: trainState)
-                    
-                NextStationsView(trainState: trainState)
-                
-                TrainMapView(trainState: trainState)
+            if !activeConnection {
+                CenteredSectionTitle("Verbindung verloren.\nErneut verbinden...")
             }
         }
         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
@@ -58,13 +62,13 @@ struct InfoView: View {
         @StateObject var dataController = DataController()
         
         init() {
-            appContentManager.triggerTimer()
+            appContentManager.triggerTimers()
         }
         
         var body: some View {
             if appContentManager.connectionState == .Fetching {
                 NavigationView {
-                    InfoView(trainState: appContentManager.trainState!)
+                    InfoView(trainState: appContentManager.trainState!, activeConnection: false)
                         .environment(\.managedObjectContext, dataController.container.viewContext)
                         .fontDesign(.rounded)
                 }

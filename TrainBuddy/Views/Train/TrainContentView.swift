@@ -20,15 +20,15 @@ struct TrainContentView: View {
                 NoWifiView()
                 
             case .CorrectWifi:
-                WiFiFoundView()
+                WiFiFoundView(fetchFailed: true)
                 
             case .Fetching:
-                InfoView(trainState: appContentManager.trainState!)
+                InfoView(trainState: appContentManager.trainState!, activeConnection: true)
             case .Error:
                 if let state = appContentManager.trainState {
-                    InfoView(trainState: state)
+                    InfoView(trainState: appContentManager.trainState!, activeConnection: false)
                 } else {
-                    Text("Shit")
+                    WiFiFoundView(fetchFailed: false)
                 }
             }
         }

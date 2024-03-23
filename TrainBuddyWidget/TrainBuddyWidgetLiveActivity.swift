@@ -17,8 +17,9 @@ struct TrainBuddyWidgetLiveActivity: Widget {
                 VStack(alignment: .leading) {
                     HStack {
                         Text(context.attributes.trainID)
-                            .font(.system(.title3, weight: .heavy))
-                            .foregroundStyle(titleColor)
+                            .font(.system(.title))
+                            .bold()
+                            .foregroundStyle(.white)
                            
                         Spacer()
                         
@@ -26,6 +27,9 @@ struct TrainBuddyWidgetLiveActivity: Widget {
                             Text(context.state.speed)
                             Text("km/h")
                         }
+                        .font(.system(.title2))
+                        .foregroundStyle(.white)
+                        .bold()
                     }
                     .padding(EdgeInsets(top: 10, leading: 15, bottom: 0, trailing: 15))
                     
@@ -35,10 +39,14 @@ struct TrainBuddyWidgetLiveActivity: Widget {
                             
                             HStack {
                                 Text(context.state.timeLeft)
-                                    .foregroundStyle(Color.accentColor)
+                                    .foregroundStyle(complementaryTitleColor)
+                                    .bold()
                                 Text("bis")
+                                    .foregroundStyle(.white)
+                                    .bold()
                                 Text(context.state.userDestination)
-                                    .foregroundStyle(Color.accentColor)
+                                    .foregroundStyle(complementaryTitleColor)
+                                    .bold()
                             }
                         }
                         
@@ -48,10 +56,14 @@ struct TrainBuddyWidgetLiveActivity: Widget {
                             Spacer()
                             
                             Text("Nächster Halt")
-                                .font(.system(.subheadline, weight: .bold))
-                                .foregroundStyle(titleColor)
+                                .font(.system(.subheadline))
+                                .bold()
+                                .foregroundStyle(.white)
                                 
                             Text(context.state.nextStation)
+                                .font(.system(.title3))
+                                .bold()
+                                .foregroundStyle(.white)
                         }
                     }
                     .padding(EdgeInsets(top: 0, leading: 15, bottom: 10, trailing: 15))
@@ -59,12 +71,13 @@ struct TrainBuddyWidgetLiveActivity: Widget {
 //                    Image(systemName: "train.side.front.car")
 //                        .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
                 }
-                .opacity(context.isStale ? 0.5 : 1.0)
+                .opacity(context.isStale ? 0.2 : 1.0)
                 
                 if context.isStale {
                     Text("Verbindung verloren...")
                 }
             }
+            .background(titleColor)
             .fontDesign(.rounded)
             .activityBackgroundTint(Color(UIColor.tertiarySystemBackground))
             .activitySystemActionForegroundColor(Color.black)

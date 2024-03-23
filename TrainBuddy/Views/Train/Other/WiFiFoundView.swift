@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WiFiFoundView: View {
+    var fetchFailed: Bool
+    
     var body: some View {
         VStack {            
             Spacer()
@@ -16,8 +18,13 @@ struct WiFiFoundView: View {
             Text("Railnet wurde gefunden.")
                 .bold()
                 .padding()
-            Text("Daten werden geladen...")
-                .bold()
+            if !fetchFailed {
+                Text("Daten werden geladen...")
+                    .bold()
+            } else {
+                Text("Laden der Daten fehlgeschlagen...")
+                    .bold()
+            }
             
             Spacer()
         }
@@ -27,5 +34,5 @@ struct WiFiFoundView: View {
 }
 
 #Preview {
-    WiFiFoundView()
+    WiFiFoundView(fetchFailed: false)
 }

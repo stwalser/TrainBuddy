@@ -18,16 +18,18 @@ enum ConnectionState {
 @Observable
 class AppContentManager {
     @ObservationIgnored let refreshInterval = 2.0
+    @ObservationIgnored let reconnectInterval = 0.5
     @ObservationIgnored let trainWifiManager = TrainWiFiManager()
     @ObservationIgnored var company: Company?
     @ObservationIgnored var trainCommunicator: TrainCommunicator?
-    @ObservationIgnored var timer = Timer()
+    @ObservationIgnored var refreshTimer = Timer()
+    @ObservationIgnored var reconnectTimer = Timer()
 
     var connectionState: ConnectionState = .Starting
     var trainState: TrainState?
     
-    func triggerTimer() {
-        self.timer =  Timer.scheduledTimer(withTimeInterval: self.refreshInterval, repeats: true) { _ in
+    func startReconnectTimer() {
+        self.reconnectTimer = Timer.scheduledTimer(withTimeInterval: self.reconnectInterval, repeats: true) { _ in
             switch self.connectionState {
             case .Starting:
                 Task {
@@ -51,6 +53,25 @@ class AppContentManager {
                     }
                 }
             case .Fetching:
+                break
+            case .Error:
+                Task {
+                    await self.checkWifiState()
+                }
+            }
+        }
+    }
+    
+    func startRefreshTimer() {
+        self.refreshTimer =  Timer.scheduledTimer(withTimeInterval: self.refreshInterval, repeats: true) { _ in
+            switch self.connectionState {
+            case .Starting:
+                break
+            case .WrongWifi:
+                break
+            case .CorrectWifi:
+                break
+            case .Fetching:
                 Task {
                     do {
                         await self.trainState!.update(try await self.trainCommunicator!.fetchCombinedState())
@@ -61,11 +82,14 @@ class AppContentManager {
                     }
                 }
             case .Error:
-                Task {
-                    await self.checkWifiState()
-                }
+                break
             }
         }
+    }
+    
+    func triggerTimers() {
+        startReconnectTimer()
+        startRefreshTimer()
     }
     
     func addLiveActivity() {
