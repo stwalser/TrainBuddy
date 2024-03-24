@@ -8,38 +8,29 @@
 import SwiftUI
 
 struct TrainContentView: View {
-    @State var trainStateManager = TrainStateManager()
-    @AppStorage("showWiFiAutoConnectAlert") var showWiFiAutoConnectAlert = true
-    @AppStorage("autoWiFiConnectOn") var autoWiFiConnectOn = false
+    @State var appContentManager: AppContentManager
     
     var body: some View {
         NavigationView {
-            switch(trainStateManager.connectionState) {
+            switch(appContentManager.connectionState) {
             case .Starting:
-                CheckWiFiView(trainStateManager: trainStateManager)
+                CheckWiFiView(appContentManager: appContentManager)
                 
             case .WrongWifi:
                 NoWifiView()
                 
             case .CorrectWifi:
-                WiFiFoundView()
+                WiFiFoundView(fetchFailed: true)
                 
             case .Fetching:
-                InfoView(trainStateManager: trainStateManager)
+                InfoView(trainState: appContentManager.trainState!, activeConnection: true)
+            case .Error:
+                if appContentManager.trainState != nil {
+                    InfoView(trainState: appContentManager.trainState!, activeConnection: false)
+                } else {
+                    WiFiFoundView(fetchFailed: false)
+                }
             }
-        }
-        .alert("Automatisch mit Zug-WLAN verbinden", isPresented: $showWiFiAutoConnectAlert) {
-            Button("Ja") {
-                autoWiFiConnectOn = true
-            }
-            
-            Button(role: .cancel) {
-                autoWiFiConnectOn = false
-            } label: {
-                Text("Nein")
-            }
-        } message: {
-            Text("Soll TrainBuddy, wenn dein Gerät nicht mit dem Zug-WLAN verbunden ist, beim Start der App versuchen das Gerät mit dem Zug-WLAN zu verbinden? Diese Einstellung kann jederzeit geändert werden.")
         }
     }
 }
@@ -47,7 +38,7 @@ struct TrainContentView: View {
 #Preview {
     @StateObject var dataController = DataController()
     
-    return TrainContentView()
+    return TrainContentView(appContentManager: AppContentManager())
         .environment(\.managedObjectContext, dataController.container.viewContext)
         .fontDesign(.rounded)
 }

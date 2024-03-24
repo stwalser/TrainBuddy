@@ -31,10 +31,16 @@
 		F86E21102B6E38470026C28B /* TrainBuddyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E210F2B6E38470026C28B /* TrainBuddyWidget.swift */; };
 		F86E21122B6E38490026C28B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F86E21112B6E38490026C28B /* Assets.xcassets */; };
 		F86E21162B6E38490026C28B /* TrainBuddyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F86E21042B6E38460026C28B /* TrainBuddyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D91D2B2315C700057B5E /* TrainStateManager.swift */; };
+		F882D91E2B2315C700057B5E /* AppContentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D91D2B2315C700057B5E /* AppContentManager.swift */; };
 		F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F882D9202B234E8A00057B5E /* CombinedState.swift */; };
 		F8BBC5352B6D453200D72A1E /* UserDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BBC5342B6D453200D72A1E /* UserDestinationView.swift */; };
 		F8C6EE7C2B78C95F005BDAE7 /* InfoBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6EE7B2B78C95F005BDAE7 /* InfoBuilders.swift */; };
+		F8C6EE7E2B7B8B62005BDAE7 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6EE7D2B7B8B62005BDAE7 /* LiveActivityManager.swift */; };
+		F8C6EE802B7B9E1B005BDAE7 /* TrainBudddyWidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6EE7F2B7B9E1B005BDAE7 /* TrainBudddyWidgetAttributes.swift */; };
+		F8C6EE812B7B9E54005BDAE7 /* TrainBudddyWidgetAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6EE7F2B7B9E1B005BDAE7 /* TrainBudddyWidgetAttributes.swift */; };
+		F8C6EE832B7BA618005BDAE7 /* TrainCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6EE822B7BA618005BDAE7 /* TrainCommunicator.swift */; };
+		F8C6EE852B7BACEC005BDAE7 /* TrainCompanyInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6EE842B7BACEC005BDAE7 /* TrainCompanyInfos.swift */; };
+		F8C6EE872B7BAFCF005BDAE7 /* TrainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C6EE862B7BAFCF005BDAE7 /* TrainState.swift */; };
 		F8E7621F2B72CEB000EDADBB /* combined-2.json in Resources */ = {isa = PBXBuildFile; fileRef = F8E7621E2B72CEB000EDADBB /* combined-2.json */; };
 		F8E762242B74BB5600EDADBB /* SettingsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E762232B74BB5600EDADBB /* SettingsContentView.swift */; };
 		F8E762262B74BFD400EDADBB /* TrainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E762252B74BFD400EDADBB /* TrainContentView.swift */; };
@@ -108,12 +114,17 @@
 		F86E210F2B6E38470026C28B /* TrainBuddyWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainBuddyWidget.swift; sourceTree = "<group>"; };
 		F86E21112B6E38490026C28B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F86E21132B6E38490026C28B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F882D91D2B2315C700057B5E /* TrainStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStateManager.swift; sourceTree = "<group>"; };
+		F882D91D2B2315C700057B5E /* AppContentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContentManager.swift; sourceTree = "<group>"; };
 		F882D91F2B23324400057B5E /* TrainBuddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TrainBuddy.entitlements; sourceTree = "<group>"; };
 		F882D9202B234E8A00057B5E /* CombinedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedState.swift; sourceTree = "<group>"; };
 		F8B04FD02B248A1000BB1E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F8BBC5342B6D453200D72A1E /* UserDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDestinationView.swift; sourceTree = "<group>"; };
 		F8C6EE7B2B78C95F005BDAE7 /* InfoBuilders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBuilders.swift; sourceTree = "<group>"; };
+		F8C6EE7D2B7B8B62005BDAE7 /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityManager.swift; sourceTree = "<group>"; };
+		F8C6EE7F2B7B9E1B005BDAE7 /* TrainBudddyWidgetAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainBudddyWidgetAttributes.swift; sourceTree = "<group>"; };
+		F8C6EE822B7BA618005BDAE7 /* TrainCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainCommunicator.swift; sourceTree = "<group>"; };
+		F8C6EE842B7BACEC005BDAE7 /* TrainCompanyInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainCompanyInfos.swift; sourceTree = "<group>"; };
+		F8C6EE862B7BAFCF005BDAE7 /* TrainState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainState.swift; sourceTree = "<group>"; };
 		F8E7621E2B72CEB000EDADBB /* combined-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "combined-2.json"; sourceTree = "<group>"; };
 		F8E762232B74BB5600EDADBB /* SettingsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentView.swift; sourceTree = "<group>"; };
 		F8E762252B74BFD400EDADBB /* TrainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainContentView.swift; sourceTree = "<group>"; };
@@ -269,6 +280,7 @@
 				F86E210F2B6E38470026C28B /* TrainBuddyWidget.swift */,
 				F86E21112B6E38490026C28B /* Assets.xcassets */,
 				F86E21132B6E38490026C28B /* Info.plist */,
+				F8C6EE7F2B7B9E1B005BDAE7 /* TrainBudddyWidgetAttributes.swift */,
 			);
 			path = TrainBuddyWidget;
 			sourceTree = "<group>";
@@ -285,8 +297,12 @@
 			isa = PBXGroup;
 			children = (
 				F86551712B6B7AB800CD5818 /* DataController.swift */,
-				F882D91D2B2315C700057B5E /* TrainStateManager.swift */,
+				F882D91D2B2315C700057B5E /* AppContentManager.swift */,
 				F8E762272B75332A00EDADBB /* TrainWiFiManager.swift */,
+				F8C6EE822B7BA618005BDAE7 /* TrainCommunicator.swift */,
+				F8C6EE7D2B7B8B62005BDAE7 /* LiveActivityManager.swift */,
+				F8C6EE842B7BACEC005BDAE7 /* TrainCompanyInfos.swift */,
+				F8C6EE862B7BAFCF005BDAE7 /* TrainState.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -421,10 +437,10 @@
 			};
 			buildConfigurationList = F82D9EC82B1B447E00A101C9 /* Build configuration list for PBXProject "TrainBuddy" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = de;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				de,
 				Base,
 			);
 			mainGroup = F82D9EC42B1B447E00A101C9;
@@ -482,20 +498,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				F882D9212B234E8A00057B5E /* CombinedState.swift in Sources */,
+				F8C6EE832B7BA618005BDAE7 /* TrainCommunicator.swift in Sources */,
 				F80FC7222B6908E200766229 /* StationAttributeBuilders.swift in Sources */,
+				F8C6EE7E2B7B8B62005BDAE7 /* LiveActivityManager.swift in Sources */,
 				F80C68402B728A900072F45E /* CheckWiFiView.swift in Sources */,
 				F86551702B6B7A1000CD5818 /* TrainBuddy.xcdatamodeld in Sources */,
 				F86551682B6A5D6000CD5818 /* NextStationView.swift in Sources */,
 				F8E762262B74BFD400EDADBB /* TrainContentView.swift in Sources */,
+				F8C6EE802B7B9E1B005BDAE7 /* TrainBudddyWidgetAttributes.swift in Sources */,
 				F86551722B6B7AB800CD5818 /* DataController.swift in Sources */,
-				F882D91E2B2315C700057B5E /* TrainStateManager.swift in Sources */,
+				F882D91E2B2315C700057B5E /* AppContentManager.swift in Sources */,
 				F865516D2B6A5E4600CD5818 /* TrainMapView.swift in Sources */,
 				F8C6EE7C2B78C95F005BDAE7 /* InfoBuilders.swift in Sources */,
 				F8BBC5352B6D453200D72A1E /* UserDestinationView.swift in Sources */,
 				F8E762242B74BB5600EDADBB /* SettingsContentView.swift in Sources */,
 				F8E762282B75332A00EDADBB /* TrainWiFiManager.swift in Sources */,
+				F8C6EE852B7BACEC005BDAE7 /* TrainCompanyInfos.swift in Sources */,
 				F80C68422B728D1E0072F45E /* NoWifiView.swift in Sources */,
 				F80C68442B7291570072F45E /* WiFiFoundView.swift in Sources */,
+				F8C6EE872B7BAFCF005BDAE7 /* TrainState.swift in Sources */,
 				F865516B2B6A5DFB00CD5818 /* NextStationsView.swift in Sources */,
 				F823E3882B36D5590017D160 /* InfoView.swift in Sources */,
 				F82D9ED12B1B447E00A101C9 /* TrainBuddyApp.swift in Sources */,
@@ -523,6 +544,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8C6EE812B7B9E54005BDAE7 /* TrainBudddyWidgetAttributes.swift in Sources */,
 				F86E210E2B6E38470026C28B /* TrainBuddyWidgetLiveActivity.swift in Sources */,
 				F86E210C2B6E38470026C28B /* TrainBuddyWidgetBundle.swift in Sources */,
 				F86E21102B6E38470026C28B /* TrainBuddyWidget.swift in Sources */,
@@ -678,7 +700,7 @@
 				CODE_SIGN_ENTITLEMENTS = TrainBuddy/TrainBuddy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TrainBuddy/Preview Content\"";
 				DEVELOPMENT_TEAM = 35MK3E7S5B;
 				ENABLE_PREVIEWS = YES;
@@ -688,20 +710,25 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Travel Buddy hat keinen Zugriff auf deinen Standort. Diese Abfrage ist notwendig, um den WLAN Namen überprüfen zu können.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ich  brauche  das";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.TrainBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -717,7 +744,7 @@
 				CODE_SIGN_ENTITLEMENTS = TrainBuddy/TrainBuddy.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TrainBuddy/Preview Content\"";
 				DEVELOPMENT_TEAM = 35MK3E7S5B;
 				ENABLE_PREVIEWS = YES;
@@ -727,20 +754,25 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Travel Buddy hat keinen Zugriff auf deinen Standort. Diese Abfrage ist notwendig, um den WLAN Namen überprüfen zu können.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ich  brauche  das";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.StefanWalser.TrainBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -832,7 +864,7 @@
 				INFOPLIST_FILE = TrainBuddyWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TrainBuddyWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -861,7 +893,7 @@
 				INFOPLIST_FILE = TrainBuddyWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TrainBuddyWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

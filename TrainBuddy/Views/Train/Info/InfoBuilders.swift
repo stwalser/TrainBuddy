@@ -18,6 +18,19 @@ import SwiftUI
     .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))
 }
 
+@ViewBuilder func CenteredSectionTitle(_ text: String) -> some View {
+    HStack {
+        Spacer()
+        
+        Text(text)
+            .foregroundStyle(titleColor)
+            .font(.system(.title3, weight: .bold))
+        
+        Spacer()
+    }
+    .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))
+}
+
 @ViewBuilder func SubsectionTitle(_ title: String) -> some View {
     HStack {
         Text(title)

@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct NextStationView: View {
-    @State var trainStateManager: TrainStateManager
+    var trainState: TrainState
     
     var body: some View {
         VStack {
             SectionTitle("Nächster Halt")
             
             HStack {
-                SingleInfo(main: trainStateManager.combinedState!.nextStation.name.de!, caption: "")
+                SingleInfo(main: trainState.state.nextStation.name.de!, caption: "")
                 
-                if let track = trainStateManager.combinedState!.nextStation.track {
+                if let track = trainState.state.nextStation.track {
                     Divider()
                         .frame(height: 40)
                     
@@ -29,7 +29,7 @@ struct NextStationView: View {
             HStack {
                 HStack {
                     HStack {
-                        timeTextBold(for: trainStateManager.combinedState!.nextStation.arrival)
+                        timeTextBold(for: trainState.state.nextStation.arrival)
                         Text("An")
                         
                         Spacer()
@@ -41,7 +41,7 @@ struct NextStationView: View {
                 
                 HStack {
                     HStack {
-                        timeTextBold(for: trainStateManager.combinedState!.nextStation.departure)
+                        timeTextBold(for: trainState.state.nextStation.departure)
                         Text("Ab")
                         
                         Spacer()
@@ -53,7 +53,7 @@ struct NextStationView: View {
             SubsectionTitle("Anschlüsse")
                         
             VStack {
-                if let connections = trainStateManager.combinedState!.nextStation.connections {
+                if let connections = trainState.state.nextStation.connections {
                     Grid {
                         ForEach(connections) { connection in
                             GridRow {

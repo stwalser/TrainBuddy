@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserDestinationView: View {
-    @State var trainStateManager: TrainStateManager
+    @Bindable var trainState: TrainState
     @Environment(\.managedObjectContext) var moc
     
     @FetchRequest(sortDescriptors: []) var usedTrains: FetchedResults<UsedTrain>
@@ -19,15 +19,15 @@ struct UserDestinationView: View {
                         
             HStack {
                 HStack {
-                    Picker("", selection: $trainStateManager.userDestination) {
-                        ForEach(trainStateManager.upcomingStations!, id: \.self) { station in
+                    Picker("", selection: $trainState.userDestination) {
+                        ForEach(trainState.upcomingStations, id: \.self) { station in
                             Text(station.name.de!).tag(station as Station?)
                         }
                     }
                     .onAppear(perform: {
                         parseUserDestinations()
                     })
-                    .onChange(of: trainStateManager.userDestination) {
+                    .onChange(of: trainState.userDestination) {
                         storeUserDestination()
                     }
                     
@@ -42,19 +42,18 @@ struct UserDestinationView: View {
     
     private func storeUserDestination() {
         let usedTrain = UsedTrain(context: moc)
-        usedTrain.id = trainStateManager.combinedState!.id
-        usedTrain.destination = trainStateManager.userDestination!.name.de!
+        usedTrain.id = trainState.state.id
+        usedTrain.destination = trainState.userDestination.name.de!
 
         try? moc.save()
     }
     
     private func parseUserDestinations() {
         for train in usedTrains {
-            if train.id == trainStateManager.combinedState!.id {
-
-                trainStateManager.userDestination = trainStateManager.combinedState!.stations.first(where: { station in
+            if train.id == trainState.state.id {
+                trainState.userDestination = trainState.state.stations.first(where: { station in
                     station.name.de! == train.destination
-                })
+                })!
             }
         }
     }

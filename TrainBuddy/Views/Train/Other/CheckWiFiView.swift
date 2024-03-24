@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CheckWiFiView: View {
-    @State var trainStateManager: TrainStateManager
+    @State var appContentManager: AppContentManager
     
     var body: some View {
         VStack {
@@ -22,11 +22,12 @@ struct CheckWiFiView: View {
             
             Spacer()
         }
+        .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
         .navigationTitle("TrainBuddy")
-        .onAppear(perform: trainStateManager.triggerTimer)
+        .onAppear(perform: appContentManager.triggerTimers)
     }
 }
 
 #Preview {
-    CheckWiFiView(trainStateManager: TrainStateManager())
+    CheckWiFiView(appContentManager: AppContentManager())
 }

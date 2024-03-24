@@ -47,12 +47,12 @@ struct TrainInfo: Decodable {
 
 struct Connection: Decodable, Identifiable {
     var id: String {
-        lineNumber
+        type + " " + lineNumber + " " + destination.de!
     }
     
     let type: String
     let lineNumber: String
-    let track: MultiLang
+    let track: MultiLang?
     let destination: MultiLang
     let departure: Time
     let reachable: String
@@ -96,7 +96,7 @@ struct GPSPosition: Decodable {
 
 struct CombinedState: Decodable, Identifiable {
     var id: String {
-        trainType + lineNumber
+        trainType + " " + lineNumber
     }
     
     let lineNumber: String
