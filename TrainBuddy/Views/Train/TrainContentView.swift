@@ -25,7 +25,7 @@ struct TrainContentView: View {
             case .Fetching:
                 InfoView(trainState: appContentManager.trainState!, activeConnection: true)
             case .Error:
-                if let state = appContentManager.trainState {
+                if appContentManager.trainState != nil {
                     InfoView(trainState: appContentManager.trainState!, activeConnection: false)
                 } else {
                     WiFiFoundView(fetchFailed: false)

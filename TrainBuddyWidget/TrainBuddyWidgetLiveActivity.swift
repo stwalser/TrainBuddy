@@ -88,24 +88,65 @@ struct TrainBuddyWidgetLiveActivity: Widget {
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
                     Text(context.attributes.trainID)
+                        .font(.system(.title2))
+                        .bold()
+                        .foregroundStyle(.white)
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text("Noch \(context.state.timeLeft)")
+                    HStack {
+                        Text(context.state.speed)
+                        Text("km/h")
+                    }
+                    .font(.system(.title3))
+                    .foregroundStyle(.white)
+                    .bold()
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Ziel: \(context.state.userDestination)")
-                    // more content
+                    VStack {
+                       Spacer()
+                        
+                        HStack {
+                            Text(context.state.timeLeft)
+                                .foregroundStyle(complementaryTitleColor)
+                                .bold()
+                            Text("bis")
+                                .foregroundStyle(.white)
+                                .bold()
+                            Text(context.state.userDestination)
+                                .foregroundStyle(complementaryTitleColor)
+                                .bold()
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    VStack {
+                        Spacer()
+                        
+                        Text("Nächster Halt")
+                            .font(.system(.subheadline))
+                            .bold()
+                            .foregroundStyle(.white)
+                            
+                        Text(context.state.nextStation)
+                            .font(.system(.title3))
+                            .bold()
+                            .foregroundStyle(.white)
+                    }
                 }
             } compactLeading: {
                 Image(systemName: "train.side.front.car")
                     .foregroundStyle(titleColor)
             } compactTrailing: {
                 Text(context.state.timeLeft)
+                    .font(.system(.title3))
+                    .bold()
             } minimal: {
                 Image(systemName: "train.side.front.car")
+                    .foregroundStyle(titleColor)
             }
             .widgetURL(URL(string: "http://www.apple.com"))
-            .keylineTint(Color.red)
+            .keylineTint(titleColor)
         }
     }
 }
@@ -118,7 +159,7 @@ extension TrainBuddyWidgetAttributes {
 
 extension TrainBuddyWidgetAttributes.ContentState {
     fileprivate static var vienna: TrainBuddyWidgetAttributes.ContentState {
-        TrainBuddyWidgetAttributes.ContentState(timeLeft: "59 min", userDestination: "Wien Hbf", nextStation: "Salzburg Hbf", speed: "0")
+        TrainBuddyWidgetAttributes.ContentState(timeLeft: "1 h 59 min", userDestination: "Wien Hbf", nextStation: "Salzburg Hbf", speed: "0")
      }
 }
 

@@ -67,10 +67,11 @@ import Foundation
         var mockComponents = gregorian.dateComponents(components, from: now)
         mockComponents.hour = 7
         mockComponents.minute = 45
-        return String(Int(DateInterval(start: gregorian.date(from: mockComponents)!, end: gregorian.date(from: dateComponents)!).duration / 60)) + " min"
+        let totalMinutes = Int(DateInterval(start: gregorian.date(from: mockComponents)!, end: gregorian.date(from: dateComponents)!).duration / 60)
 #else
-        return String(Int(DateInterval(start: now, end: gregorian.date(from: dateComponents)!).duration / 60)) + " min"
+        let totalMinutes = Int(DateInterval(start: now, end: gregorian.date(from: dateComponents)!).duration / 60)
 #endif
+        return String(Int(totalMinutes / 60)) + "h " + String(Int(totalMinutes % 60)) + " min"
     }
     
     init(for company: Company, state: CombinedState) {
