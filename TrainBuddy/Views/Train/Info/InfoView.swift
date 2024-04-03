@@ -13,9 +13,8 @@ struct InfoView: View {
         
     var body: some View {
         ZStack {
-            VStack {
-                
-                CenteredSectionTitle("\(trainState.state.startStation) → \(trainState.state.destination.de!)")
+            ScrollView {
+                SectionTitle("\(trainState.state.startStation) → \(trainState.state.destination.de!)")
                 
                 let delay: Int = {
                     trainState.state.latestStatus.totalDealy / 60
@@ -35,15 +34,13 @@ struct InfoView: View {
                 
                 Divider()
                 
-                ScrollView {
-                    UserDestinationView(trainState: trainState)
-                    
-                    NextStationView(trainState: trainState)
-                    
-                    NextStationsView(trainState: trainState)
-                    
-                    TrainMapView(trainState: trainState)
-                }
+                UserDestinationView(trainState: trainState)
+                
+                NextStationView(trainState: trainState)
+                
+                NextStationsView(trainState: trainState)
+                
+                TrainMapView(trainState: trainState)
             }
             .opacity(!activeConnection ? 0.2 : 1.0)
             
@@ -68,7 +65,7 @@ struct InfoView: View {
         var body: some View {
             if appContentManager.connectionState == .Fetching {
                 NavigationView {
-                    InfoView(trainState: appContentManager.trainState!, activeConnection: false)
+                    InfoView(trainState: appContentManager.trainState!, activeConnection: true)
                         .environment(\.managedObjectContext, dataController.container.viewContext)
                         .fontDesign(.rounded)
                 }

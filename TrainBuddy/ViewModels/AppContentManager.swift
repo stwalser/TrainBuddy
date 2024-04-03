@@ -17,7 +17,7 @@ enum ConnectionState {
 
 @Observable
 class AppContentManager {
-    @ObservationIgnored let refreshInterval = 2.0
+    @ObservationIgnored let refreshInterval = 30.0
     @ObservationIgnored let reconnectInterval = 0.5
     @ObservationIgnored let trainWifiManager = TrainWiFiManager()
     @ObservationIgnored var company: Company?

@@ -28,7 +28,7 @@ import SwiftUI
         
         Spacer()
     }
-    .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))
+    .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))
 }
 
 @ViewBuilder func SubsectionTitle(_ title: String) -> some View {
